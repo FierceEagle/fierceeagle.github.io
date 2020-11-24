@@ -2167,15 +2167,10 @@ input, select, textarea {
 
 /* Image */
 	
-	.circle {
-	border-radius: 50%;
-	height: 200px;
-	width: 200px;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	}
+	img.portrait {
+  		border-radius: 50%;
+  		filter: grayscale(100%);
+	}	
 
 	.image {
 		border: 0;
