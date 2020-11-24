@@ -2166,6 +2166,16 @@ input, select, textarea {
 	}
 
 /* Image */
+	
+	.circle {
+	border-radius: 50%;
+	height: 200px;
+	width: 200px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	}
 
 	.image {
 		border: 0;
