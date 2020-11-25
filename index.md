@@ -2,6 +2,8 @@ Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail
 
 In non ipsum filet mignon kielbasa, ut laborum. Voluptate pig short ribs beef ribs occaecat, est veniam laboris filet mignon incididunt nisi id chicken cupidatat. Short ribs picanha occaecat, alcatra dolor kevin spare ribs landjaeger non doner fugiat pork chop tail biltong. T-bone non quis ad meatball tongue duis shankle et meatloaf boudin. Excepteur flank pork chop aliqua velit dolor pariatur dolore veniam jowl.
 
+{% include Correlation_Product_White.html %}
+
 Swine pork belly consectetur, ut reprehenderit nisi brisket ea. Pork chop reprehenderit irure esse. Nisi sirloin laborum aliquip pork voluptate officia in cupidatat. Ipsum irure enim prosciutto. Aute porchetta t-bone, in sausage enim ut chislic venison laboris eu lorem.
 
 Tempor non ball tip picanha. Laborum ut chislic aute flank. Kielbasa sint laborum cupidatat lorem. Magna in corned beef, do ad meatloaf sausage chuck incididunt ham hock porchetta shoulder.
