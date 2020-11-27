@@ -45,7 +45,7 @@ Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail
 
 ### Can we go back?
 
-
+{% include AssociationRuleTable_Nutrients.html %}
 
 ### Anything else? 
 
