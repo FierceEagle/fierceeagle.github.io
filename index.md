@@ -1,50 +1,50 @@
 
 ### Where we are
 
-London, England, Captial of an old empire that sailed forth to conquere the world in search of Tea and Spices only to return to a diet of [pea wet](http://www.foodsofengland.co.uk/peawet.htm) and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequenty also one of the most multiculinarien ones. This allows us to analyse data about eating habits of modern Londoners to learn what on our plates divide us and what defines us. 
-
+<div class ="major container">
+London, England, Captial of an old Empire that sailed forth to conquere the world in search of tea and spices only to return to a diet of [pea wet](http://www.foodsofengland.co.uk/peawet.htm) and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequenty also one of the most multiculinary ones. This allows us to analyse data about eating habits of modern Londoners to learn what on our plates divide us and what defines us. 
+</div>
 {% include Store_Locations_London.html %}
-
-In the following we want to analyse a data set of the Tesco Purchases of Tesco Loyality Card holders in districts of the Greater London Area, and combine this with information about the areas inhabitants.  
-
+<div class ="major container">
+In the following we want to analyse a data set of the Tesco Purchases of Tesco Loyality Card holders in districts of the Greater London Area, and combine this with information about the areas inhabitants collected by the Greater London census.    
+</div>
 {% include Correlation_Product_White.html %}
-
+<div class ="major container">
 Swine pork belly consectetur, ut reprehenderit nisi brisket ea. Pork chop reprehenderit irure esse. Nisi sirloin laborum aliquip pork voluptate officia in cupidatat. Ipsum irure enim prosciutto. Aute porchetta t-bone, in sausage enim ut chislic venison laboris eu lorem.
-
+</div>
 {% include white_in_wards.html %}
-
+<div class ="major container">
 Tempor non ball tip picanha. Laborum ut chislic aute flank. Kielbasa sint laborum cupidatat lorem. Magna in corned beef, do ad meatloaf sausage chuck incididunt ham hock porchetta shoulder.
-
+</div>
 ### What the Data says
-
+<div class ="major container">
 In non ipsum filet mignon kielbasa, ut laborum. Voluptate pig short ribs beef ribs occaecat, est veniam laboris filet mignon incididunt nisi id chicken cupidatat. Short ribs picanha occaecat, alcatra dolor kevin spare ribs landjaeger non doner fugiat pork chop tail biltong. T-bone non quis ad meatball tongue duis shankle et meatloaf boudin. Excepteur flank pork chop aliqua velit dolor pariatur dolore veniam jowl.
-
+</div>
 {% include perc_white_in_msoas.html %}
-
+<div class ="major container">
 Swine pork belly consectetur, ut reprehenderit nisi brisket ea. Pork chop reprehenderit irure esse. Nisi sirloin laborum aliquip pork voluptate officia in cupidatat. Ipsum irure enim prosciutto. Aute porchetta t-bone, in sausage enim ut chislic venison laboris eu lorem.
-
+</div>
 ### What we can learn from this
 
 
 ### Why it is important
-
+<div class ="major container">
 Why is food important, sounds like an easy question to answer, however besides the importance of having sufficent food, the modern day issue in developed countries is having a proper composition and balance of nutirents. An improper diet might not lead to inbalanced [humors](https://en.wikipedia.org/wiki/Humorism]), as ancient doctors believed, but has far more intertwined effect on the individuals health. 
 
-This becomes also important as an issue of public health, as the UK as most other European Countries uses a socalised healthcare system, in which individual well-being and preventable health-outcomes become a cocietal concern. 
-
-
+This becomes also important as an issue of public health, as the UK as most other European Countries uses a socalised healthcare system, in which individual well-being and preventable health-outcomes become a [societal concern](https://www.bmj.com/content/349/bmj.g5143). 
+</div>
 {% include household_income_in_msoas.html %}
-
+<div class ="major container">
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
-
+</div>
 {% include 3D_Plot_White_Median_Income_Alcohol.html %}
 
 ### Can we go deeper?
-
+<div class ="major container">
 Swine pork belly consectetur, ut reprehenderit nisi brisket ea. Pork chop reprehenderit irure esse. Nisi sirloin laborum aliquip pork voluptate officia in cupidatat. Ipsum irure enim prosciutto. Aute porchetta t-bone, in sausage enim ut chislic venison laboris eu lorem.
 
 Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail in eiusmod beef. Meatloaf jerky turkey excepteur ut ribeye cupim. Cillum ball tip porchetta, short loin sint quis voluptate pork belly dolore bresaola venison pork nulla. Shank drumstick reprehenderit, ribeye laboris pancetta ut turkey corned beef.
-
+</div>
 {% include 3D_Multi_Plot_Test.html %}
 
 
