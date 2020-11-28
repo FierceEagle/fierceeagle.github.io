@@ -1,5 +1,6 @@
 
 <div class ="major container">
+
 ### Where we are
 
 London, England, Captial of an old Empire that sailed forth to conquere the world in search of tea and spices only to return to a diet of <a href="http://www.foodsofengland.co.uk/peawet.htm">pea wet</a> and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequenty also one of the most multiculinary ones. This allows us to analyse data about eating habits of modern Londoners to learn what on our plates divide us and what defines us. 
@@ -8,7 +9,7 @@ London, England, Captial of an old Empire that sailed forth to conquere the worl
 
 In the following we want to analyse a data set of the Tesco Purchases of Tesco Loyality Card holders in districts of the Greater London Area, and combine this with information about the areas inhabitants collected by the Greater London census.    
 
-{% include Correlation_Product_White.html %}
+
 
 Swine pork belly consectetur, ut reprehenderit nisi brisket ea. Pork chop reprehenderit irure esse. Nisi sirloin laborum aliquip pork voluptate officia in cupidatat. Ipsum irure enim prosciutto. Aute porchetta t-bone, in sausage enim ut chislic venison laboris eu lorem.
 
@@ -25,6 +26,12 @@ In non ipsum filet mignon kielbasa, ut laborum. Voluptate pig short ribs beef ri
 Swine pork belly consectetur, ut reprehenderit nisi brisket ea. Pork chop reprehenderit irure esse. Nisi sirloin laborum aliquip pork voluptate officia in cupidatat. Ipsum irure enim prosciutto. Aute porchetta t-bone, in sausage enim ut chislic venison laboris eu lorem.
 
 ### What we can learn from this
+
+#### Who Shop at Tesco 
+
+
+{% include Correlation_Representativness_Norm_White.html %}
+
 
 
 ### Why it is important
