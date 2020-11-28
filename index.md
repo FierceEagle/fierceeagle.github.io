@@ -2,7 +2,7 @@
 ### Where we are
 
 <div class ="major container">
-London, England, Captial of an old Empire that sailed forth to conquere the world in search of tea and spices only to return to a diet of [pea wet](http://www.foodsofengland.co.uk/peawet.htm) and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequenty also one of the most multiculinary ones. This allows us to analyse data about eating habits of modern Londoners to learn what on our plates divide us and what defines us. 
+London, England, Captial of an old Empire that sailed forth to conquere the world in search of tea and spices only to return to a diet of <a href="http://www.foodsofengland.co.uk/peawet.htm">pea wet</a> and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequenty also one of the most multiculinary ones. This allows us to analyse data about eating habits of modern Londoners to learn what on our plates divide us and what defines us. 
 </div>
 {% include Store_Locations_London.html %}
 <div class ="major container">
@@ -29,9 +29,9 @@ Swine pork belly consectetur, ut reprehenderit nisi brisket ea. Pork chop repreh
 
 ### Why it is important
 <div class ="major container">
-Why is food important, sounds like an easy question to answer, however besides the importance of having sufficent food, the modern day issue in developed countries is having a proper composition and balance of nutirents. An improper diet might not lead to inbalanced [humors](https://en.wikipedia.org/wiki/Humorism]), as ancient doctors believed, but has far more intertwined effect on the individuals health. 
+Why is food important, sounds like an easy question to answer, however besides the importance of having sufficent food, the modern day issue in developed countries is having a proper composition and balance of nutirents. An improper diet might not lead to inbalanced <a href="https://en.wikipedia.org/wiki/Humorism">humors</a>, as ancient doctors believed, but has far more intertwined effect on the individuals health. 
 
-This becomes also important as an issue of public health, as the UK as most other European Countries uses a socalised healthcare system, in which individual well-being and preventable health-outcomes become a [societal concern](https://www.bmj.com/content/349/bmj.g5143). 
+This becomes also important as an issue of public health, as the UK as most other European Countries uses a socalised healthcare system, in which individual well-being and preventable health-outcomes become a <a href="https://www.bmj.com/content/349/bmj.g5143">societal concern</a>. 
 </div>
 {% include household_income_in_msoas.html %}
 <div class ="major container">
