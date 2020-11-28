@@ -3,6 +3,8 @@
 
 Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail in eiusmod beef. Meatloaf jerky turkey excepteur ut ribeye cupim. Cillum ball tip porchetta, short loin sint quis voluptate pork belly dolore bresaola venison pork nulla. Shank drumstick reprehenderit, ribeye laboris pancetta ut turkey corned beef.
 
+{% include Store_Locations_London.html %}
+
 In non ipsum filet mignon kielbasa, ut laborum. Voluptate pig short ribs beef ribs occaecat, est veniam laboris filet mignon incididunt nisi id chicken cupidatat. Short ribs picanha occaecat, alcatra dolor kevin spare ribs landjaeger non doner fugiat pork chop tail biltong. T-bone non quis ad meatball tongue duis shankle et meatloaf boudin. Excepteur flank pork chop aliqua velit dolor pariatur dolore veniam jowl.
 
 {% include Correlation_Product_White.html %}
