@@ -1,11 +1,11 @@
 
 ### Where we are
 
-Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail in eiusmod beef. Meatloaf jerky turkey excepteur ut ribeye cupim. Cillum ball tip porchetta, short loin sint quis voluptate pork belly dolore bresaola venison pork nulla. Shank drumstick reprehenderit, ribeye laboris pancetta ut turkey corned beef.
+London, England, Captial of an old empire that sailed forth to conquere the world in search of Tea and Spices only to return to a diet of [pea wet](http://www.foodsofengland.co.uk/peawet.htm) and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequenty also one of the most multiculinarien ones. This allows us to analyse data about eating habits of modern Londoners to learn what on our plates divide us and what defines us. 
 
 {% include Store_Locations_London.html %}
 
-In non ipsum filet mignon kielbasa, ut laborum. Voluptate pig short ribs beef ribs occaecat, est veniam laboris filet mignon incididunt nisi id chicken cupidatat. Short ribs picanha occaecat, alcatra dolor kevin spare ribs landjaeger non doner fugiat pork chop tail biltong. T-bone non quis ad meatball tongue duis shankle et meatloaf boudin. Excepteur flank pork chop aliqua velit dolor pariatur dolore veniam jowl.
+In the following we want to analyse a data set of the Tesco Purchases of Tesco Loyality Card holders in districts of the Greater London Area, and combine this with information about the areas inhabitants.  
 
 {% include Correlation_Product_White.html %}
 
@@ -28,7 +28,10 @@ Swine pork belly consectetur, ut reprehenderit nisi brisket ea. Pork chop repreh
 
 ### Why it is important
 
-Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail in eiusmod beef. Meatloaf jerky turkey excepteur ut ribeye cupim. Cillum ball tip porchetta, short loin sint quis voluptate pork belly dolore bresaola venison pork nulla. Shank drumstick reprehenderit, ribeye laboris pancetta ut turkey corned beef.
+Why is food important, sounds like an easy question to answer, however besides the importance of having sufficent food, the modern day issue in developed countries is having a proper composition and balance of nutirents. An improper diet might not lead to inbalanced [humors](https://en.wikipedia.org/wiki/Humorism]), as ancient doctors believed, but has far more intertwined effect on the individuals health. 
+
+This becomes also important as an issue of public health, as the UK as most other European Countries uses a socalised healthcare system, in which individual well-being and preventable health-outcomes become a cocietal concern. 
+
 
 {% include household_income_in_msoas.html %}
 
