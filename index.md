@@ -12,7 +12,6 @@ In the following we want to analyse a data set of the Tesco Purchases of Tesco L
 Swine pork belly consectetur, ut reprehenderit nisi brisket ea. Pork chop reprehenderit irure esse. Nisi sirloin laborum aliquip pork voluptate officia in cupidatat. Ipsum irure enim prosciutto. Aute porchetta t-bone, in sausage enim ut chislic venison laboris eu lorem.
 
 
-{% include white_in_wards.html %}
 
 
 Tempor non ball tip picanha. Laborum ut chislic aute flank. Kielbasa sint laborum cupidatat lorem. Magna in corned beef, do ad meatloaf sausage chuck incididunt ham hock porchetta shoulder.
@@ -30,11 +29,16 @@ In non ipsum filet mignon kielbasa, ut laborum. Voluptate pig short ribs beef ri
 
 ### The who is who of London
 
-As an important first step to explore the population of London, we need to subdivide the population of London in . To achieve this, we conducted Agglomorative Hierachical Clustering, to identify most similar subgrouping of the population based on attributes, such as Education, Median Household Income and Ethnicity. However, this only allows us to find groupings, not direct labels for each grouping. This we needed to conduct our own. As the weather in London is rather Covid-ty around this time of the year and thus can't validate our findings in Person, we conduced our study in the inhabitans in the subgroubed areas, based both on information present in the data and verified our conclusion, with wider research on the areas. 
+As an important first step to explore the population of London, we need to subdivide the population of London in . To achieve this, we conducted Agglomorative Hierachical Clustering, to identify most similar subgrouping of the population based on attributes, such as Education, Median Household Income and Ethnicity. However, this only allows us to find groupings, not direct labels for each grouping. Thus we needed to conduct our own. As the weather in London is rather Covid-ty around this time of the year and thus can't validate our findings in Person, we conduced our study of the inhabitans in the subgroubed areas, based both on information present in the data and verified our conclusion, with wider research on the areas. 
+
+
+{% include ethnicity_clustering.html %}
+
 
 #### Giving the Child a Name
 
 
+{% include education_clustering.html %}
 
 
 
