@@ -91,9 +91,8 @@ Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail
 #### But I like Trees 
 
 
-<p align="center">
-<img src='https://github.com/FierceEagle/fierceeagle.github.io/blob/main/images/treeviz.svg'>
-</p>
+
+![Tree](https://github.com/FierceEagle/fierceeagle.github.io/blob/main/images/treeviz.svg)
 
 
 ### Anything else? 
