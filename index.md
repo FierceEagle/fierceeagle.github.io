@@ -92,7 +92,7 @@ Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail
 
 
 
-![Tree](https://github.com/FierceEagle/fierceeagle.github.io/blob/main/images/treeviz.svg)
+![Tree](./images/treeviz.svg)
 
 
 ### Anything else? 
