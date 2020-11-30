@@ -90,7 +90,7 @@ Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail
 
 #### But I like Trees 
 
-{% include_anything './images/treeviz.svg' %} 
+{% include_relative './images/treeviz.svg' %} 
 
 ### Anything else? 
 
