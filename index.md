@@ -23,9 +23,6 @@ In non ipsum filet mignon kielbasa, ut laborum. Voluptate pig short ribs beef ri
 
 
 
-{% include perc_white_in_msoas.html %}
-
-
 
 ### The who is who of London
 
@@ -91,6 +88,23 @@ Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail
 #### But I like Trees 
 
 {% include_relative images/treeviz.svg %} 
+
+
+
+
+<div
+  style={{
+    backgroundColor: 'lightpink',
+    resize: 'horizontal',
+    overflow: 'hidden',
+    width: '100%',
+    height: 'auto',
+  }}>
+
+  <img src = "images/treeviz.svg"> 
+  
+</div>
+
 
 ### Anything else? 
 
