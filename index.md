@@ -90,21 +90,5 @@ Bacon ipsum dolor amet jowl cupidatat voluptate kevin short ribs, drumstick tail
 {% include_relative images/treeviz.svg %} 
 
 
-
-
-<div
-  style={{
-    backgroundColor: 'lightpink',
-    resize: 'horizontal',
-    overflow: 'hidden',
-    width: '100%',
-    height: 'auto',
-  }}>
-
-  <img src = "images/treeviz.svg"> 
-  
-</div>
-
-
 ### Anything else? 
 
