@@ -69,17 +69,27 @@ The Groupings, however, only provide information about similarity between areas 
 
 As the weather in London is rather Covid-ty around this time of the year and thus can't validate our findings in Person, we conduced our study of the inhabitans in the subgroubed areas, based both on information present in the data and verified our conclusion, with wider research on the areas. 
 
-For the grouped areas we identified labels based on the shared attributes. One example case, was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first Grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second Grouping we can see that these include the Areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisities in London.    
+
+For the grouped areas we identified labels based on the shared attributes. 
 
 {% include education_clustering.html %}
 
+One example case, was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first Grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second Grouping we can see that these include the Areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisities in London.    
+
+
 As an addional source for confirming our Clustering and to utilize in later analysis we reference an Grouping conducted for policy makers in the Greater London area, based on K-Means, which provides groupings based on a wider range of joint-attributes and deeper analysis of socio-economic trends in the UK.
+
+To explore our clustering results on a cross-sectional basis, you can use the interactive map below: 
+
+{% include Multilayer_Population_Plot.html %}
+
+#### Who am I, and if so, how many
 
 As a final look into the groupings conducted by us, we can look into the realtive frequency of area labels. 
 
 {% include Donuts_Clusters.html %}
 
-Swine pork belly consectetur, ut reprehenderit nisi brisket ea. Pork chop reprehenderit irure esse. Nisi sirloin laborum aliquip pork voluptate officia in cupidatat. Ipsum irure enim prosciutto. Aute porchetta t-bone, in sausage enim ut chislic venison laboris eu lorem.
+Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
 
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
@@ -89,18 +99,41 @@ Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami u
 
 For our 
 
+
+Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
+
+
+Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
+
 Based on the 
 
 
 ### Can we go back?
 
+A major concern with complex models such as random forests and boosting trees is that, while they perform really way and are robust, they present a level of obfuscation to the deriviation of their final result. For a human they present a near-to-blackbox that transforms an input into a output, without granting the individual understanding. 
 
-{% include AssociationRuleTable_Nutrients.html %}
+Addressing this concern as Responsible Data Science has become an increased issue, especially when working with data concering sensitive data both in regard to individuals and to society. 
+
+To contribute our part, addionally to our previous analysis based on random forests and boosting trees we tried to train models that provide a better explainablility to their result and thus get at least a cautious look into the black box.   
 
 
 #### But I like Trees 
 
+Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
+
 {% include_relative images/treeviz.svg %} 
+
+Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
+
+
+#### The OG Mining Buzzword
+
+{% include AssociationRuleTable_Nutrients.html %}
+
+
+Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
+
+
 
 
 ### Anything else? 
