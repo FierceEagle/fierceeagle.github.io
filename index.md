@@ -51,9 +51,7 @@ To answer this question we looked first into an important information that the r
 
 These results can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. Especially areas going closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. 
 
-{% 
-include Map_Factory_Representativness.html
-%}
+{% include Map_Factory_Representativness.html %}
 
 
 As an alternative hypothesis this can also be attributed, at least in part, to skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames.
