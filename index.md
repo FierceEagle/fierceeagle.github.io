@@ -11,7 +11,7 @@ Tesco is the largest overall supermarket chain and thus also the largest out of 
 Our goal is to learn about the interplay of food consumption and socio-economic circumstances and to be possibly predict socio-economic facts about an area based on knowledge of its consumption habits. 
 
 
-To give a rough outline, we start of with a <a href='#PreCurs'>precursoary look </a>into the data we have collected, and also look into the question: <a href='#WhoIsTesco'>"Who is a Tesco Customer"</a>. Following this, as a foundation for later analysis and to help with the understanding of the data we want to cluster areas based on socio-economic factors and look into their interplay. This also allows us to assign discrete inforamtion for later analysis. 
+To give a rough outline, we start of with a precursoary look into the data we have collected, and also look into the question: "Who is a Tesco Customer". Following this, as a foundation for later analysis and to help with the understanding of the data we want to cluster areas based on socio-economic factors and look into their interplay. This also allows us to assign discrete inforamtion for later analysis. 
 
 ### Why it is important
 
@@ -25,7 +25,6 @@ The original Tesco data set was created based on purchase histories of Tesco Loy
 
 The Cesus data we process is provided by the London Data Stores and covers the Data from the most recent Census, 2011, which might seem far off, however is close to the collection year of the Tesco Data in 2015.  
 
-<a id='PreCurs'></a>
 
 ### What we can learn from the Data
 
@@ -40,8 +39,6 @@ Interesting, especially in this context is that, if we divide the data up into t
 
 {% include 3D_Multi_Plot_Test.html %}
 
-
-<a id='WhoIsTesco'></a>
 
 #### Who shops at Tesco
 
