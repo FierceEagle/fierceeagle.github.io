@@ -188,7 +188,7 @@ input, select, textarea {
 	.container {
 		margin: 0 auto;
 		max-width: 100%;
-		width: 51em;
+		width: 61em;
 	}
 
 		.container.medium {
@@ -2171,6 +2171,10 @@ input, select, textarea {
   		border-radius: 50%;
   		filter: grayscale(100%);
 	}	
+
+	img.ada {
+  		border-radius: 50%;
+	}
 
 	.image {
 		border: 0;
