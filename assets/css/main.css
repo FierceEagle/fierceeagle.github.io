@@ -2822,7 +2822,7 @@ input, select, textarea {
 				and a negative margin (to move everything up a bit).
 			*/
 
-		margin-top: -150px;
+		margin-top: -140px;
 		padding: calc(460px + 6em) 0 10em 0;
 		position: relative;
 		text-align: center;
@@ -2919,7 +2919,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		padding: 6em 0em 0em 0em;
+		padding: 1em 0em 0em 0em;
 		position: relative;
 		z-index: 1;
 	}
@@ -3062,7 +3062,7 @@ input, select, textarea {
 			#footer {
 				background-image: url("images/bottom-1600.svg");
 				background-size: 1600px 230px;
-				margin-top: -10px;
+				margin-top: 0px;
 				padding: calc(230px + 4em) 0 6em 0;
 			}
 
@@ -3073,7 +3073,7 @@ input, select, textarea {
 		/* Main */
 
 			#main {
-				padding: 4em 0 3em 0;
+				padding: 1em 0 3em 0;
 			}
 
 	}
