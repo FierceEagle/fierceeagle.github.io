@@ -2044,9 +2044,10 @@ input, select, textarea {
 			border-color: rgba(224, 224, 224, 0.75);
 			border-style: solid;
 			border-top-width: 1px;
-			margin-top: 6em;
+			margin-top: 2em;
 			padding: 4em 0;
 			position: relative;
+			margin-bottom: 2em;
 		}
 
 			footer.major:before, footer.major:after {
