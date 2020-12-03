@@ -1,95 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="3200px"
-   height="460px"
-   viewBox="0 0 3200 460"
-   zoomAndPan="disable"
-   version="1.1"
-   id="svg922"
-   sodipodi:docname="top-3200.svg"
-   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
-  <metadata
-     id="metadata928">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs926" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1021"
-     id="namedview924"
-     showgrid="false"
-     inkscape:zoom="0.46050329"
-     inkscape:cx="1475.3067"
-     inkscape:cy="13.337793"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg922" />
-  <style
-     type="text/css"
-     id="style908"><![CDATA[
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3200px" height="460px" viewBox="0 0 3200 460" zoomAndPan="disable">
+
+    <style type="text/css"><![CDATA[
 		line { stroke-width: 1px; }
 		line.upper { stroke: rgba(224,224,224,0.15); }
 		line.lower { stroke: rgba(224,224,224,0.75); }
 		polygon.one { fill: #f8f8f8; }
 		polygon.two { fill: #ffffff; }
-    ]]></style>
-  <!-- Backgrounds -->
-  <polygon
-     points="0,50 1600,410 3200,50 3200,460 0,460"
-     class="one"
-     id="polygon910" />
-  <!-- Upper lines -->
-  <line
-     x1="0"
-     y1="0"
-     x2="1600"
-     y2="360"
-     class="upper"
-     id="line914" />
-  <line
-     x1="1600"
-     y1="360"
-     x2="3200"
-     y2="0"
-     class="upper"
-     id="line916" />
-  <!-- Lower Lines -->
-  <line
-     x1="-1.5355086"
-     y1="192.13052"
-     x2="1598.4645"
-     y2="552.13049"
-     class="lower"
-     id="line918" />
-  <line
-     x1="1600"
-     y1="460"
-     x2="3200"
-     y2="100"
-     class="lower"
-     id="line920" />
+    ]]></style>	
+
+	<!-- Backgrounds -->
+		<polygon points="0,50 1600,410 3200,50 3200,460 0,460" class="one" />
+		<polygon points="0,100 1600,460 3200,100 3200,460 0,460" class="two" />
+
+	<!-- Upper lines -->
+		<line x1="0" y1="0" x2="1600" y2="360" class="upper" />
+		<line x1="1600" y1="360" x2="3200" y2="0" class="upper" />
+
+	<!-- Lower Lines -->
+		<line x1="0" y1="100" x2="1600" y2="460" class="lower" />
+		<line x1="1600" y1="460" x2="3200" y2="100" class="lower" />
+
 </svg>
