@@ -132,11 +132,12 @@ input, select, textarea {
 		font-style: italic;
 	}
 
-	p, ul, ol, dl, table, blockquote, form {
+	ul, ol, dl, table, blockquote, form {
 		margin: 0 0 2em 0;
 	}
 
 	p{
+		margin: 0 0 2em 0;
 		padding: 1em;
 	}
 
