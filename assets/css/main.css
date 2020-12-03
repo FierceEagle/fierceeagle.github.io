@@ -2178,7 +2178,7 @@ input, select, textarea {
 	}	
 
 	img.ada {
-  		border-radius: 50%;
+
 	}
 
 	.image {
@@ -3233,7 +3233,7 @@ input, select, textarea {
 		/* Main */
 
 			#main {
-				padding: 2em 0 2em 0;
+				padding: 1em 0 2em 0;
 			}
 
 	}
