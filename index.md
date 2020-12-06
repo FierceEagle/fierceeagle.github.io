@@ -23,13 +23,19 @@ This becomes also important as an issue of public health, as the UK as most othe
 
 The original Tesco data set was created based on purchase histories of Tesco Loyality Card holders, that were then aggreagted based on Place of Residency of the card holder to different census areas in the Greater London area. The data set, while enormus with 411 million individual purchased items, does not allow to attribute the purchases to individuals or groups of individuals, i.e families. Thus instead the researchers opted for tracking consumption habits in the different areas based on an average area product, an abstraction of nutirent content for each product that is consumed in the area.   
 
-The Cesus data we process is provided by the London Data Stores and covers the Data from the most recent Census, 2011, which might seem far off, however is close to the collection year of the Tesco Data in 2015.  
+The Cesus data we process is provided by the [London Data Stores](https://data.london.gov.uk/) and covers the Data from the most recent Census, 2011, which might seem far off, however is close to the collection year of the Tesco Data in 2015.  
 
 <a id='PreCurs'></a>
 
 ### What we can learn from the Data
 
 We start of with some precusory data visualization and statistical analysis to provide a feeling for the data we are working with and to present some first insights.
+
+Starting off, we applied spearman correlation to identify staticially significant, (p < 0.05), rank correlations between socio-economic facts and nutrients. 
+
+{% include Correlation_Nutirents_Different_Ethnicitites.html %}
+
+
 
 
 An intersting insight can be won when looking into an areas alcohol consumption in relation to its inhabitans wealth and ethnic make up. A relationship that, not to spoil, but rather to cock Chekov's gun, can be observed in multiple models we used in analysis. 
@@ -39,6 +45,9 @@ An intersting insight can be won when looking into an areas alcohol consumption 
 Interesting, especially in this context is that, if we divide the data up into the consumption of specific types of products consumed in an area, thus into Wine, Beer and Spirits. We can see the summit line previously observed only to re-occur in regard to Wine consumption, while the pattern is nearly inverted for consumption of Spirits and gets roughed up for the consumption of Beer. 
 
 {% include 3D_Multi_Plot_Test.html %}
+
+
+
 
 
 <a id='WhoIsTesco'></a>
@@ -51,11 +60,13 @@ To answer this question we looked first into an important information that the r
 
 These results can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. Especially areas going closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. 
 
-{% 
-include Map_Factory_Representativness.html %}
+{% include Map_Factory_Representativness.html %}
 
 
 As an alternative hypothesis this can also be attributed, at least in part, to skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames.
+
+
+<a id='Londoners'></a>
 
 ### The who is who of London
 
@@ -63,40 +74,46 @@ As an important first step to explore the population of London, we need to subdi
 
 {% include ethnicity_clustering.html %}
 
+
+<a id='Labeling'></a>
+
 #### Giving the Child a Name
 
-The Groupings, however, only provide information about similarity between areas not direct labels for each grouping and what individual factors make them similar. Thus we needed to conduct our own further analysis to identify this information. 
+The groupings, however, only provide information about similarity between areas, not direct labels for each grouping. Thus we needed to conduct our own further analysis to identify good labels, representativ of the areas population. 
 
 As the weather in London is rather Covid-ty around this time of the year and thus can't validate our findings in Person, we conduced our study of the inhabitans in the subgroubed areas, based both on information present in the data and verified our conclusion, with wider research on the areas. 
 
-
-For the grouped areas we identified labels based on the shared attributes. 
+For the grouped areas we identified labels based on the shared attributes we used for clustering the groups in the first place. 
 
 {% include education_clustering.html %}
 
-One example case, was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first Grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second Grouping we can see that these include the Areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisities in London.    
+One example case, was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first Grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second Grouping we can see that these include the Areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisities in London. 
 
+As an addional source for confirming our Clustering and to utilize in later analysis we reference an Grouping conducted for policy makers in the Greater London area, based on K-Means, which provides groupings based on a wider range of *(joint-)* attributes and deeper analysis of socio-economic trends in the UK.
 
-As an addional source for confirming our Clustering and to utilize in later analysis we reference an Grouping conducted for policy makers in the Greater London area, based on K-Means, which provides groupings based on a wider range of joint-attributes and deeper analysis of socio-economic trends in the UK.
-
-To explore our clustering results on a cross-sectional basis, you can use the interactive map below: 
+To explore our clustering results on a cross-sectional basis, you can use the interactive map below:
 
 {% include Multilayer_Population_Plot.html %}
 
+<a id='Distribution'></a>
+
 #### Who am I, and if so, how many
 
-As a final look into the groupings conducted by us, we can look into the realtive frequency of area labels. 
-
-{% include Donuts_Clusters.html %}
-
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
 
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
 
+
+<a id='Ensemble'></a>
 
 ### Can we go deeper?
 
+After the basic analysis and  The main goal we set out to achieve is training models to predict socio-economic facts about areas based on food consumption habits. 
+
+
+
+{% include Donuts_Clusters.html %}
 For our 
 
 
@@ -108,6 +125,8 @@ Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami u
 Based on the 
 
 
+<a id='Responsible'></a>
+
 ### Can we go back?
 
 A major concern with complex models such as random forests and boosting trees is that, while they perform really way and are robust, they present a level of obfuscation to the deriviation of their final result. For a human they present a near-to-blackbox that transforms an input into a output, without granting the individual understanding. 
@@ -117,6 +136,8 @@ Addressing this concern as Responsible Data Science has become an increased issu
 To contribute our part, addionally to our previous analysis based on random forests and boosting trees we tried to train models that provide a better explainablility to their result and thus get at least a cautious look into the black box.   
 
 
+<a id='Trees'></a>
+
 #### But I like Trees 
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
@@ -125,6 +146,7 @@ Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami u
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
 
+<a id='AssociationRules'></a>
 
 #### The OG Mining Buzzword
 
@@ -135,9 +157,27 @@ Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami u
 
 
 
+<a id='Conclusion'></a>
 
 ### Anything else? 
 
+We wish you all a Merry Chistmas and a Happy New Year. May your Plum Pudding be scrumptious. 
 
+
+<a id='EnglandFacts'></a>
+
+### Cool England (and *Christmas*) Facts and Trivia: 
+
+- The Royal Family of *Windsor* based on its german Ancestry, pre-WW1 named *von Saxen-Coburg und Gotha*, in comparsion to other UK families does celebrate Christmas on Christmas Eve, the 24th of December, not the morning of the 25th. 
+
+- On related reason, the royal connection to the *House of Hannover* brought  over from Germany the tradition of christmas trees and introduced it to the British Ilse. 
+
+- Until the Betting and Gaming Act of 1960, the only Sport allowed to be played on Christmas Day was Archery, following the Unlawful Games Act of 1541 to promote the usage of the Longbow in comparsion to less publicly useful sports, such as Football, ... pardon, Soccer. 
+
+- Following the 31th of December the only person in the UK not needing a passport to legally travel into the EU is Queen Elizabeth II, as all UK passports are issued in her name, she does not requiere one.
+
+- For a similar reason she does not requiere a drivers license, although she earned one for diving a lorry during the Blitz. 
+
+- The word trivia is derived from the latin words *tri* and *via*, with the former meaning *three* and the later *road*. The romans, big into public infrastructure, build many roads and on places where multiple med were easy places to publish public and common knowledge, i.e trivial, knowledge. 
 
 
