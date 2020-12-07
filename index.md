@@ -35,9 +35,7 @@ The Cesus data we process is provided by the [London Data Stores](https://data.l
 
 ## What we can learn from the Data
 
-We start of with some precusory data visualization and statistical analysis to provide a feeling for the data we are working with and to present some first insights.
-
-Starting off, we applied spearman correlation to identify staticially significant, (p < 0.05), rank correlations between socio-economic facts and nutrients. 
+We start of with some precusory data visualization and statistical analysis to provide a feeling for the data we are working with and to present some first insights. Starting off, we applied spearman correlation to identify staticially significant, *(p < 0.05)*, rank correlations between socio-economic facts and nutrients. 
 
 {% include Correlation_Nutirents_Different_Ethnicitites.html %}
 
@@ -137,6 +135,9 @@ We address this issue by oversampling the minority labels, to improve the model 
 
 For the model training, we addionally implemented GridSearch with cross validation over a pre-selected parameter space. Important to note here is the focus on balanced accuracy as the main scoring function and using class weighting for the individual random forest trees. Both, we choose to improve cross-label performance and thus increase the fairness of the classifier making it less bias towards the majority class, as normal accuracy as a scoring function would. 
 
+
+{% include Heatmap_Ethnicity_RandomForest_Products.html %}
+
 # 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
 
@@ -177,29 +178,21 @@ Looking into the Decision tree we can observe similar behavior to the
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
 
+<a id='EnglandFacts'></a>
 
+### Cool England (and *Christmas*) Facts and Trivia: 
+
+- The Royal Family of *Windsor* based on its german Ancestry, pre-WW1 named *von Saxen-Coburg und Gotha*, in comparsion to other UK families does celebrate Christmas on Christmas Eve, the 24th of December, not the morning of the 25th. 
+- On related reason, the royal connection to the *House of Hannover* brought  over from Germany the tradition of christmas trees and introduced it to the British Ilse. 
+- Until the Betting and Gaming Act of 1960, the only Sport allowed to be played on Christmas Day was Archery, following the Unlawful Games Act of 1541 to promote the usage of the Longbow in comparsion to less publicly useful sports, such as Football, ... pardon, Soccer. 
+- Following the 31th of December the only person in the UK not needing a passport to legally travel into the EU is Queen Elizabeth II, as all UK passports are issued in her name, she does not requiere one.
+- For a similar reason she does not requiere a drivers license, although she earned one for diving a lorry during the Blitz. 
+- The word trivia is derived from the latin words *tri* and *via*, with the former meaning *three* and the later *road*. The romans, big into public infrastructure, build many roads and on places where multiple med were easy places to publish public and common knowledge, i.e trivial, knowledge. 
 
 <a id='Conclusion'></a>
 
 ### Anything else? 
 
 We wish you all a Merry Chistmas and a Happy New Year. May your Plum Pudding be scrumptious. 
-
-
-<a id='EnglandFacts'></a>
-
-### Cool England (and *Christmas*) Facts and Trivia: 
-
-- The Royal Family of *Windsor* based on its german Ancestry, pre-WW1 named *von Saxen-Coburg und Gotha*, in comparsion to other UK families does celebrate Christmas on Christmas Eve, the 24th of December, not the morning of the 25th. 
-
-- On related reason, the royal connection to the *House of Hannover* brought  over from Germany the tradition of christmas trees and introduced it to the British Ilse. 
-
-- Until the Betting and Gaming Act of 1960, the only Sport allowed to be played on Christmas Day was Archery, following the Unlawful Games Act of 1541 to promote the usage of the Longbow in comparsion to less publicly useful sports, such as Football, ... pardon, Soccer. 
-
-- Following the 31th of December the only person in the UK not needing a passport to legally travel into the EU is Queen Elizabeth II, as all UK passports are issued in her name, she does not requiere one.
-
-- For a similar reason she does not requiere a drivers license, although she earned one for diving a lorry during the Blitz. 
-
-- The word trivia is derived from the latin words *tri* and *via*, with the former meaning *three* and the later *road*. The romans, big into public infrastructure, build many roads and on places where multiple med were easy places to publish public and common knowledge, i.e trivial, knowledge. 
 
 
