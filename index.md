@@ -2,20 +2,20 @@
 
 London, England, Captial of an old Empire that sailed forth to conquere the world in search of tea and spices only to return to a diet of <a href="http://www.foodsofengland.co.uk/peawet.htm">pea wet</a> and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequenty also one of the most multiculinary ones. This allows us to analyse data about eating habits of modern Londoners to learn what on our plates divide us and what defines us. 
 
-{% include
-religion_clustering.html %}
-
 In the following we want to analyse a data set of the Tesco Purchases of Tesco Loyality Card holders in districts of the Greater London metropolitain area, and combine this with information about the areas inhabitants collected by the Greater London census.  
+
+Our goal is to learn about the interplay of food consumption and socio-economic circumstances and to be possibly predict socio-economic facts about an area based on knowledge of its consumption habits. 
+
+### Whats a Tesco?
 
 Tesco is the largest overall supermarket chain and thus also the largest out of the four domestic chains in the UK. It has a wide spread all over the Greater London metropolitian area as can be seen below. 
 
 {% include Store_Locations_London.html %}
 
-Our goal is to learn about the interplay of food consumption and socio-economic circumstances and to be possibly predict socio-economic facts about an area based on knowledge of its consumption habits. 
-
-
-To give a rough outline, we start of with a <a href='#PreCurs'>precursory look </a>into the data we have collected, and also look into the question: <a href='#WhoIsTesco'>"Who is a Tesco Customer"</a>. Following this, as a foundation for later analysis and to help with the understanding of the data we want to cluster areas based on socio-economic factors and look into their interplay. This also allows us to assign discrete inforamtion for later analysis. 
-Following this, we aim to train predictive models that allows us to predict socio-economic facts about an area based on their consumption habits. 
+To give a rough outline, we start of with a <a href='#PreCurs'>precursory look </a>into the data we have collected, and also look into the question: <a href='#WhoIsTesco'>"Who is a Tesco Customer"</a>. Following this, as a foundation for later analysis and to help with the understanding of the data we want to <a href='#Londoners'>cluster</a> areas based on socio-economic factors and look into their interplay. This also allows us to assign 
+<a href='#Labeling'>discrete inforamtion</a> for later analysis. 
+Following this, we aim to train predictive models that allows us to 
+<a href='#Ensemble'>predict</a>  socio-economic facts about an area based on their consumption habits. 
 
 ## Why it is important
 
@@ -27,7 +27,9 @@ Common concerns in nutrion include high Saturated Fat consumption, high Sugar Co
 
 ## What the Data says
 
-The original Tesco data set was created based on purchase histories of Tesco Loyality Card holders, that were then aggreagted based on Place of Residency of the card holder to different census areas in the Greater London area. The data set, while enormus with 411 million individual purchased items, does not allow to attribute the purchases to individuals or groups of individuals, i.e families. Thus instead the researchers opted for tracking consumption habits in the different areas based on an average area product, an abstraction of nutirent content for each product that is consumed in the area.   
+The original Tesco data set was created based on purchase histories of Tesco Loyality Card holders, that were then aggreagted based on Place of Residency of the card holder to different census areas in the Greater London area. The data set, while enormus with 411 million individual purchased items, does not allow to attribute the purchases to individuals or groups of individuals, i.e families. Thus instead the researchers opted for tracking consumption habits in the different areas based on an average area product, an abstraction of nutirent content for each product that is consumed in the area. 
+
+{% include Multilayer_Nutrient_Plot.html %}
 
 The Cesus data we process is provided by the [London Data Stores](https://data.london.gov.uk/) and covers the Data from the most recent Census, 2011, which might seem far off, however is close to the collection year of the Tesco Data in 2015.  
 
@@ -51,20 +53,21 @@ Addional insights can be won when looking into an areas alcohol consumption in r
 
 Interesting, especially in this context is that, if we divide the data up into the consumption of specific types of products consumed in an area, thus into Wine, Beer and Spirits. We can see the summit line previously observed only to re-occur in regard to Wine consumption, while the pattern is nearly inverted for consumption of Spirits and gets roughed up for the consumption of Beer. 
 
-{% include 3D_Multi_Plot_Test.html %}
-
+{% include 3D_Multi_Plot_Spirits_Wine.html %}
 
 <a id='WhoIsTesco'></a>
 
 ### Who shops at Tesco
 
-To answer this question we looked first into an important information that the researches provided with the dataset, the relative representativness that each area achieved. **Representativness** here represents the number of loyality card holding customers vs. the number of area residence. An area with a low representativness has few Tesco customers and thus prevents extrapolation, as the few Tesco Customers would then speak for the majority of Residence in an Area. *The similarity to the UKs first-past the post election system is left uncommented by the Author*. This however also allows us to look into the interrelationships that cause an area to have a high representativness and thus many Tesco Customers. Looking into the spearman correlation, statistically significant correlation between representativness and socio-economic factors can be observed in the following:     
+To answer this question we looked first into an important information that the researches provided with the dataset, the relative representativness that each area achieved. **Representativness** here represents the number of loyality card holding customers vs. the number of area residence. An area with a low representativness has few Tesco customers and thus prevents extrapolation, as the few Tesco Customers would then speak for the majority of Residence in an Area. *The similarity to the UKs first-past the post election system is left uncommented by the Author*. 
+
+{% include Map_Factory_Representativness.html %}
+
+This also allows us to look into the interrelationships that cause an area to have a high representativness and thus many Tesco Customers. Looking into the Spearman correlation, statistically significant correlation between representativness and socio-economic factors can be observed for mutliple groups and both postivly and negativly:
 
 {% include Correlation_Representativness_Norm_White.html %}
 
-These results can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. Especially areas going closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. 
-
-{% include Map_Factory_Representativness.html %}
+These results can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. An interesting tidbit to add to this, is that this seems especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. 
 
 
 As an alternative hypothesis this can also be attributed, at least in part, to skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames.
@@ -94,11 +97,13 @@ For the grouped areas we identified labels based on the shared attributes we use
 
 One example case, was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first Grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second Grouping we can see that these include the Areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisities in London. 
 
-An addional grouping conducted for policy makers in the Greater London area, based on K-Means, which provides groupings based on a wider range of *(joint-)* attributes and deeper analysis of socio-economic trends in the UK. However is sadly less applicable by us, as it only provides this information on an LSOA level. 
+As a sidenode, a Clustering and Labeling conducted for policy makers in the Greater London area is available, which provides groupings based on a wider range of *(joint-)* attributes and deeper analysis of socio-economic trends in the UK. However is sadly less applicable by us, as it only provides this information on an LSOA level. However it still provides some [interesting insights](https://data.london.gov.uk/dataset/london-area-classification) and further considerations for more refined clustering approaches on socio-economic data.
 
-To address some pitfalls of our approach, the clustering is mainly conducted on distinct subsets of data, like ethnicity, religion, or household income, thus it neither addresses certain interplay, for example the distinction between a rich or poor minority community. Addionally, the approach leads to unbalanced label distribution, as certain distinct groups in a society are less common and in some instances prevents extraction of subgroups altogether as they are far to dispersed over the whole set of areas and overshadowed by other groups. Effects of these pitfalls can be seen later on in regard to the predicitve models, and will be addressed. 
+To address some pitfalls of our approach, the clustering is mainly conducted on distinct subsets of data, like ethnicity, religion, or household income, thus it neither addresses certain interplay, for example the distinction between a rich or poor minority community, or the important distictions between Indian, Pakistani and Bagladeshi, as the data groups them under the joined label Asian, which furthermore also includes any South-East Asian and Central Asian. *Facultative one could see this as the even more correct approach given the context of the UK*. 
 
-To explore our clustering results on a cross-sectional basis, you can use the interactive map below:
+An addional pitfall is that the approach leads to unbalanced label distribution, as certain distinct groups in a society are less common and in some instances prevents extraction of subgroups altogether as they are far to dispersed over the whole set of areas and overshadowed by other groups. One example, missing area with  middle eastern, sikhs or jewish majority. The effects of these pitfalls can be seen later on in regard to the predicitve models, and will be addressed. 
+
+To explore our clustering results on a cross-sectional basis for each area, you can use the interactive map below:
 
 {% include Multilayer_Population_Plot.html %}
 
@@ -149,21 +154,17 @@ Interpreting random forest models in regard to their decision process is hard, a
 
 {% include FeatureImportance_Ethnicity_RandomForest_Products.html %}
 
-From the Plot we can learn
-
-Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
+From the Plot we can learn that especially the consumption of water, red meats and wine often choosen splitting features in the individual trees of the classifier are. Thus these features provide good point to differtiate different groups, in this case the ethnic make-up, of an area. Another example, in this case for an classifier trained on nutrional facts and areas religion: 
 
 {% include FeatureImportance_Religion_RandomForest_Nutrients.html %}
-
-
-Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
-
-Based on the 
+ 
 
 
 <a id='Responsible'></a>
 
 ### Can we go back?
+
+To further improve on performance of our classifier, we might now go with an even more complex model or refine our clustering approach, however in this instance we might not opt for this option, and instead ask ourself, if we can go back. 
 
 A major concern with complex models such as random forests and boosting trees is that, while they perform really well and are robust, they present a level of obfuscation to the deriviation of their final result. For a human they present a near-to-*blackbox* that transforms an input into a output, without granting the individual understanding of its decision mechanism. 
 
@@ -175,7 +176,7 @@ To contribute our part, addionally to our previous analysis based on random fore
 
 #### But I like Trees 
 
-First of we started with, Decision Trees, which in there basic format allow for explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness.  
+First of we started with, Decision Trees, which in there basic format allow for explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. The resulting decision trees, were unsurprisingly rather complex, however still provide some insight in regarde to their decision structure: 
 
 {% include_relative images/treeviz.svg %} 
 
@@ -187,7 +188,16 @@ Looking into the Decision tree we can observe similar behavior to the
 
 #### The OG Mining Buzzword
 
+An alternative in regard to explainable models is the usage of Association Rules, that derive rules in the form $antecedents \rightarrow consequents$, based on observation of common item sets. In this instance, we used the different labels of the groupings as items and addionally, added especially high and low consumption of a certain product or proportion of a nutrient or nutrional fact as further items. 
+
+We used different measures used in association rule mining to evaluate the rules that we derived through the former item set design. However, given the way that item set and association rules are designed, we reach certain conflicts in using metrics, as they are also once again susceptible to unbalanced distribution of item types. 
+
+We focus in our analysis on rules in the form nutrient/product -> socio-economic fact, thus rules that let us derive a consequence, i.e a socio-economic fact, based on common area attributes.  
+
+
 {% include AssociationRuleTable_Nutrients.html %}
+
+
 
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
