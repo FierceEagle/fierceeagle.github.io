@@ -6,7 +6,7 @@ In the following we want to analyse a data set of the Tesco Purchases of Tesco L
 
 Our goal is to learn about the interplay of food consumption and socio-economic circumstances and to be possibly predict socio-economic facts about an area based on knowledge of its consumption habits. 
 
-### Whats a Tesco?
+### What is a Tesco?
 
 Tesco is the largest overall supermarket chain and thus also the largest out of the four domestic chains in the UK. It has a wide spread all over the Greater London metropolitian area as can be seen below. 
 
@@ -121,14 +121,13 @@ Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami u
 
 ## Can we go deeper?
 
-After the basic analysis, the main goal we set out to achieve is training models to predict socio-economic facts about areas based on food consumption habits. For this we used the data set on the MSOA Level, as it has more areas with higher representativness in comparsion to the LSOA level, while also providing a higher granularity, as the next higher granularity, Wards. As these group many diverse area together, smooting out intresting divergences.  
+After the basic analysis, the main goal we set out to achieve is training models to predict socio-economic facts about areas based on food consumption habits. For this we used the data set on the MSOA Level, as it has more areas with higher representativness in comparsion to the LSOA level, while also providing a higher granularity, as the next higher granularity, Wards. The latter would group multiple diverse areas together, smoothing out intresting divergences.
 
+We started off with regression analysis to predict contious outcome values based on nutrional facts. To improve the performance, we removed outliers. While the general data quality was near perfect in regard to completeness and missing values, we focused on identifying and removing extreme values using [Local Outlier Fields](https://www.dbs.ifi.lmu.de/Publikationen/Papers/LOF.pdf). 
 
-We started off with regression analysis to predict contious outcome values based on nutrional facts. To improve the performance, we removed outliers, the quality was suffiecent in regard to completeness and missing values, thus we focused on identifying and removing extreme values using [Local Outlier Fields](https://www.dbs.ifi.lmu.de/Publikationen/Papers/LOF.pdf). 
+The resulting regression model were able to predict contious variables such as median area income or the percentage of *BAME* (*Black, Asian and minority ethnic*) inhabitants in an area with a high coeffiecent of determination of 0. . From the parameters we can learn that most of the input variables have a very significant impact on the prediction result and thus can derive that they have an predictive interplay  
 
-The resulting regression model were able to predict contious variables such as median area income or the percentage of *BAME* inhabitants in an area with a high coeffiecent of determination of 0. . Intrestingly, 
-# Regression Results 
-
+### 
 # RandomForest Introduction
 To better address the difference in each area, we switched for the further models from a regression task to a classification task, based on the [clustering and labeling]() we conducted earlier. This allows us to capture and refine better the difference in each area from a single contious feature to the groupings.
 
@@ -138,9 +137,9 @@ However, before we started the analysis we need to address again the pitfalls of
 
 {% include Donuts_Clusters.html %}
 
-We address this issue by oversampling the minority labels, to improve the model performence, as Random Forst are in there base form preferentile towards the majority class. As oversampling we compared different techniques, such as random oversampling, which just entails drawing from the minorty lables samples with replacement. However this technique only multiplies minority labels to put more weight behind them, it does not create new syntheic data. For this, more advanced approaches, such as SMOTE and ADASYN have been developed, which create new synthetic minorty label data samples based on interpolating between existing sampels. 
+We address this issue by oversampling the minority labels, to improve the model performence, as Random Forst are in there base form preferentile towards the majority class. As oversampling we compared different techniques, such as random oversampling, which just entails drawing from the minorty lables samples with replacement. However this technique only multiplies minority labels to put more weight behind them, it does not create new syntheic data. For this, more advanced approaches, such as [SMOTE](https://www.jair.org/index.php/jair/article/view/10302) and [ADASYN](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4633969&casa_token=lmtht2WRwM4AAAAA:H5Mwc-PPkrfC6jvyhiWFGIX0zL5IVX5rpFgD55AHHGjbJlx5YSAK98Qc7aFttn-UZKGfm0xLBw&tag=1) have been developed, which create new synthetic minorty label data samples based on interpolating between existing sampels. 
 
-For the model training, we addionally implemented GridSearch with cross validation over a pre-selected parameter space. Important to note here is the focus on balanced accuracy, average class-wise recall, as the main scoring function and using class weighting for the individual random forest trees. Both, we choose to improve cross-label performance and thus increase the fairness of the classifier making it less bias towards the majority class, as normal accuracy as a scoring function would. 
+For the model training, we addionally implemented GridSearch with cross validation over a pre-selected parameter space. And addionally the usage of balanced accuracy, the average class-wise recall, as the main scoring function instead of normal accuracy and using class weighting for the individual random forest trees. Both, we choose to improve cross-label performance and thus increase the fairness of the classifier making it less bias towards the majority class, as normal accuracy as a scoring function would. 
 
 The resulting models achieved good performance for the diffent labelings after applying the previous mentioned transforamtions and model adaptions. The model that we used to predict ethnicity achieved an balanced accuracy of around 0.734, and an accuracy of 0.736 overall on a 6-class multi-classification problem. The best performing model was the model on predicting Religion, that achieved after application of stratified sampling, an balanced accuracy score of 0.84 on a 3-Class classification task, an improvment achieved through oversampling and Gridsearch, as the base model only reached a balanced accuracy of around 0.46. For the other models we reached balanced accuracy between 0.55 and 0.6. Exploring the confusion matricies, we furthermore can learn more closely about the models performance, by looking into its prediction results:  
 
@@ -150,7 +149,7 @@ What we can learn from this is that in case the model misclassified a test examp
 
 ### Learning what the model says
 
-Interpreting random forest models in regard to their decision process is hard, as they present ensembles of 10's - 100's of decision trees learned in a way to increase varity in the decision process of an individual tree. Consequently the individual trees are already complex, and over the size of the ensemble close to incomprehensible. However, to at least get a feeling for the underlying process we can use the *feature importance*, the contribution of individual features, to the final model. 
+Interpreting random forest models in regard to their decision process is hard, as they present ensembles of 10's - 100's of decision trees learned in a way to increase varity in the decision process of an individual tree. *Talking about not to see the wood for the trees*. Consequently the individual trees are already complex, and over the size of the ensemble close to incomprehensible. However, to at least get a feeling for the underlying process we can use the *feature importance*, the contribution of individual features, to the final model. 
 
 {% include FeatureImportance_Ethnicity_RandomForest_Products.html %}
 
