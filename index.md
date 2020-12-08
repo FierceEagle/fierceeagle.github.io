@@ -94,7 +94,9 @@ For the grouped areas we identified labels based on the shared attributes we use
 
 One example case, was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first Grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second Grouping we can see that these include the Areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisities in London. 
 
-As an addional source for confirming our Clustering and to utilize in later analysis we reference an Grouping conducted for policy makers in the Greater London area, based on K-Means, which provides groupings based on a wider range of *(joint-)* attributes and deeper analysis of socio-economic trends in the UK.
+An addional grouping conducted for policy makers in the Greater London area, based on K-Means, which provides groupings based on a wider range of *(joint-)* attributes and deeper analysis of socio-economic trends in the UK. However is sadly less applicable by us, as it only provides this information on an LSOA level. 
+
+To address some pitfalls of our approach, the clustering is mainly conducted on distinct subsets of data, like ethnicity, religion, or household income, thus it neither addresses certain interplay, for example the distinction between a rich or poor minority community. Addionally, the approach leads to unbalanced label distribution, as certain distinct groups in a society are less common and in some instances prevents extraction of subgroups altogether as they are far to dispersed over the whole set of areas and overshadowed by other groups. Effects of these pitfalls can be seen later on in regard to the predicitve models, and will be addressed. 
 
 To explore our clustering results on a cross-sectional basis, you can use the interactive map below:
 
@@ -119,7 +121,7 @@ After the basic analysis, the main goal we set out to achieve is training models
 
 We started off with regression analysis to predict contious outcome values based on nutrional facts. To improve the performance, we removed outliers, the quality was suffiecent in regard to completeness and missing values, thus we focused on identifying and removing extreme values using [Local Outlier Fields](https://www.dbs.ifi.lmu.de/Publikationen/Papers/LOF.pdf). 
 
-The resulting regression model were able to predict contious variables such as median area income or the percentage of *BAME* inhabitants in an area with a high coeffiecent of determination of 0. Intrestingly, 
+The resulting regression model were able to predict contious variables such as median area income or the percentage of *BAME* inhabitants in an area with a high coeffiecent of determination of 0. . Intrestingly, 
 # Regression Results 
 
 # RandomForest Introduction
@@ -127,21 +129,32 @@ To better address the difference in each area, we switched for the further model
 
 For the now classification task, we choose to train a Random Forst Model, which incorporates an ensemble of deep decision trees trained on bootstrapped samples of the data with adapdeted feature selection to increase variety between trees. 
 
-However, before we started the analysis an important observation we made, was the severe imbalance in class labels that can be observed after the grouping, this is an obvious consequence of the real world population falling into equal sized groups. 
+However, before we started the analysis we need to address again the pitfalls of the clustering, which lead to obvious unequal labeling, i.e many more areas have a christian or white majority in comparsion to a asian majority or a hindu majority. 
 
 {% include Donuts_Clusters.html %}
 
-We address this issue by oversampling the minority labels, to improve the model performence, as Random Forst are in there base form preferentile towards the majority class. As oversampling we compared different techniques, such as random oversampling, which just entails drawing from the minorty lables samples with replacement. However this technique only multiplies minority labels to put more weight behind them, it does not create new syntheic data. For this, more advanced approaches, such as SMOTE and ADASYN can be used, which create new synthetic minorty label data samples based on interpolating between existing sampels. 
+We address this issue by oversampling the minority labels, to improve the model performence, as Random Forst are in there base form preferentile towards the majority class. As oversampling we compared different techniques, such as random oversampling, which just entails drawing from the minorty lables samples with replacement. However this technique only multiplies minority labels to put more weight behind them, it does not create new syntheic data. For this, more advanced approaches, such as SMOTE and ADASYN have been developed, which create new synthetic minorty label data samples based on interpolating between existing sampels. 
 
-For the model training, we addionally implemented GridSearch with cross validation over a pre-selected parameter space. Important to note here is the focus on balanced accuracy as the main scoring function and using class weighting for the individual random forest trees. Both, we choose to improve cross-label performance and thus increase the fairness of the classifier making it less bias towards the majority class, as normal accuracy as a scoring function would. 
+For the model training, we addionally implemented GridSearch with cross validation over a pre-selected parameter space. Important to note here is the focus on balanced accuracy, average class-wise recall, as the main scoring function and using class weighting for the individual random forest trees. Both, we choose to improve cross-label performance and thus increase the fairness of the classifier making it less bias towards the majority class, as normal accuracy as a scoring function would. 
 
+The resulting models achieved good performance for the diffent labelings after applying the previous mentioned transforamtions and model adaptions. The model that we used to predict ethnicity achieved an balanced accuracy of around 0.734, and an accuracy of 0.736 overall on a 6-class multi-classification problem. The best performing model was the model on predicting Religion, that achieved after application of stratified sampling, an balanced accuracy score of 0.84 on a 3-Class classification task, an improvment achieved through oversampling and Gridsearch, as the base model only reached a balanced accuracy of around 0.46. For the other models we reached balanced accuracy between 0.55 and 0.6. Exploring the confusion matricies, we furthermore can learn more closely about the models performance, by looking into its prediction results:  
 
 {% include Heatmap_Ethnicity_RandomForest_Products.html %}
 
-# 
-Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
+What we can learn from this is that in case the model misclassified a test example, the misclassification was still close to the original label, for example many of the wrongly classified area with a *stong black minority* were classified as an area with a *black majority*. This, however, does not explain all error in the model and can be based on the input not capturing enough information to make a clear classification and also the previous grouping step creating distinctive enough groupings.
+
+### Learning what the model says
+
+Interpreting random forest models in regard to their decision process is hard, as they present ensembles of 10's - 100's of decision trees learned in a way to increase varity in the decision process of an individual tree. Consequently the individual trees are already complex, and over the size of the ensemble close to incomprehensible. However, to at least get a feeling for the underlying process we can use the *feature importance*, the contribution of individual features, to the final model. 
 
 {% include FeatureImportance_Ethnicity_RandomForest_Products.html %}
+
+From the Plot we can learn
+
+Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
+
+{% include FeatureImportance_Religion_RandomForest_Nutrients.html %}
+
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
 
