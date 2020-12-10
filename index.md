@@ -2,36 +2,37 @@
 
 London, England, Captial of an old Empire that sailed forth to conquere the world in search of tea and spices only to return to a diet of <a href="http://www.foodsofengland.co.uk/peawet.htm">pea wet</a> and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequenty also one of the most multiculinary ones. This allows us to analyse data about eating habits of modern Londoners to learn what on our plates divide us and what defines us. 
 
-In the following we want to analyse a data set of the Tesco Purchases of Tesco Loyality Card holders in districts of the Greater London metropolitain area, and combine this with information about the areas inhabitants collected by the Greater London census.  
+In the following we want to analyse a data set of the Tesco purchases of Tesco Loyality Card holders in districts of the Greater London metropolitain area, and combine this with information about the areas inhabitants collected by the Greater London census to form a picture of the interplay between nutrition and socio-economic realities.  
 
-Our goal is to learn about the interplay of food consumption and socio-economic circumstances and to be possibly predict socio-economic facts about an area based on knowledge of its consumption habits. 
 
 ### What is a Tesco?
 
-Tesco is the largest overall supermarket chain and thus also the largest out of the four domestic chains in the UK. It has a wide spread all over the Greater London metropolitian area as can be seen below. 
+Tesco is the largest supermarket chain in the UK and thus also the largest out of the four domestic chains *(Asda, Sainsbury's, Tesco and Morrisions)* in the UK. It has a wide spread all over the Greater London metropolitian area as can be seen below. 
 
 {% include Store_Locations_London.html %}
 
 To give a rough outline, we start of with a <a href='#PreCurs'>precursory look </a>into the data we have collected, and also look into the question: <a href='#WhoIsTesco'>"Who is a Tesco Customer"</a>. Following this, as a foundation for later analysis and to help with the understanding of the data we want to <a href='#Londoners'>cluster</a> areas based on socio-economic factors and look into their interplay. This also allows us to assign 
-<a href='#Labeling'>discrete inforamtion</a> for later analysis. 
+<a href='#Labeling'>discrete information</a> for later analysis. 
 Following this, we aim to train predictive models that allows us to 
-<a href='#Ensemble'>predict</a>  socio-economic facts about an area based on their consumption habits. 
+<a href='#Ensemble'>predict</a>  socio-economic facts about an area based on their consumption habits. To address the black box approach our choosen models represent, we addionally choose to try to model the prediction using more explainable models, such as Decision Trees and association rules. 
 
 ## Why it is important
 
 Why is food important, sounds like an easy question to answer, however besides the importance of having sufficent food, the modern day issue in developed countries is having a proper composition and balance of nutirents. An improper diet might not lead to inbalanced <a href="https://en.wikipedia.org/wiki/Humorism">humors</a>, as ancient doctors believed, but has far more intertwined effect on the individuals health. 
 
-This becomes also important as an issue of public health, as the UK as most other European Countries uses a socalised healthcare system, in which individual well-being and preventable health-outcomes become a <a href="https://www.bmj.com/content/349/bmj.g5143">societal concern</a>. 
+This becomes also important as an issue of public health, as the UK as most other European Countries maintains a socalised healthcare system, in which individual well-being and preventable health-outcomes become a <a href="https://www.bmj.com/content/349/bmj.g5143">societal concern</a>. 
 
 Common concerns in nutrion include high Saturated Fat consumption, high Sugar Consumption, low Fibre Consumption and a low distribution of nutrients, thus an unbalanced or skewed diet. 
 
 ## What the Data says
 
-The original Tesco data set was created based on purchase histories of Tesco Loyality Card holders, that were then aggreagted based on Place of Residency of the card holder to different census areas in the Greater London area. The data set, while enormus with 411 million individual purchased items, does not allow to attribute the purchases to individuals or groups of individuals, i.e families. Thus instead the researchers opted for tracking consumption habits in the different areas based on an average area product, an abstraction of nutirent content for each product that is consumed in the area. 
+The original Tesco data set was created based on purchase histories of Tesco Loyality Card holders, that were then aggreagted based on the place of residency of the card holder to different level of granularity of census areas in the Greater London area. The data set, while enormus with 411 million individual purchased items, does not allow to attribute the purchases to individuals or groups of individuals, i.e families. On the one hand, because this would present a clear breach of privacy and on the other hand, because the cards don't carry this attributive information. Instead the researchers opted for tracking consumption habits in the different areas based on an average area product, an abstraction of nutirent content for each product that is consumed in the area. This approach further balances out population differnces in each of the collection areas. As the three types of granularity we consider, Lower Super Output Areas **LSOAs**, Medium Super Output Areas **MSOAs**, and **Wards**, do not all address the issue of imbalanced population distribution. Especially Wards, which represent electoral boundries and not census areas follow a flat peaked distribution.    
+
+{% include Population_Distribution.html %}
+
+The Cesus data we process is provided by the [London Data Stores](https://data.london.gov.uk/) and covers the Data from the most recent Census, 2011, which might seem far off, however is close to the collection year of the Tesco Data in 2015. Some trends of population movement can happen in the four year difference, however, we don't expect to rapid changes in the socio-economic make-up of an area.  
 
 {% include Multilayer_Nutrient_Plot.html %}
-
-The Cesus data we process is provided by the [London Data Stores](https://data.london.gov.uk/) and covers the Data from the most recent Census, 2011, which might seem far off, however is close to the collection year of the Tesco Data in 2015.  
 
 <a id='PreCurs'></a>
 
@@ -41,17 +42,15 @@ We start of with some precusory data visualization and statistical analysis to p
 
 {% include Correlation_Nutirents_Different_Ethnicitites.html %}
 
-Looking into the Data we can make already a few interesting observations. First off, we see that there is a strong correlation in multiple groups in regard to fibre, protein, alcohol and sugar consumption, and addionally divergence in regard to the nutrient diversity.
-
+Looking into the Data we can already make a few interesting observations. First off, we see that there is a strong correlation in multiple groups in regard to fibre, protein, alcohol and sugar consumption, and addionally divergence in regard to the nutrient diversity. We can conjoin this information with a further analysis in regard towards Median Household income, and the amount of inhabitants with the highest degree being a secondary school degree (Level 2) or an academic degree (Level 4+). Especially the high distinctivness between the latter two in regard to carbohydrate and sugar consumption, the nutrient diversity and alcohol consumption. *Intelligentsia bibent, as my latin teach would say*. An addional interesting observation is the high correlation between Fibre and Alcohol and area wealth.  
 
 {% include Correlation_Nutirents_Income_Eductation_Ethnicitites.html %}
 
-
-Addional insights can be won when looking into an areas alcohol consumption in relation to its inhabitans wealth and ethnic make up. A relationship that, not to spoil, but rather to cock Chekov's gun, can be observed in multiple models we used in analysis. 
+Combining the former observations, in the next step we will look into an areas alcohol consumption in relation to its inhabitans wealth and ethnic make up. A relationship that, not to spoil, but rather to cock Chekov's gun, can be observed in multiple models we used in analysis. 
 
 {% include 3D_Plot_White_Median_Income_Alcohol.html %}
 
-Interesting, especially in this context is that, if we divide the data up into the consumption of specific types of products consumed in an area, thus into Wine, Beer and Spirits. We can see the summit line previously observed only to re-occur in regard to Wine consumption, while the pattern is nearly inverted for consumption of Spirits and gets roughed up for the consumption of Beer. 
+Interesting, especially in this context is that, if we divide the data up into the consumption of specific types of products consumed in an area, thus into Wine, Beer and Spirits. We can see the summit line previously observed only to re-occur in regard to Wine consumption, while the pattern is nearly inverted for consumption of Spirits. 
 
 {% include 3D_Multi_Plot_Spirits_Wine.html %}
 
@@ -59,18 +58,17 @@ Interesting, especially in this context is that, if we divide the data up into t
 
 ### Who shops at Tesco
 
-To answer this question we looked first into an important information that the researches provided with the dataset, the relative representativness that each area achieved. **Representativness** here represents the number of loyality card holding customers vs. the number of area residence. An area with a low representativness has few Tesco customers and thus prevents extrapolation, as the few Tesco Customers would then speak for the majority of Residence in an Area. *The similarity to the UKs first-past the post election system is left uncommented by the Author*. 
+To answer this question we looked first into an important information that the researches provided with the dataset, the relative representativness that each area achieved. **Representativness** here represents the ratio of loyality card holding customers vs. the number of area residence. An area with a low representativness has few Tesco customers and thus prevents extrapolation, as the few Tesco Customers would then speak for the majority of Residence in an Area. *The similarity to the UKs first-past the post election system is left uncommented by the Author*. The ration was then normalized using min-max-scaling to provide a normalized representativness, with the most representativ area having a representativness of 1 and the least representativ area having a representativness of 0. 
 
 {% include Map_Factory_Representativness.html %}
 
-This also allows us to look into the interrelationships that cause an area to have a high representativness and thus many Tesco Customers. Looking into the Spearman correlation, statistically significant correlation between representativness and socio-economic factors can be observed for mutliple groups and both postivly and negativly:
+Representativnes allows us to look into the interrelationships that cause an area to have a high representativness and thus many Tesco Customers, or rather loyality card holding customers. Looking into the Spearman correlation, statistically significant correlation between representativness and socio-economic factors can be observed for mutliple groups, both postivly and negativly:
 
 {% include Correlation_Representativness_Norm_White.html %}
 
-These results can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. An interesting tidbit to add to this, is that this seems especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. 
+Most of the correlations are rather weak, however, they can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. An interesting tidbit to add to this, is that this seems especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. 
 
-
-As an alternative hypothesis this can also be attributed, at least in part, to skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames.
+As an alternative hypothesis this can also be attributed, at least in part, to skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames, which introduces a bias towards the more ethnically diverse areas of northern London.
 
 --- 
 
@@ -78,7 +76,7 @@ As an alternative hypothesis this can also be attributed, at least in part, to s
 
 ## The *who* is *who* of London
 
-As an important first step to explore the population of London, we need to subdivide the population of London into ares with high similarity in regard to socio-economic make-up. To achieve this, we conducted Agglomorative Hierachical Clustering, to identify most similar subgrouping of the population based on attributes, such as Education, Median Household Income, Ethnicity and Religion. We identified a number of groupings, i.e clusters, for the different attributes based on silhoutte score.   
+As an important first step to explore the population of London, we need to subdivide the population of London into ares with high similarity in regard to socio-economic make-up. To achieve this, we conducted Agglomorative Hierachical Clustering, to identify most similar subgrouping of the population based on attributes, such as Education, Median Household Income, Ethnicity and Religion. We identified a number of groupings, i.e clusters, for the different attributes based on high silhoutte score.   
 
 {% include Map_Factory_Ethnicity.html %}
 
@@ -89,21 +87,21 @@ As an important first step to explore the population of London, we need to subdi
 
 The groupings, however, only provide information about similarity between areas, not direct labels for each grouping. Thus we needed to conduct our own further analysis to identify good labels, representativ of the areas population. 
 
-As the weather in London is rather Covid-ty around this time of the year and thus can't validate our findings in Person, we conduced our study of the inhabitans in the subgroubed areas, based both on information present in the data and verified our conclusion, with wider research on the areas. 
+As the weather in London is rather Covid-ty around this time of the year and thus we can't validate our findings in person, we conduced our study of the inhabitans in the subgroubed areas, based both on information present in the data and verified our conclusion, with wider research on the areas. 
 
 For the grouped areas we identified labels based on the shared attributes we used for clustering the groups in the first place. 
 
 {% include Map_Factory_Education.html %}
 
-One example case, was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first Grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second Grouping we can see that these include the Areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisities in London. 
+One example case was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second grouping we can see that these include the areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisity campi in London. 
 
 {% include Map_Factory_Religion.html %}
 
-As a sidenode, a Clustering and Labeling conducted for policy makers in the Greater London area is available, which provides groupings based on a wider range of *(joint-)* attributes and deeper analysis of socio-economic trends in the UK. However is sadly less applicable by us, as it only provides this information on an LSOA level. However it still provides some [interesting insights](https://data.london.gov.uk/dataset/london-area-classification) and further considerations for more refined clustering approaches on socio-economic data.
+As a sidenode, a Clustering and Labeling conducted for policy makers in the Greater London area is available, which provides groupings based on a wider range of *joint*-attributes and deeper analysis of socio-economic trends in the UK. However is sadly less applicable by us, as it only provides this information on an LSOA / OA level. However it still provides some [interesting insights](https://data.london.gov.uk/dataset/london-area-classification) and further considerations for more refined clustering approaches on socio-economic data.
 
 To address some pitfalls of our approach, the clustering is mainly conducted on distinct subsets of data, like ethnicity, religion, or household income, thus it neither addresses certain interplay, for example the distinction between a rich or poor minority community, or the important distictions between Indian, Pakistani and Bagladeshi, as the data groups them under the joined label Asian, which furthermore also includes any South-East Asian and Central Asian. *Facultative one could see this as the even more correct approach given the context of the UK*. 
 
-An addional pitfall is that the approach leads to unbalanced label distribution, as certain distinct groups in a society are less common and in some instances prevents extraction of subgroups altogether as they are far to dispersed over the whole set of areas and overshadowed by other groups. One example, missing area with  middle eastern, sikhs or jewish majority. The effects of these pitfalls can be seen later on in regard to the predicitve models, and will be addressed. 
+An addional pitfall is that the approach leads to unbalanced label distribution, as certain distinct groups in a society are less common and in some instances prevents extraction of subgroups altogether as they are far to dispersed over the whole set of areas and overshadowed by other groups. One example, missing area with middle eastern, sikhs or jewish majority. The effects of these pitfalls can be seen later on in regard to the predicitve models, and will be addressed during the model learning stage. 
 
 To explore our clustering results on a cross-sectional basis for each area, you can use the interactive map below:
 
@@ -127,7 +125,7 @@ After the basic analysis, the main goal we set out to achieve is training models
 
 We started off with regression analysis to predict contious outcome values based on nutrional facts. To improve the performance, we removed outliers. While the general data quality was near perfect in regard to completeness and missing values, we focused on identifying and removing extreme values using [Local Outlier Fields](https://www.dbs.ifi.lmu.de/Publikationen/Papers/LOF.pdf). 
 
-The resulting regression model were able to predict contious variables such as median area income or the percentage of *BAME* (*Black, Asian and minority ethnic*) inhabitants in an area with a high coeffiecent of determination of 0. . From the parameters we can learn that most of the input variables have a very significant impact on the prediction result and thus can derive that they have an predictive interplay  
+The resulting regression model were able to predict contious variables such as median area income or the percentage of *BAME* (***B****lack*, ***A****sian* and ***M****inority* ***E****thnic*) inhabitants in an area with a high coeffiecent of determination of 0. . From the parameters we can learn that most of the input variables have a very significant impact on the prediction result and thus can derive that they have an predictive interplay  
 
 ### 
 # RandomForest Introduction
@@ -139,15 +137,15 @@ However, before we started the analysis we need to address again the pitfalls of
 
 {% include Donuts_Clusters.html %}
 
-We address this issue by oversampling the minority labels, to improve the model performence, as Random Forst are in there base form preferentile towards the majority class. As oversampling we compared different techniques, such as random oversampling, which just entails drawing from the minorty lables samples with replacement. However this technique only multiplies minority labels to put more weight behind them, it does not create new syntheic data. For this, more advanced approaches, such as [SMOTE](https://www.jair.org/index.php/jair/article/view/10302) and [ADASYN](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4633969&casa_token=lmtht2WRwM4AAAAA:H5Mwc-PPkrfC6jvyhiWFGIX0zL5IVX5rpFgD55AHHGjbJlx5YSAK98Qc7aFttn-UZKGfm0xLBw&tag=1) have been developed, which create new synthetic minorty label data samples based on interpolating between existing sampels. 
+We address this issue by oversampling the minority labels, to improve the model performence, as Random Forst are in there base form preferentile towards the majority class. As oversampling we compared different techniques, such as random oversampling, which just entails drawing from the minorty lables samples with replacement. However this technique only multiplies minority labels to put more weight behind them, it does not create new syntheic data. For this, more advanced approaches, such as [SMOTE](https://www.jair.org/index.php/jair/article/view/10302) and [ADASYN](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4633969&casa_token=lmtht2WRwM4AAAAA:H5Mwc-PPkrfC6jvyhiWFGIX0zL5IVX5rpFgD55AHHGjbJlx5YSAK98Qc7aFttn-UZKGfm0xLBw&tag=1) have been developed, which create new synthetic minorty label data samples based on interpolating between existing sampels. This approach helped in multiple models to boost the performance, however, in some instance was not enough to allow for succesful model training. Espeically in regard to Education, as too few areas represent Student majority areas and the model thus isn't able to learn to distinguish them.  
 
-For the model training, we addionally implemented GridSearch with cross validation over a pre-selected parameter space. And addionally the usage of balanced accuracy, the average class-wise recall, as the main scoring function instead of normal accuracy and using class weighting for the individual random forest trees. Both, we choose to improve cross-label performance and thus increase the fairness of the classifier making it less bias towards the majority class, as normal accuracy as a scoring function would. 
+For the model training, we addionally implemented GridSearch with cross validation over a pre-selected parameter space. As a scoring function, we utilize balanced accuracy, the average class-wise recall, as the main scoring function instead of normal accuracy and using class weighting for the individual random forest trees. Both, we choose to improve cross-label performance and thus increase the fairness of the classifier making it less bias towards the majority class, as normal accuracy as a scoring function would. 
 
-The resulting models achieved good performance for the diffent labelings after applying the previous mentioned transforamtions and model adaptions. The model that we used to predict ethnicity achieved an balanced accuracy of around 0.734, and an accuracy of 0.736 overall on a 6-class multi-classification problem. The best performing model was the model on predicting Religion, that achieved after application of stratified sampling, an balanced accuracy score of 0.84 on a 3-Class classification task, an improvment achieved through oversampling and Gridsearch, as the base model only reached a balanced accuracy of around 0.46. For the other models we reached balanced accuracy between 0.55 and 0.6. Exploring the confusion matricies, we furthermore can learn more closely about the models performance, by looking into its prediction results:  
+The resulting models achieved good performance for the diffent labelings after applying the previous mentioned transformations and model adaptions. The model based on nutrion that we used to predict ethnicity achieved an balanced accuracy of around 0.615, and an accuracy of 0.700 overall on a 6-class multi-classification problem. The best performing model was the model on predicting Religion, that achieved after application of stratified sampling, an balanced accuracy score of 0.84 on a 3-Class classification task, an improvment achieved through oversampling and Gridsearch, as the base model only reached a balanced accuracy of around 0.46. For the other models we reached balanced accuracy between 0.55 and 0.6, with especially the model to predict Education suffering in performance from not being able to distinguish student areas. Exploring the confusion matricies, we furthermore can learn more closely about the models performance, by looking into its prediction results:  
 
-{% include Heatmap_Ethnicity_RandomForest_Products.html %}
+{% include Heatmap_Ethnicity_RandomForest_Nutrients.html %}
 
-What we can learn from this is that in case the model misclassified a test example, the misclassification was still close to the original label, for example many of the wrongly classified area with a *stong black minority* were classified as an area with a *black majority*. This, however, does not explain all error in the model and can be based on the input not capturing enough information to make a clear classification and also the previous grouping step creating distinctive enough groupings.
+What we can learn from this is that in case the model misclassified a test example, the misclassification was still close to the original label, for example many of the wrongly classified area with a *stong black minority* were classified as an area with a *black majority*. This, however, does not explain all error in the model and can be based on the input not capturing enough information to make a clear classification and also the previous grouping step not creating distinctive enough groupings.
 
 ### Learning what the model says
 
@@ -155,7 +153,7 @@ Interpreting random forest models in regard to their decision process is hard, a
 
 {% include FeatureImportance_Ethnicity_RandomForest_Products.html %}
 
-From the Plot we can learn that especially the consumption of water, red meats and wine often choosen splitting features in the individual trees of the classifier are. Thus these features provide good point to differtiate different groups, in this case the ethnic make-up, of an area. Another example, in this case for an classifier trained on nutrional facts and areas religion: 
+We can learn that especially the consumption of water, red meats and wine are often choosen splitting features in the individual trees of the classifier. Thus these features provide good point to differtiate different groups, in this case the ethnic make-up, of an area. However we cannot easily learn what the differentation founding on the feature is. Another example, in this case for an classifier trained on nutrional facts and areas religion: 
 
 {% include FeatureImportance_Religion_RandomForest_Nutrients.html %}
  
@@ -177,7 +175,7 @@ To contribute our part, addionally to our previous analysis based on random fore
 
 #### But I like Trees 
 
-First of we started with, Decision Trees, which in there basic format allow for explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. The resulting decision trees, were unsurprisingly rather complex, however still provide some insight in regarde to their decision structure: 
+First of we started with, Decision Trees, which in there basic format allow for explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. Consequently the resulting decision trees, were unsurprisingly rather complex, however still provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels.  
 
 {% include_relative images/treeviz.svg %} 
 
