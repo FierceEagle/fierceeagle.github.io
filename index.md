@@ -175,9 +175,12 @@ To contribute our part, addionally to our previous analysis based on random fore
 
 First of we started with, Decision Trees, which in there basic format allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. Consequently the resulting decision trees, were unsurprisingly rather complex, however still provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels.  
 
-{% include_relative images/treeviz.svg %} 
+{% include_relative images/Ethnicity_Product_dt.svg %} 
 
 Looking into the Decision tree we can observe similar behavior to the 
+
+{% include_relative images/Income_Product_dt.svg %} 
+
 
 <a id='AssociationRules'></a>
 
