@@ -101,6 +101,8 @@ As a sidenode, a Clustering and Labeling conducted for policy makers in the Grea
 
 To address some pitfalls of our approach, the clustering is mainly conducted on distinct subsets of data, like ethnicity, religion, or household income, thus it neither addresses certain interplay, for example the distinction between a rich or poor minority community, or the important distictions between Indian, Pakistani and Bagladeshi, as the data groups them under the joined label Asian, which furthermore also includes any South-East Asian and Central Asian. *Facultative one could see this as the even more correct approach given the context of the UK*. 
 
+{% include Sunburst_.html %}
+
 An addional pitfall is that the approach leads to unbalanced label distribution, as certain distinct groups in a society are less common and in some instances prevents extraction of subgroups altogether as they are far to dispersed over the whole set of areas and overshadowed by other groups. One example, missing area with middle eastern, sikhs or jewish majority. The effects of these pitfalls can be seen later on in regard to the predicitve models, and will be addressed during the model learning stage. 
 
 To explore our clustering results on a cross-sectional basis for each area, you can use the interactive map below:
@@ -194,8 +196,6 @@ We focus in our analysis on rules in the form nutrient/product -> socio-economic
 
 
 {% include AssociationRuleTable_Nutrients.html %}
-
-
 
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
