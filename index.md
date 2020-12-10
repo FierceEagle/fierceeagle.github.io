@@ -125,10 +125,10 @@ After the basic analysis, the main goal we set out to achieve is training models
 
 We started off with regression analysis to predict contious outcome values based on nutrional facts. To improve the performance, we removed outliers. While the general data quality was near perfect in regard to completeness and missing values, we focused on identifying and removing extreme values using [Local Outlier Fields](https://www.dbs.ifi.lmu.de/Publikationen/Papers/LOF.pdf). 
 
-The resulting regression model were able to predict contious variables such as median area income or the percentage of *BAME* (***B****lack*, ***A****sian* and ***M****inority* ***E****thnic*) inhabitants in an area with a high coeffiecent of determination of 0. . From the parameters we can learn that most of the input variables have a very significant impact on the prediction result and thus can derive that they have an predictive interplay  
+The resulting regression model were able to predict contious variables such as median area income or the percentage of *BAME* (***B****lack*, ***A****sian* and ***M****inority* ***E****thnic*) inhabitants in an area with a high coeffiecent of determination of 0.6. Furthermore from the parameters we can learn that most of the input variables have a  significant impact on the prediction result and thus can derive that they have an predictive interplay with the target values.
+ 
+### The Forest
 
-### 
-# RandomForest Introduction
 To better address the difference in each area, we switched for the further models from a regression task to a classification task, based on the [clustering and labeling]() we conducted earlier. This allows us to capture and refine better the difference in each area from a single contious feature to the groupings.
 
 For the now classification task, we choose to train a Random Forst Model, which incorporates an ensemble of deep decision trees trained on bootstrapped samples of the data with adapdeted feature selection to increase variety between trees. 
@@ -149,15 +149,13 @@ What we can learn from this is that in case the model misclassified a test examp
 
 ### Learning what the model says
 
-Interpreting random forest models in regard to their decision process is hard, as they present ensembles of 10's - 100's of decision trees learned in a way to increase varity in the decision process of an individual tree. *Talking about not to see the wood for the trees*. Consequently the individual trees are already complex, and over the size of the ensemble close to incomprehensible. However, to at least get a feeling for the underlying process we can use the *feature importance*, the contribution of individual features, to the final model. 
+Interpreting random forest models in regard to their decision process is hard, as they present ensembles of 10's - 100's of decision trees learned in a way to increase varity in the decision process of the individual trees. *Talking about not to see the wood for the trees*. Consequently the individual trees are already complex, and over the size of the ensemble close to incomprehensible. However, to at least get a feeling for the underlying process we can use the *feature importance*, the contribution of individual features, to the final model. 
 
 {% include FeatureImportance_Ethnicity_RandomForest_Products.html %}
 
-We can learn that especially the consumption of water, red meats and wine are often choosen splitting features in the individual trees of the classifier. Thus these features provide good point to differtiate different groups, in this case the ethnic make-up, of an area. However we cannot easily learn what the differentation founding on the feature is. Another example, in this case for an classifier trained on nutrional facts and areas religion: 
+From this example we were able to learn that for the model predicting ethnicity based on product consumption, the consumption of water, red meats and wine are often choosen splitting features in the individual trees of the classifier. Thus these features provide good point to differtiate different groups, in this case the ethnic make-up, of an area. However we can not easily learn what the differentation founding on the feature is, i.e how we would split the population based on it. Another example, in this case for an classifier trained on nutrional facts and areas religion: 
 
 {% include FeatureImportance_Religion_RandomForest_Nutrients.html %}
- 
-
 
 <a id='Responsible'></a>
 
@@ -175,17 +173,15 @@ To contribute our part, addionally to our previous analysis based on random fore
 
 #### But I like Trees 
 
-First of we started with, Decision Trees, which in there basic format allow for explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. Consequently the resulting decision trees, were unsurprisingly rather complex, however still provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels.  
+First of we started with, Decision Trees, which in there basic format allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. Consequently the resulting decision trees, were unsurprisingly rather complex, however still provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels.  
 
 {% include_relative images/treeviz.svg %} 
 
 Looking into the Decision tree we can observe similar behavior to the 
 
-
-
 <a id='AssociationRules'></a>
 
-#### The OG Mining Buzzword
+#### *Rule Britannia*
 
 An alternative in regard to explainable models is the usage of Association Rules, that derive rules in the form $antecedents \rightarrow consequents$, based on observation of common item sets. In this instance, we used the different labels of the groupings as items and addionally, added especially high and low consumption of a certain product or proportion of a nutrient or nutrional fact as further items. 
 
@@ -205,12 +201,17 @@ Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami u
 
 ### Cool England (and *Christmas*) Facts and Trivia: 
 
-- The Royal Family of *Windsor* based on its german Ancestry, pre-WW1 named *von Saxen-Coburg und Gotha*, in comparsion to other UK families does celebrate Christmas on Christmas Eve, the 24th of December, not the morning of the 25th. 
-- On related reason, the royal connection to the *House of Hannover* brought  over from Germany the tradition of christmas trees and introduced it to the British Ilse. 
-- Until the Betting and Gaming Act of 1960, the only Sport allowed to be played on Christmas Day was Archery, following the Unlawful Games Act of 1541 to promote the usage of the Longbow in comparsion to less publicly useful sports, such as Football, ... pardon, Soccer. 
-- Following the 31th of December the only person in the UK not needing a passport to legally travel into the EU is Queen Elizabeth II, as all UK passports are issued in her name, she does not requiere one.
-- For a similar reason she does not requiere a drivers license, although she earned one for diving a lorry during the Blitz. 
-- The word trivia is derived from the latin words *tri* and *via*, with the former meaning *three* and the later *road*. The romans, big into public infrastructure, build many roads and on places where multiple med were easy places to publish public and common knowledge, i.e trivial, knowledge. 
+The Royal Family of *Windsor* based on its german Ancestry, pre-WW1 named *von Saxen-Coburg und Gotha*, in comparsion to other UK families does celebrate Christmas on Christmas Eve, the 24th of December, not the morning of the 25th. 
+
+On related reason, the royal connection to the *House of Hannover* brought  over from Germany the tradition of christmas trees and introduced it to the British Isle. 
+
+Until the Betting and Gaming Act of 1960, the only Sport allowed to be played on Christmas Day was Archery, following the Unlawful Games Act of 1541 to promote the usage of the Longbow in comparsion to less publicly useful sports, such as Football, ... pardon, Soccer. 
+
+Following the 31th of December the only person in the UK not needing a passport to legally travel into the EU is Queen Elizabeth II, as she is the offical issuer of all UK passports. 
+
+For a similar reason she does not requiere a drivers license, although she earned one for driving a lorry during the Blitz.
+
+The word trivia is derived from the latin words *tri* and *via*, with the former meaning *three* and the later *road*. The romans, big into public infrastructure, build many roads and places where multiple med were easy places to publish public and common knowledge, i.e trivial, knowledge. 
 
 <a id='Conclusion'></a>
 
