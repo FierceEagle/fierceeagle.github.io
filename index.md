@@ -1,4 +1,4 @@
-{% include_relative images/charles-postiaux-Q6UehpkBSnQ-unsplash.jpg %}
+{% include_relative images/tower_bridge.jpg %}
 
 ## Where we are
 
