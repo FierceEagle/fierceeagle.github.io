@@ -1,4 +1,4 @@
-{% include charles-postiaux-Q6UehpkBSnQ-unsplash.jpg %}
+{% include_relative charles-postiaux-Q6UehpkBSnQ-unsplash.jpg %}
 
 ## Where we are
 
