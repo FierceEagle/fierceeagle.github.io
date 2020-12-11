@@ -1,4 +1,3 @@
-{% include_relative images/tower_bridge.jpg %}
 
 ## Where we are
 
