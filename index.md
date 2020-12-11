@@ -26,7 +26,7 @@ Common concerns in nutrion include high Saturated Fat consumption, high Sugar Co
 
 ## What the Data says
 
-The original Tesco data set was created based on purchase histories of Tesco Loyality Card holders, that were then aggreagted based on the place of residency of the card holder to different level of granularity of census areas in the Greater London area. The data set, while enormus with 411 million individual purchased items, does not allow to attribute the purchases to individuals or groups of individuals, i.e families. On the one hand, because this would present a clear breach of privacy and on the other hand, because the cards don't carry this attributive information. Instead the researchers opted for tracking consumption habits in the different areas based on an average area product, an abstraction of nutirent content for each product that is consumed in the area. This approach further balances out population differnces in each of the collection areas. As the three types of granularity we consider, Lower Super Output Areas **LSOAs**, Medium Super Output Areas **MSOAs**, and **Wards**, do not all address the issue of imbalanced population distribution. Especially Wards, which represent electoral boundries and not census areas follow a flat peaked distribution.    
+The original Tesco data set was created based on purchase histories of Tesco Loyality Card holders, that were then aggreagted based on the place of residency of the card holder to different level of granularity of census areas in the Greater London area. The data set, while enormus with 411 million individual purchased items, does not allow to attribute the purchases to individuals or groups of individuals, i.e families. On the one hand, because this would present a clear breach of privacy and on the other hand, because the cards don't carry this attributive information. Instead the researchers opted for tracking consumption habits in the different areas based on an average area product, an abstraction of nutirent content for each product that is consumed in the area. This approach further balances out population differnces in each of the collection areas as they are roughly equally sized and addioanlly filters out noise in regard to special purchase habits, i.e tourist consuming convenience products in the center city area, higher alcohol consumption near to a stadium and so on, as purchases are only tracked for loyality card holders and attributed to their home area, not the purchase area. The the three types of granularity we consider, Lower Super Output Areas **LSOAs**, Medium Super Output Areas **MSOAs**, and **Wards**, do not all address the issue of imbalanced population distribution. Especially Wards, which represent electoral boundries and not census areas follow a flat peaked distribution.
 
 {% include Population_Distribution.html %}
 
@@ -91,7 +91,7 @@ For the grouped areas we identified labels based on the shared attributes we use
 
 {% include Map_Factory_Education.html %}
 
-One example case was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second grouping we can see that these include the areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisity campi in London. 
+One example case was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second grouping we can see that these include the areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisity campi in London. Analysing our ethnicity clustering, we could compare it with work conducted for the Wikimedia foundation, and were indeed able to discover similar distribution structures as in the [population plots](https://en.wikipedia.org/wiki/Ethnic_groups_in_London). 
 
 As a sidenode, a Clustering and Labeling conducted for policy makers in the Greater London area is available, which provides groupings based on a wider range of *joint*-attributes and deeper analysis of socio-economic trends in the UK. However is sadly less applicable by us, as it only provides this information on an LSOA / OA level. However it still provides some [interesting insights](https://data.london.gov.uk/dataset/london-area-classification) and further considerations for more refined clustering approaches on socio-economic data.
 
@@ -111,7 +111,6 @@ To explore our clustering results on a cross-sectional basis for each area, you 
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
 
-
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
 
 
@@ -125,7 +124,7 @@ We started off with regression analysis to predict contious outcome values based
 
 The resulting regression model were able to predict contious variables such as median area income or the percentage of *BAME* (***B****lack*, ***A****sian* and ***M****inority* ***E****thnic*) inhabitants in an area with a high coeffiecent of determination of 0.6. Furthermore from the parameters we can learn that most of the input variables have a  significant impact on the prediction result and thus can derive that they have an predictive interplay with the target values.
  
-### The Forest
+### The *Sherwood* Forest
 
 To better address the difference in each area, we switched for the further models from a regression task to a classification task, based on the [clustering and labeling]() we conducted earlier. This allows us to capture and refine better the difference in each area from a single contious feature to the groupings.
 
@@ -147,31 +146,34 @@ What we can learn from this is that in case the model misclassified a test examp
 
 ### Learning what the model says
 
-Interpreting random forest models in regard to their decision process is hard, as they present ensembles of 10's - 100's of decision trees learned in a way to increase varity in the decision process of the individual trees. *Talking about not to see the wood for the trees*. Consequently the individual trees are already complex, and over the size of the ensemble close to incomprehensible. However, to at least get a feeling for the underlying process we can use the *feature importance*, the contribution of individual features, to the final model. 
+Interpreting random forest models in regard to their decision process is hard, as they present ensembles of 10's - 100's of decision trees learned in a way to increase varity in the decision process of the individual trees. *Talking about not to see the wood for the trees*. Consequently the individual trees are already complex, and over the size of the ensemble it is incomprehensible. However, to at least get a feeling for the underlying process we can use the *feature importance*, the contribution of individual features, to the final model. 
 
 {% include FeatureImportance_Ethnicity_RandomForest_Products.html %}
 
-From this example we were able to learn that for the model predicting ethnicity based on product consumption, the consumption of water, red meats and wine are often choosen splitting features in the individual trees of the classifier. Thus these features provide good point to differtiate different groups, in this case the ethnic make-up, of an area. However we can not easily learn what the differentation founding on the feature is, i.e how we would split the population based on it. Another example, in this case for an classifier trained on nutrional facts and areas religion: 
+From this example we were able to learn that for the model predicting ethnicity based on product consumption, the consumption of water, red meats and wine are often choosen splitting features in the individual trees of the classifier. Thus these features provide good point to differtiate groups, in this case the ethnic make-up, of an area. However we can not easily learn what the differentation founding on the feature is, i.e how we would split the population based on it. Another example, in this case for an classifier trained on nutrional facts and areas religion: 
 
 {% include FeatureImportance_Religion_RandomForest_Nutrients.html %}
 
 <a id='Responsible'></a>
+
+Here we can see, 
+
+However again we have the same problem, while we can learn that these features are relevant in the final decision process, how do they lead to the final decision. *How do these features make groups distinguishable from each other?*  
+
 
 ### Can we go back?
 
 To further improve on performance of our classifier, we might now go with an even more complex model or refine our clustering approach, however in this instance we might not opt for this option, and instead ask ourself, if we can go back. 
 
 A major concern with complex models such as random forests and boosting trees is that, while they perform really well and are robust, they present a level of obfuscation to the deriviation of their final result. For a human they present a near-to-*blackbox* that transforms an input into a output, without granting the individual understanding of its decision mechanism. 
-
 Addressing this concern as Responsible Data Science has become an increasing issue, especially when working with data concering sensitive data both in regard to individuals and to societal analysis. 
-
 To contribute our part, addionally to our previous analysis based on random forests, we tried to train models that provide a better explainablility to their result and thus get at least a cautious look into the black box.   
 
 <a id='Trees'></a>
 
-#### But I like Trees 
+#### But I still like Trees 
 
-First of we started with, Decision Trees, which in there basic format allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. Consequently the resulting decision trees, were unsurprisingly rather complex, however still provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels.  
+First of we started with Decision Trees, which in there basic format allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. Consequently the resulting decision trees, were unsurprisingly rather complex, however still provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels.  
 
 {% include_relative images/Ethnicity_Product_dt.svg %} 
 
@@ -179,6 +181,8 @@ Looking into the Decision tree we can observe similar behavior to the
 
 {% include_relative images/Income_Product_dt.svg %} 
 
+
+*A short comment on the visualization choosen, sadly, while generally great, in some instances the leaf nodes are not correctly color coded, given their true content, we are currently working on addressing this isse with the authors of the package. As our main analysis is focused on the major differentiation, we still liked to utilize this visualization, however need to mention this caveat*
 
 <a id='AssociationRules'></a>
 
@@ -195,6 +199,25 @@ We focus in our analysis on rules in the form nutrient/product -> socio-economic
 
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
+
+### *Land's End*
+
+We explored the 
+
+
+#### To improve the Recipie 
+
+After rounding up the analysis, we want to take a final look back and consider what can be done better and were we could extend further from the foundation we have build here.  
+
+As a next step, What we might consider is looking deeper into the data to find conjoint clustering and groupings based on a wider range of socio-economic attributes. The most obvious example would be the differentiation between the major minorities in the UK, Indian, Pakistani and Bangladeshi, which in our approach got clustered together based on the skewed singluar ethnicity attribute. An example to improve this, would be based on adding majority religion to the clustering as further attributes, as thus we could better differentiate between both groups, however this might also introduce further side-effect, thus we kept it simpler for our analysis.  
+
+Further efforts could be spend looking into data on a deeper granularity. In our analysis we focused on studying MSOA, as they provide a high representativness in the origial Tesco data set, while also being more numerous than Wards. LSOA fall down faster in regard to representativness, however could introduce new avenues to groupings, as smaller communitites are not overshadowed by a larger area population. Thus, this could allow to extend the origial groupings and to address more socio-economic categories, single vs. [*DINK*](https://en.wikipedia.org/wiki/DINK) vs. family households, population density and dwelling type, social welfare receipients, age structure, which were sadly less differentiable on the MSOA level. In regard to the models that we trained, more training data would especially help the Random Forest classifier, and while not solving the label imbalance, as this is to expect in regard to human populations, but at least create more variety inside each category, which might be better than our approach of using synthetic data. 
+
+Last, but not least, in regard to the model training we conducted, further refinement to the methodology we used could be applied to improve the models performance. However, this was not our main goal with the models we had in mind, as we wanted to use the models to help bootstrap us learning the reasons why they work and which are the crucial factors in determining differences between groups based on nutrion and product consumption. 
+
+
+#### 
+
 
 <a id='EnglandFacts'></a>
 
