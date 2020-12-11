@@ -78,8 +78,6 @@ As an alternative hypothesis this can also be attributed, at least in part, to s
 
 As an important first step to explore the population of London, we need to subdivide the population of London into ares with high similarity in regard to socio-economic make-up. To achieve this, we conducted Agglomorative Hierachical Clustering, to identify most similar subgrouping of the population based on attributes, such as Education, Median Household Income, Ethnicity and Religion. We identified a number of groupings, i.e clusters, for the different attributes based on high silhoutte score.   
 
-{% include Map_Factory_Ethnicity.html %}
-
 
 <a id='Labeling'></a>
 
@@ -94,8 +92,6 @@ For the grouped areas we identified labels based on the shared attributes we use
 {% include Map_Factory_Education.html %}
 
 One example case was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second grouping we can see that these include the areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisity campi in London. 
-
-{% include Map_Factory_Religion.html %}
 
 As a sidenode, a Clustering and Labeling conducted for policy makers in the Greater London area is available, which provides groupings based on a wider range of *joint*-attributes and deeper analysis of socio-economic trends in the UK. However is sadly less applicable by us, as it only provides this information on an LSOA / OA level. However it still provides some [interesting insights](https://data.london.gov.uk/dataset/london-area-classification) and further considerations for more refined clustering approaches on socio-economic data.
 
