@@ -91,11 +91,11 @@ For the grouped areas we identified labels based on the shared attributes we use
 
 {% include Map_Factory_Education.html %}
 
-One example case was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second grouping we can see that these include the areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisity campi in London. Analysing our ethnicity clustering, we could compare it with work conducted for the Wikimedia foundation, and were indeed able to discover similar distribution structures as in the [population plots](https://en.wikipedia.org/wiki/Ethnic_groups_in_London). 
+One example case was the groupings based on the education level of the areas population, which resulted in the model reaching a high silhoutte score for 3 clusters. For these three clusters we then analyzed the areas median number of inhabitants with a certain education level tracked in the census. For the first grouping we discovered an especially high number of inhabitants having a Level 4 or higher education level, which in the UK represents people with at least a certificate of higher education. For the second grouping we can see that these include the areas with an exceptionally high student population, which we can then further confirm, as these areas are those directly located around the major univerisity campi in London. Analysing our ethnicity clustering, we could compare it with work conducted for the Wikimedia foundation, and were indeed able to discover similar population distribution structures as in the [population plots](https://en.wikipedia.org/wiki/Ethnic_groups_in_London). 
 
-As a sidenode, a Clustering and Labeling conducted for policy makers in the Greater London area is available, which provides groupings based on a wider range of *joint*-attributes and deeper analysis of socio-economic trends in the UK. However is sadly less applicable by us, as it only provides this information on an LSOA / OA level. However it still provides some [interesting insights](https://data.london.gov.uk/dataset/london-area-classification) and further considerations for more refined clustering approaches on socio-economic data.
+As a sidenode, a Clustering and Labeling conducted for policy makers in the Greater London area is available, which provides groupings based on a wider range of *joint*-attributes and deeper analysis of socio-economic trends in the UK. However is sadly less applicable by us, as it only provides this information on an LSOA / OA level. However it still provides some [interesting reading](https://data.london.gov.uk/dataset/london-area-classification) and further considerations for more refined clustering approaches on socio-economic data.
 
-To address some pitfalls of our approach, the clustering is mainly conducted on distinct subsets of data, like ethnicity, religion, or household income, thus it neither addresses certain interplay, for example the distinction between a rich or poor minority community, or the important distictions between Indian, Pakistani and Bagladeshi, as the data groups them under the joined label Asian, which furthermore also includes any South-East Asian and Central Asian. *Facultative one could see this as the even more correct approach given the context of the UK*. 
+To address some pitfalls of our approach, the clustering is mainly conducted on distinct subsets of data, like ethnicity, religion, or household income, thus it neither addresses certain interplay, for example the distinction between a rich or poor minority community, or the distictions between Indian, Pakistani and Bagladeshi, as the data groups them under the joined label Asian, which furthermore also includes any South-East Asian and Central Asian. *Facultative one could see this as the even more correct approach given the context of the UK*. 
 
 {% include Sunburst_.html %}
 
@@ -175,14 +175,12 @@ To contribute our part, addionally to our previous analysis based on random fore
 
 First of we started with Decision Trees, which in there basic format allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. Consequently the resulting decision trees, were unsurprisingly rather complex, however still provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels.  
 
-{% include_relative images/Ethnicity_Product_dt.svg %} 
+{% include_relative images/Income_Product_dt.svg %}
 
-Looking into the Decision tree we can observe similar behavior to the 
-
-{% include_relative images/Income_Product_dt.svg %} 
+First off, we can see that the fist 
 
 
-*A short comment on the visualization choosen, sadly, while generally great, in some instances the leaf nodes are not correctly color coded, given their true content, we are currently working on addressing this isse with the authors of the package. As our main analysis is focused on the major differentiation, we still liked to utilize this visualization, however need to mention this caveat*
+*A short comment on the visualization choosen, sadly, while generally great, in some instances the leaf nodes are not correctly color coded given their true content. We are currently working on coming into contact with the authors of the package to address this issue. As our main analysis is focused on the major differentiation, we still liked to utilize this visualization, however need to mention this caveat*
 
 <a id='AssociationRules'></a>
 
