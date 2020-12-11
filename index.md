@@ -154,6 +154,9 @@ From this example we were able to learn that for the model predicting ethnicity 
 
 {% include FeatureImportance_Religion_RandomForest_Nutrients.html %}
 
+
+# Discussion RANDOMFOREST
+
 <a id='Responsible'></a>
 
 Here we can see, 
@@ -173,14 +176,13 @@ To contribute our part, addionally to our previous analysis based on random fore
 
 #### But I still like Trees 
 
-First of we started with Decision Trees, which in there basic format allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. Consequently the resulting decision trees, were unsurprisingly rather complex, however still provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels.  
+First of we started with Decision Trees, which in there basic format allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. To address the issue of complexity and overfitting we utilized a pruning method, removing smaller and indecisive splits of the tree classifier. The resulting decision trees, were unsurprisingly still rather complex, however provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels. Many of the trees we trained, did perform worse than the random forest models for the same features and targets, however in many instances not to an extensive amount. For example in a more extreme case the following decision tree model achieves a balanced accuracy of 0.797 on the test set, while the random forest model did only 0.801, thus only a marginal difference. The random forest however achieves also a higher base accuracy and a better F1 score. *Lets look into the decion tree model*. 
+
+{% include_relative images/Religion_Product.svg %}
+
+First off, we can see that the fist and most definit split is based on the protein consumption, we can see that the majority of areas with a Christian majority have a higher protein consumption than the areas dominated by the other groups. In addition to this for the second layer splits, we can see that fat and nutrient consumption are the most decisive attributes. The former especially divides between the majority christian and majority muslim areas. And further down allows again for the divsion between Hindu and Muslim areas. 
 
 {% include_relative images/Income_Product_dt.svg %}
-
-First off, we can see that the fist 
-
-
-*A short comment on the visualization choosen, sadly, while generally great, in some instances the leaf nodes are not correctly color coded given their true content. We are currently working on coming into contact with the authors of the package to address this issue. As our main analysis is focused on the major differentiation, we still liked to utilize this visualization, however need to mention this caveat*
 
 <a id='AssociationRules'></a>
 
