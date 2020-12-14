@@ -67,9 +67,9 @@ Representativnes allows us to look into the interrelationships that cause an are
 
 {% include Correlation_Representativness_Norm_White.html %}
 
-Most of the correlations are rather weak, however, they can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. An interesting tidbit to add to this, is that this seems especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. 
+Most of the correlations are rather weak, however, they can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. An interesting tidbit to add to this, is that this seems especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. Addionally to consider in this regard is if the effect in this instance is based of the Inhabitants of these areas choosing Tesco as their store, or if Tesco as a Cooperation choose these inhabitants as their customer. Sadly without further information about Tescos modus operandi in regard to store openings and their aimed for customer base, we can not easily answer this question any further.
 
-As an alternative hypothesis this can also be attributed, at least in part, to skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames, which introduces a bias towards the more ethnically diverse areas of northern London and its urban core. 
+Further to consider at least in part, is skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames, which introduces a bias towards the more ethnically diverse areas of northern London and its urban core. 
 
 ### So we meet again Mr. Snow
 
@@ -77,20 +77,29 @@ Today is the day, when the snake catches its tail. During the [1854 Cholera epid
 
 {% include Correlation_Water_Wealth.html %}
 
-A question initially springing to our attention during analysing correlation between different socio-economic facts and product consumption was why water consumption does strongly correlate with area median income and different ethnicities, especially as in this case we are considering water purchased in supermarkets, not tap water. Early on this lead us to exploring the interrelation between social facts and economic facts about an area.  
+A question initially springing to our attention during analysing correlation between different socio-economic facts and product consumption, was why water consumption does strongly correlate with area median income and different ethnicities. Especially as in this case we are considering water purchased in supermarkets, not tap water. Early on this lead us to exploring the interrelation between social facts and economic facts about an area.  
 
-We might miss a few crucial puzzle piece in our investigation, one crucial flaw is that we only record consumption habits from supermarket purchases usign loyality cards, consequently information about gastronomy consumption is missing and even small purchases might be missing.
-Water purchased in supermarkets is carbonated, tap water is not, the liking for the former could fall out different along cultural and culinary lines. Water quality might differ in low income and high income areas, based on housing age and maintainence quality, sadly water quality does not easily conform to census area boundaries based on the underlying infrastructure. *A [fact](https://www.ph.ucla.edu/epi/snow/watercompanies.html) known by John Snow*. However, the water consumption does not map to 
+A few working theories we have are:
 
+Water purchased in supermarkets is carbonated, tap water is not, the liking for the former could fall out different along cultural and culinary lines.
+
+Missing a few crucial puzzle piece in our investigation, one crucial flaw is that we only record consumption habits from supermarket purchases using loyality cards, consequently information about gastronomy consumption is missing and even small purchases might be missing. This can also represent itself in consumption habits of Londoners.
+
+The store locations from which the data was sourced are unevenly distributed over the Greater London area, one consequence could be that heavy produce, such as water is more likely to be bought by people at these stores living close by, especially in a city where more people are relying on public transportation. As the areas were many stores located are the northern parts and the urban core, this could skew the picture towards ethnically diverse communities living in the area closer to the store.  
+
+Water quality might differ in low income and high income areas, based on housing age and maintainence quality, sadly water quality does not easily conform to census area boundaries based on the underlying infrastructure. *A [fact](https://www.ph.ucla.edu/epi/snow/watercompanies.html) known by John Snow*. However, the water consumption does not map to 
+
+Sadly, while this is a interesting mystery, we are not able to find a clear solution just now, however we are encouraged to solve this rather enticing mystery. 
 
 {% include Map_Factory_Water.html %}
 
+--- 
 
 <a id='Londoners'></a>
 
 ## The *who* is *who* of London
 
-As an important first step to explore the population of London, we need to subdivide the population of London into ares with high similarity in regard to socio-economic make-up. To achieve this, we conducted Agglomorative Hierachical Clustering, to identify most similar subgrouping of the population based on attributes, such as Education, Median Household Income, Ethnicity and Religion. We identified a number of groupings, i.e clusters, for the different attributes based on high silhoutte score.   
+As an important next step to explore the consumption habits of Londoners, we need to subdivide the population of London into ares with high similarity in regard to socio-economic make-up. To achieve this, we conducted Agglomorative Hierachical Clustering, to identify most similar subgrouping of the population based on attributes, such as Education, Median Household Income, Ethnicity and Religion. We identified a number of groupings, i.e clusters, for the different attributes based on high silhoutte score.   
 
 
 <a id='Labeling'></a>
@@ -127,6 +136,7 @@ Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami u
 
 Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
 
+---
 
 <a id='Ensemble'></a>
 
@@ -169,14 +179,18 @@ From this example we were able to learn that for the model predicting ethnicity 
 {% include FeatureImportance_Religion_RandomForest_Nutrients.html %}
 
 
-# Discussion RANDOMFOREST
 
-<a id='Responsible'></a>
+
+
 
 Here we can see, 
 
 However again we have the same problem, while we can learn that these features are relevant in the final decision process, how do they lead to the final decision. *How do these features make groups distinguishable from each other?*  
 
+
+--- 
+
+<a id='Responsible'></a>
 
 ### Can we go back?
 
@@ -196,9 +210,12 @@ First of we started with Decision Trees, starting from the top root node the dat
 
 First off, we can see that the fist and most definit split is based on the protein consumption, we can see that the majority of areas with a Christian majority have a higher protein consumption than the areas dominated by the other groups. In addition to this for the second layer splits, we can see that fat and nutrient consumption are the most decisive attributes. The former especially divides between the majority christian and majority muslim areas. And further down allows again for the divsion between Hindu and Muslim areas. 
 
+Another interesting tree, was the one based on product consumption used to predict area income. Analysing the tree we can already discover some divind lines between, 
+
 {% include_relative images/Income_Product_dt.svg %}
 
 
+---
 
 <a id='AssociationRules'></a>
 
@@ -219,7 +236,6 @@ Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami u
 ### *Land's End*
 
 Today we explored the interrelation of socio-economics and food consumption in the Greater London area.  
-
 
 #### To improve the Recipie 
 
