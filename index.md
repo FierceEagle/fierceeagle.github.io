@@ -3,7 +3,7 @@
 
 London, England, Capital of an old Empire that sailed forth to conquer the world in search of tea and spices only to return to a diet of <a href="http://www.foodsofengland.co.uk/peawet.htm">pea wet</a> and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequently also one of the most multi-culinary ones. This gives us the opportunity to analyse eating habits of modern Londoners to find out how our plates divide us and how they define us. 
 
-In the following we want to analyse a data set of purchases by Tesco Loyalty Card holders in districts of the greater London metropolitan area, and combine it with information of the areas' inhabitants, collected by the greater London census, to get insight into the interplay between nutrition and socio-economic realities.  
+In the following we want to analyse a data set of purchases by Tesco Loyalty Card holders in districts of the Greater London metropolitan area, and combine it with information of the areas' inhabitants, collected by the Greater London census, to get insight into the interplay between nutrition and socio-economic realities.  
 
 
 ### What is a Tesco?
@@ -63,7 +63,7 @@ To answer this question we looked first into an important information that the r
 
 {% include Map_Factory_Representativness.html %}
 
-Representativeness allows us to look into the interrelationships that cause an area to have a high representativeness and thus many Tesco Customers, or rather loyalty card holding customers. Looking into the Spearman correlation, statistically significant correlation between representativeness and socio-economic factors can be observed for multiple groups, both positivity and negatively:
+Representativeness allows us to look into the interrelationships that cause an area to have a high representativeness and thus many Tesco Customers, or rather loyalty card holding customers. Looking into the Spearman correlation, statistically significant correlation between representativeness and socio-economic factors can be observed for multiple groups, both positively and negatively:
 
 {% include Correlation_Representativness_Norm_White.html %}
 
