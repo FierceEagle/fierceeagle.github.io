@@ -69,9 +69,22 @@ Representativnes allows us to look into the interrelationships that cause an are
 
 Most of the correlations are rather weak, however, they can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. An interesting tidbit to add to this, is that this seems especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. 
 
-As an alternative hypothesis this can also be attributed, at least in part, to skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames, which introduces a bias towards the more ethnically diverse areas of northern London.
+As an alternative hypothesis this can also be attributed, at least in part, to skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames, which introduces a bias towards the more ethnically diverse areas of northern London and its urban core. 
 
---- 
+### So we meet again Mr. Snow
+
+Today is the day, when the snake catches its tail. During the [1854 Cholera epidemic](https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak) in London, the researcher John Snow applied techniques of data collection, [visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/1280px-Snow-cholera-map-1.jpg) and analysis to halt the spread of the virus, through this he became both one of the precursors of modern epidemiologists and the avant-garde of data science. Today, we can feel honored that we can say, that we are back at the beginning, analysing water consumption in London during a pandemic. 
+
+{% include Correlation_Water_Wealth.html %}
+
+A question initially springing to our attention during analysing correlation between different socio-economic facts and product consumption was why water consumption does strongly correlate with area median income and different ethnicities, especially as in this case we are considering water purchased in supermarkets, not tap water. Early on this lead us to exploring the interrelation between social facts and economic facts about an area.  
+
+We might miss a few crucial puzzle piece in our investigation, one crucial flaw is that we only record consumption habits from supermarket purchases usign loyality cards, consequently information about gastronomy consumption is missing and even small purchases might be missing.
+Water purchased in supermarkets is carbonated, tap water is not, the liking for the former could fall out different along cultural and culinary lines. Water quality might differ in low income and high income areas, based on housing age and maintainence quality, sadly water quality does not easily conform to census area boundaries based on the underlying infrastructure. *A [fact](https://www.ph.ucla.edu/epi/snow/watercompanies.html) known by John Snow*. However, the water consumption does not map to 
+
+
+{% include Map_Factory_Water.html %}
+
 
 <a id='Londoners'></a>
 
@@ -177,13 +190,15 @@ To contribute our part, addionally to our previous analysis based on random fore
 
 #### But I still like Trees 
 
-First of we started with Decision Trees, which in there basic format allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. To address the issue of complexity and overfitting we utilized a pruning method, removing smaller and indecisive splits of the tree classifier. The resulting decision trees, were unsurprisingly still rather complex, however provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels. Many of the trees we trained, did perform worse than the random forest models for the same features and targets, however in many instances not to an extensive amount. For example in a more extreme case the following decision tree model achieves a balanced accuracy of 0.797 on the test set, while the random forest model did only 0.801, thus only a marginal difference. The random forest however achieves also a higher base accuracy and a better F1 score. *Lets look into the decion tree model*. 
+First of we started with Decision Trees, starting from the top root node the data is split based on different features into smaller groups that then again can be split further. Decision Trees through this allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massivly in depth and general complexity. In our model training we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also lead to getting far more complex and nested trees in comparsion to a tree trained on accuracy. To address the issue of complexity and overfitting we utilized a pruning method, removing smaller and indecisive splits of the tree classifier. The resulting decision trees, were unsurprisingly still rather complex, however provide some insight in regarde to their decision structure, with special interest layed on the most decisive cuts between labels. Many of the trees we trained, did perform worse than the random forest models for the same features and targets, however in many instances not to an extensive amount. For example in a more extreme case the following decision tree model achieves a balanced accuracy of 0.797 on the test set, while the random forest model did only 0.801, thus only a marginal difference. The random forest however achieves also a higher base accuracy and a better F1 score. *Lets look into the decion tree model*. 
 
 {% include_relative images/Religion_Product.svg %}
 
 First off, we can see that the fist and most definit split is based on the protein consumption, we can see that the majority of areas with a Christian majority have a higher protein consumption than the areas dominated by the other groups. In addition to this for the second layer splits, we can see that fat and nutrient consumption are the most decisive attributes. The former especially divides between the majority christian and majority muslim areas. And further down allows again for the divsion between Hindu and Muslim areas. 
 
 {% include_relative images/Income_Product_dt.svg %}
+
+
 
 <a id='AssociationRules'></a>
 
@@ -203,7 +218,7 @@ Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami u
 
 ### *Land's End*
 
-We explored the 
+Today we explored the interrelation of socio-economics and food consumption in the Greater London area.  
 
 
 #### To improve the Recipie 
