@@ -1,9 +1,9 @@
 
 ## Where we are
 
-London, England, Capital of an old Empire that sailed forth to conquer the world in search of tea and spices only to return to a diet of <a href="http://www.foodsofengland.co.uk/peawet.htm">pea wet</a> and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequently also one of the most multi-culinary ones. This allows us to analyse data about eating habits of modern Londoners to learn what on our plates divide us and what defines us. 
+London, England, Capital of an old Empire that sailed forth to conquer the world in search of tea and spices only to return to a diet of <a href="http://www.foodsofengland.co.uk/peawet.htm">pea wet</a> and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequently also one of the most multi-culinary ones. This gives us the opportunity to analyse eating habits of modern Londoners to find out how our plates divide us and how they define us. 
 
-In the following we want to analyse a data set of the Tesco purchases of Tesco Loyalty Card holders in districts of the Greater London metropolitan area, and combine this with information about the areas inhabitants collected by the Greater London census to form a picture of the interplay between nutrition and socio-economic realities.  
+In the following we want to analyse a data set of purchases by Tesco Loyalty Card holders in districts of the greater London metropolitan area, and combine it with information of the areas' inhabitants, collected by the greater London census, to get insight into the interplay between nutrition and socio-economic realities.  
 
 
 ### What is a Tesco?
@@ -17,13 +17,13 @@ To give a rough outline, we start of with a <a href='#PreCurs'>precursory look <
 Following this, we aim to train predictive models that allows us to 
 <a href='#Ensemble'>predict</a>  socio-economic facts about an area based on their consumption habits. To address the black box approach our chosen models represent, we additionally choose to try to model the prediction using more explainable models, such as Decision Trees and association rules. 
 
-## Why it is important
+## Why this is important
 
-Why is food important, sounds like an easy question to answer, however besides the importance of having sufficient food, the modern day issue in developed countries is having a proper composition and balance of nutrients. An improper diet might not lead to imbalanced <a href="https://en.wikipedia.org/wiki/Humorism">humours</a>, as ancient doctors believed, but has far more intertwined effect on the individuals health. 
+Why is food important, sounds like an easy question to answer. However, besides the importance of having sufficient food, the modern day issue in developed countries is having a proper composition and balance of nutrients. An improper diet might not lead to imbalanced <a href="https://en.wikipedia.org/wiki/Humorism">humours</a>, as ancient doctors believed, but has far more intertwined effect on the individuals health. 
 
-This becomes also important as an issue of public health, as the UK as most other European Countries maintains a socialised healthcare system, in which individual well-being and preventable health-outcomes become a <a href="https://www.bmj.com/content/349/bmj.g5143">societal concern</a>. 
+This becomes also important as an issue of public health, as the UK like most other European Countries maintains a socialised healthcare system, in which individual well-being and preventable health-outcomes become a <a href="https://www.bmj.com/content/349/bmj.g5143">societal concern</a>. 
 
-Common concerns in nutrition include high Saturated Fat consumption, high Sugar Consumption, low Fibre Consumption and a low distribution of nutrients, thus an unbalanced or skewed diet. 
+Common concerns in nutrition include high saturated fat consumption, high sugar consumption, low fibre consumption and a little distribution of nutrients, thus an unbalanced or skewed diet. 
 
 ## What the Data says
 
@@ -31,7 +31,7 @@ The original Tesco data set was created based on purchase histories of Tesco Loy
 
 {% include Population_Distribution.html %}
 
-The Census data we process is provided by the [London Data Stores](https://data.london.gov.uk/) and covers the Data from the most recent Census, 2011, which might seem far off, however is close to the collection year of the Tesco Data in 2015. Some trends of population movement can happen in the four year difference, however, we don't expect to rapid changes in the socio-economic make-up of an area.  
+The Census data we process is provided by the [London Data Stores](https://data.london.gov.uk/) and covers data from the most recent census, 2011, which might seem far off, however is close to the collection year of the Tesco data in 2015. Some shifts in population movement could have happened during those four years, however, we don't expect rapid changes in the socio-economic make-up of an area.  
 
 {% include Multilayer_Nutrient_Plot.html %}
 
@@ -39,11 +39,11 @@ The Census data we process is provided by the [London Data Stores](https://data.
 
 ## What we can learn from the Data
 
-We start of with some precursory data visualization and statistical analysis to provide a feeling for the data we are working with and to present some first insights. Starting off, we applied Spearman correlation to identify statistically significant, *(p < 0.05)*, rank correlations between socio-economic facts and nutrients. 
+We start of with some precursory data visualization and statistical analysis to provide a feeling for the data we are working with and to present some first insights. Starting off, we applied spearman correlation to identify statistically significant, *(p < 0.05)*, rank correlations between socio-economic facts and nutrients. 
 
 {% include Correlation_Nutirents_Different_Ethnicitites.html %}
 
-Looking into the Data we can already make a few interesting observations. First off, we see that there is a strong correlation in multiple groups in regard to fibre, protein, alcohol and sugar consumption, and additionally divergence in regard to the nutrient diversity. We can conjoin this information with a further analysis in regard towards Median Household income, and the amount of inhabitants with the highest degree being a secondary school degree (Level 2) or an academic degree (Level 4+). Especially the high distinctiveness between the latter two in regard to carbohydrate and sugar consumption, the nutrient diversity and alcohol consumption. *Intelligentsia bibent, as my Latin teach would say*. An additional interesting observation is the high correlation between Fibre and Alcohol and area wealth.  
+Looking into the Data we can already make a few interesting observations. First off, we see that there is a strong correlation in multiple groups in regard to fibre, protein, alcohol and sugar consumption, and additionally divergence in regard to the nutrient diversity. We can conjoin this information with a further analysis in regard towards median household income, and the amount of inhabitants with the highest degree being a secondary school degree (Level 2) or an academic degree (Level 4+). Especially the high distinctiveness between the latter two in regard to carbohydrate and sugar consumption, the nutrient diversity and alcohol consumption. *Intelligentsia bibent, as my Latin teach would say*. An additional interesting observation is the high correlation between fibre and alcohol and area wealth.  
 
 {% include Correlation_Nutirents_Income_Eductation_Ethnicitites.html %}
 
@@ -51,7 +51,7 @@ Combining the former observations, in the next step we will look into an areas a
 
 {% include 3D_Plot_White_Median_Income_Alcohol.html %}
 
-Interesting, especially in this context is that, if we divide the data up into the consumption of specific types of products consumed in an area, thus into Wine, Beer and Spirits. We can see the summit line previously observed only to re-occur in regard to Wine consumption, while the pattern is nearly inverted for consumption of Spirits. 
+Interesting, especially in this context is that, if we divide the data up into the consumption of specific types of products consumed in an area, thus into wine, beer and spirits. We can see the summit line previously observed only to re-occur in regard to wine consumption, while the pattern is nearly inverted for consumption of spirits. 
 
 {% include 3D_Multi_Plot_Spirits_Wine.html %}
 
@@ -59,7 +59,7 @@ Interesting, especially in this context is that, if we divide the data up into t
 
 ### Who shops at Tesco
 
-To answer this question we looked first into an important information that the researches provided with the dataset, the relative representativeness that each area achieved. **Representativeness** here represents the ratio of loyalty card holding customers vs. the number of area residence. An area with a low representativeness has few Tesco customers and thus prevents extrapolation, as the few Tesco Customers would then speak for the majority of Residence in an Area. *The similarity to the UKs first-past the post election system is left uncommented by the Author*. The ration was then normalized using min-max-scaling to provide a normalized representativeness, with the most representative area having a representativeness of 1 and the least representative area having a representativeness of 0. 
+To answer this question we looked first into an important information that the researches provided with the dataset, the relative representativeness that each area achieved. **Representativeness** here represents the ratio of loyalty card holding customers vs. the number of area residence. An area with a low representativeness has few Tesco customers and thus prevents extrapolation, as the few Tesco customers would then speak for the majority of residence in an area. *The similarity to the UKs first-past the post election system is left uncommented by the Author*. The ratio was then normalized using a min-max-scaling to provide a normalized representativeness, with the most representative area having a representativeness of 1 and the least representative area having a representativeness of 0. 
 
 {% include Map_Factory_Representativness.html %}
 
@@ -67,13 +67,13 @@ Representativeness allows us to look into the interrelationships that cause an a
 
 {% include Correlation_Representativness_Norm_White.html %}
 
-Most of the correlations are rather weak, however, they can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. An interesting tidbit to add to this, is that this seems especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. Addionally to consider in this regard is if the effect in this instance is based of the Inhabitants of these areas choosing Tesco as their store, or if Tesco as a Cooperation choose these inhabitants as their customer. Sadly without further information about Tescos modus operandi in regard to store openings and their aimed for customer base, we can not easily answer this question any further.
+Most of the correlations are rather weak, however, they can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of southern London. An interesting tidbit to add to this, is that this seems to be the case especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of suburbaniziation during the post-war years, which was later followed by middle class migraint communities. Addionally to consider in this regard is if the effect in this instance is based of the inhabitants of these areas choosing Tesco as their store, or if Tesco as a cooperation choose these inhabitants as their customer. Sadly without further information about Tescos modus operandi in regard to store openings and their aimed for customer base, we can not easily answer this question any further.
 
-Further to consider at least in part, is skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames, which introduces a bias towards the more ethnically diverse areas of northern London and its urban core. 
+Further to consider at least in part, is skewed data collection, as in the original data set a higher number of Tesco stores from which the data was collected were situated north of the Thames, which introduces a bias towards the more ethnically diverse areas of northern London and its urban core. 
 
 ### So we meet again Mr. Snow
 
-Today is the day, when the snake catches its tail. During the [1854 Cholera epidemic](https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak) in London, the researcher John Snow applied techniques of data collection, [visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/1280px-Snow-cholera-map-1.jpg) and analysis to halt the spread of the virus, through this he became both one of the precursors of modern epidemiologists and the avant-garde of data science. Today, we can feel honoured that we can say, that we are back at the beginning, analysing water consumption in London during a pandemic. 
+Today is the day when the snake catches its tail. During the [1854 Cholera epidemic](https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak) in London, the researcher John Snow applied techniques of data collection, [visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/1280px-Snow-cholera-map-1.jpg) and analysis to halt the spread of the virus, through this he became both one of the precursors of modern epidemiologists and the avant-garde of data science. Today, we feel honoured that we can say that we are back at the beginning, analysing water consumption in London during a pandemic. 
 
 {% include Correlation_Water_Wealth.html %}
 
