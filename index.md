@@ -67,11 +67,7 @@ Representativeness allows us to look into the interrelationships that cause an a
 
 {% include Correlation_Representativness_Norm_White.html %}
 
-<<<<<<< HEAD
 Most of the correlations are rather weak, however, they can bring an interesting explaination to results intially discovered by the orginal data set reseachers, which discovered a decreasing representativness and number of transactions in areas of Southern London. An interesting tidbit to add to this, is that this seems especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of Suburbaniziation during the Post-War years, which was later followed by middle class migraint communities. Addionally to consider in this regard is if the effect in this instance is based of the Inhabitants of these areas choosing Tesco as their store, or if Tesco as a Cooperation choose these inhabitants as their customer. Sadly without further information about Tescos modus operandi in regard to store openings and their aimed for customer base, we can not easily answer this question any further.
-=======
-Most of the correlations are rather weak, however, they can bring an interesting explanation to results initially discovered by the original data set researchers, which discovered a decreasing representativeness and number of transactions in areas of Southern London. An interesting titbit to add to this, is that this seems especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of suburbanisation during the Post-War years, which was later followed by middle class migrant communities. 
->>>>>>> 3d9a63887223f43badf0d076ea5d7bdc93fe1689
 
 Further to consider at least in part, is skewed data collection, as in the original data set a higher number of Tesco Stores from which the Data was collected were situated north of the Thames, which introduces a bias towards the more ethnically diverse areas of northern London and its urban core. 
 
@@ -83,12 +79,7 @@ Today is the day, when the snake catches its tail. During the [1854 Cholera epid
 
 A question initially springing to our attention during analysing correlation between different socio-economic facts and product consumption, was why water consumption does strongly correlate with area median income and different ethnicities. Especially as in this case we are considering water purchased in supermarkets, not tap water. Early on this lead us to exploring the interrelation between social facts and economic facts about an area.  
 
-<<<<<<< HEAD
 A few working theories we have are:
-=======
-We might miss a few crucial puzzle piece in our investigation, one crucial flaw is that we only record consumption habits from supermarket purchases using loyalty cards, consequently information about gastronomy consumption is missing and even small purchases might be missing.
-Water purchased in supermarkets is carbonated, tap water is not, the liking for the former could fall out different along cultural and culinary lines. Water quality might differ in low income and high income areas, based on housing age and maintenance quality, sadly water quality does not easily conform to census area boundaries based on the underlying infrastructure. *A [fact](https://www.ph.ucla.edu/epi/snow/watercompanies.html) known by John Snow*. However, the water consumption does not map to 
->>>>>>> 3d9a63887223f43badf0d076ea5d7bdc93fe1689
 
 Water purchased in supermarkets is carbonated, tap water is not, the liking for the former could fall out different along cultural and culinary lines.
 
@@ -108,11 +99,7 @@ Sadly, while this is a interesting mystery, we are not able to find a clear solu
 
 ## The *who* is *who* of London
 
-<<<<<<< HEAD
 As an important next step to explore the consumption habits of Londoners, we need to subdivide the population of London into ares with high similarity in regard to socio-economic make-up. To achieve this, we conducted Agglomorative Hierachical Clustering, to identify most similar subgrouping of the population based on attributes, such as Education, Median Household Income, Ethnicity and Religion. We identified a number of groupings, i.e clusters, for the different attributes based on high silhoutte score.   
-=======
-As an important first step to explore the population of London, we need to subdivide the population of London into areas with high similarity in regard to socio-economic make-up. To achieve this, we conducted _Agglomerative Hierarchical Clustering_, to identify most similar sub-grouping of the population based on attributes, such as Education, Median Household Income, Ethnicity and Religion. We identified a number of groupings, i.e clusters, for the different attributes based on high _silhouette score_.   
->>>>>>> 3d9a63887223f43badf0d076ea5d7bdc93fe1689
 
 
 <a id='Labeling'></a>
@@ -250,12 +237,7 @@ Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami u
 
 Today we explored the interrelation of socio-economics and food consumption in the Greater London area.  
 
-<<<<<<< HEAD
 #### To improve the Recipie 
-=======
-
-#### To improve the Recipe 
->>>>>>> 3d9a63887223f43badf0d076ea5d7bdc93fe1689
 
 After rounding up the analysis, we want to take a final look back and consider what can be done better and were we could extend further from the foundation we have build here.  
 
