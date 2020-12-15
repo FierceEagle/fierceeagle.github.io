@@ -91,7 +91,7 @@ Water quality might differ in low income and high income areas, based on housing
 
 Digging deeper into this topic, we find that consumer’s drinking water habits are a yet unsolved mystery. A US [study](https://iwaponline.com/wp/article-abstract/19/1/1/20521/Mistrust-at-the-tap-Factors-contributing-to-public?redirectedFrom=fulltext) states that Hispanic, Black and foreign-born inhabitants are more likely to state tap water was unsafe. Also low-income households experienced more water insecurity and ethnic minorities were more likely to have negative previous experiences with tap water.
 Another [study](https://onlinelibrary.wiley.com/doi/full/10.1111/coep.12088) finds that bottled water is often attributed to greater safety and better taste. 
-However, these studies are from the US, so who cares!? London still has the [best water of them all](https://www.standard.co.uk/news/official-london-tap-water-is-the-best-in-britain-6835465.html). What would John Snow say to this?
+However, these studies are from the US, so who cares!? London still has the [best water of them all](https://www.standard.co.uk/news/official-london-tap-water-is-the-best-in-britain-6835465.html) and there is no need to carry heavy packs of water around. What would John Snow say to this?
 
 
 Sadly, while this is a interesting mystery, we are not able to find a clear solution just now, however we are encouraged to solve this rather enticing mystery. 
