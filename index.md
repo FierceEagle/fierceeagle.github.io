@@ -89,6 +89,11 @@ The store locations from which the data was sourced are unevenly distributed ove
 
 Water quality might differ in low income and high income areas, based on housing age and maintainence quality, sadly water quality does not easily conform to census area boundaries based on the underlying infrastructure. *A [fact](https://www.ph.ucla.edu/epi/snow/watercompanies.html) known by John Snow*. However, the water consumption does not map to 
 
+While digging deeper into this topic, we found that consumer’s drinking water habits are a yet unsolved mystery. A US [study](https://iwaponline.com/wp/article-abstract/19/1/1/20521/Mistrust-at-the-tap-Factors-contributing-to-public?redirectedFrom=fulltext) states that Hispanic, Black and foreign-born inhabitants are more likely to state tap water was unsafe. Also low-income households experienced more water insecurity and ethnic minorities were more likely to have negative previous experiences with tap water.
+Another [study](https://onlinelibrary.wiley.com/doi/full/10.1111/coep.12088) finds that bottled water is often attributed to greater safety and better taste. 
+However, these studies are from the US, so who cares!? London still has the [best water of them all](https://www.standard.co.uk/news/official-london-tap-water-is-the-best-in-britain-6835465.html) and there is no need to carry heavy packs of water around. What would John Snow say to this?
+
+
 Sadly, while this is a interesting mystery, we are not able to find a clear solution just now, however we are encouraged to solve this rather enticing mystery. 
 
 {% include Map_Factory_Water.html %}
