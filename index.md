@@ -77,7 +77,7 @@ Today is the day when the snake catches its tail. During the [1854 Cholera epide
 
 {% include Correlation_Water_Wealth.html %}
 
-A question initially springing to our attention during analysing correlation between different socio-economic facts and product consumption, was why water consumption does strongly correlate with area median income and different ethnicities. Especially as in this case we are considering water purchased in supermarkets, not tap water. Early on this lead us to exploring the interrelation between social facts and economic facts about an area.  
+A question initially springing to our attention during analysing correlation between different socio-economic facts and product consumption, was why water consumption does strongly correlate with area median income and different ethnicities. Especially as in this case we are considering water purchased in supermarkets, not tap water. This result is somehow counter-intuitive: One would expect people with low income to drink less bottled water because it is more expensive. Early on this leads us to exploring the interrelation between social facts and economic facts about an area.  
 
 A few working theories we have are:
 
