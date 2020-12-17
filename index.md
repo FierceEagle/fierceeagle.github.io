@@ -77,7 +77,11 @@ Today is the day when the snake catches its tail. During the [1854 Cholera epide
 
 {% include Correlation_Water_Wealth.html %}
 
+<<<<<<< HEAD
 A question initially springing to our attention during analysing correlation between different socio-economic facts and product consumption, was why water consumption does strongly correlate with area median income and different ethnicities. Especially as in this case we are considering water purchased in supermarkets, not tap water. 
+=======
+A question initially springing to our attention during analysing correlation between different socio-economic facts and product consumption, was why water consumption does strongly correlate with area median income and different ethnicities. Especially as in this case we are considering water purchased in supermarkets, not tap water. This result is somehow counter-intuitive: One would expect people with low income to drink less bottled water because it is more expensive. Early on this leads us to exploring the interrelation between social facts and economic facts about an area.  
+>>>>>>> 92d58a94283d4c3df403eef8309a103b2d007654
 
 A few working theories we developed during the analysis were:
 
@@ -218,23 +222,33 @@ Another interesting tree, was the one based on product consumption used to predi
 
 ### *Rule Britannia*
 
-An alternative in regard to explainable models is the usage of Association Rules, that derive rules in the form $antecedents \rightarrow consequents$, based on observation of common item sets. In this instance, we used the different labels of the groupings as items and additionally, added especially high and low consumption of a certain product or proportion of a nutrient or nutritional fact as further items. 
+An alternative when looking for explainable models is the use of *association rules*. These derive rules in the form **antecedents ➞ consequents**, based on observations of common item sets. In this instance, we used the different labels of the groupings as items. Additionally, we added especially high and low consumption of certain products or proportions of a nutrient as further items. 
 
 We used different measures used in association rule mining to evaluate the rules that we derived through the former item set design. However, given the way that item set and association rules are designed, we reach certain conflicts in using metrics, as they are also once again susceptible to unbalanced distribution of item types. 
 
-We focus in our analysis on rules in the form nutrient/product -> socio-economic fact, thus rules that let us derive a consequence, i.e a socio-economic fact, based on common area attributes.  
+We focus in our analysis on rules of the form **nutrients/products ➞ socio-economic descriptors**. This means that we sought out rules that let us derive the socio-economic implications of nutrient distribution.
 
+Before looking at some of the rules we found, it is important to note a few things. Firstly, we found *a lot* of rules, more than 7,000 actually with a confidence above 0.6, distributed across 21 consequent sets. This means that there were 21 groups, i.e. distinct subsets of socio-economic descriptors for which we found antecedents.
+
+Instead of going through these rules by hand, which wouldn't have led to anything anyway, we tried to find sensible ways of reducing the number of rules we consider. Looking at the groups for which we had obtained rules, we noticed that some of them seemed to be very similar. Thus, we computed the set of all antecedents for every subgroup and then used *Jaccard similarity* to determine how close the set of antecedents were between groups. We then kept, for every subset of groups with pairwise Jaccard similarity greater than 0.8 the best representative, that is, the rules for the group with the highest lift.
+
+For example, instead of having the groups {Working Class, Secondary School} and {Working Class}, we only kept the first one as their respective antecedent sets had a Jaccard similarity of 0.94.
+
+To further reduce the selection of rules, we required every rule to have a confidence of at least 0.65 and a lift greater than 1.8.
+
+This had some unintended consequences. We found after filtering that we had, in the process, lost all rules with support higher than 0.1. We then further observed there was a pretty strong dichotomy between rules. As a rule of thumb, a rule either had a high support (>0.1) and on the other hand a low lift (< 1.2), or it had a high lift (> 2) and a low support (<0.07). This comes down to the distinction between making general, rather weak statements about large populations and making very precise statements about small groups. In the end, we opted for the second approach, as rules with low lift simply don't make very strong statements.
+
+From the remaining rules, we selected a few by hand, as putting them all here would probably triple the length of the page at the very least.
 
 {% include AssociationRuleTable_Nutrients.html %}
 
-
-Boudin reprehenderit tail, shankle cillum landjaeger shank eu pastrami. Salami ut magna occaecat deserunt, fatback pancetta picanha. Anim in dolore mollit voluptate excepteur salami proident pork loin. Culpa strip steak ham hock ad hamburger nisi sirloin salami capicola picanha chislic. Nulla spare ribs kielbasa dolore sausage ad est quis swine picanha.
+These rules let us reinforce observations made beforehand. For example, we can see that the working class tends to have an increased spirits consumption while generally avoiding wine, or that the working class has a high sweets consumption.
 
 ### *Land's End*
 
 Today we explored the interrelation of socio-economics and food consumption in the Greater London area.  
 
-#### To improve the Recipie 
+#### To improve the Recipe 
 
 After rounding up the analysis, we want to take a final look back and consider what can be done better and were we could extend further from the foundation we have build here.  
 
@@ -244,25 +258,20 @@ Further efforts could be spend looking into data on a deeper granularity. In our
 
 Last, but not least, in regard to the model training we conducted, further refinement to the methodology we used could be applied to improve the models performance. For example some consideration could be spend to utilize feature engineering, such as computing ratios between carbohydrates and sugars or fats and saturated fats. However, training the best model possible was not our main goal with the models we had in mind, as we wanted to use the models to help bootstrap us learning the reasons why they work given the data and which are the crucial factors in determining differences between groups based on nutrients and product consumption. 
 
-
-#### 
-
+####
 
 <a id='EnglandFacts'></a>
 
 ### Cool England (and *Christmas*) Facts and Trivia: 
 
-The Royal Family of *Windsor* based on its German Ancestry, pre-WW1 named *von Sachsen-Coburg und Gotha*, in comparison to other UK families does celebrate Christmas on Christmas Eve, the 24th of December, not the morning of the 25th. 
+The Royal Family of *Windsor*, because of its German ancestry and its pre-WW1 *von Sachsen-Coburg und Gotha* name, celebrate Christmas on Christmas Eve, the 24th of December, not on the morning of the 25th as proper Englishmen would. 
+On a related note, the royal connection to the *House of Hannover* brought over from Germany the tradition of Christmas trees and introduced it to the British Isles. 
 
-On related reason, the royal connection to the *House of Hannover* brought  over from Germany the tradition of Christmas trees and introduced it to the British Isle. 
+Until the Betting and Gaming Act of 1960, the only sport allowed to be played on Christmas Day was archery. This was due to the the Unlawful Games Act of 1541 which aimed to promote the use of the longbow rather than less publicly useful sports, such as football... Pardon, *soccer*. 
 
-Until the Betting and Gaming Act of 1960, the only Sport allowed to be played on Christmas Day was Archery, following the Unlawful Games Act of 1541 to promote the usage of the Longbow in comparison to less publicly useful sports, such as Football... Pardon, Soccer. 
+After the 31st of December, Queen Elizabeth II will be the only person in the UK not to need a passport in order to enter the EU legally, as all passports are issued in her name. This is the same reason why she does not need a drivers license in order to drive on British roads, even though she earned one for driving a lorry during the Blitz.
 
-Following the 31st of December the only person in the UK not needing a passport to legally travel into the EU is Queen Elizabeth II, as all UK passports are issued in her name. 
-
-For a similar reason she does not require a drivers license, although she earned one for driving a lorry during the Blitz.
-
-The word trivia is derived from the Latin words *tri* and *via*, with the former meaning *three* and the later *road*. The Romans, big into public infrastructure, built many roads. Places where three (or more) of these roads met were convenient places to make public announcements and thus making them common, i.e _trivial_, knowledge. 
+*On Metatrivia*. The word trivia is derived from the Latin words *tri* and *via*, with the former meaning *three* and the later *road*. The Romans, big into public infrastructure, built many roads. Places where three (or more) of these roads met were convenient places to make public announcements and thus making them common, i.e *trivial*, knowledge. 
 
 <a id='Conclusion'></a>
 
