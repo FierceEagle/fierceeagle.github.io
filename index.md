@@ -76,23 +76,22 @@ Today is the day when the snake catches its tail. During the [1854 Cholera epide
 
 A question initially springing to our attention during analyzing the correlation between different socio-economic facts and product consumption, was why water consumption does strongly correlate with area median income and different ethnicities. Especially as in this case we are considering water purchased in supermarkets, not tap water. This result is somehow counter-intuitive: One would expect people with low income to drink less bottled water because it is more expensive. Early on this leads us to explore the interrelation between social facts and economic facts about an area.  
 
+{% include Map_Factory_Water.html %}
+
 A few working theories we developed during the analysis were:
 
 Water purchased in supermarkets can be carbonated, tap water is not, the liking for the former could fall out different along cultural and culinary lines.
 
 Missing a few crucial puzzle pieces in our investigation, one crucial flaw is that we only record consumption habits from supermarket purchases using loyalty cards, consequently, information about gastronomy consumption is missing and even small purchases might be missing. This can also represent itself in the consumption habits of Londoners.
-
 The store locations from which the data was sourced are unevenly distributed over the Greater London area, one consequence could be that heavy products, such as water is more likely to be bought by people at these stores living close by, especially in a city where more people are relying on public transportation. As the areas were many stores located are the northern parts and the urban core, this could skew the picture towards ethnically diverse communities living in the area closer to the store.  
-
 Water quality might differ in low income and high-income areas, based on housing age and maintenance quality, sadly water quality does not easily conform to census area boundaries based on the underlying infrastructure. *A [fact](https://www.ph.ucla.edu/epi/snow/watercompanies.html) known by John Snow*.
-
 While digging deeper into this topic, we found that consumer’s drinking water habits are a yet unsolved mystery. A US [study](https://iwaponline.com/wp/article-abstract/19/1/1/20521/Mistrust-at-the-tap-Factors-contributing-to-public?redirectedFrom=fulltext) states that Hispanic, Black, and foreign-born inhabitants are more likely to state tap water was unsafe. Also, low-income households experienced more water insecurity and ethnic minorities were more likely to have negative previous experiences with tap water.
 Another [study](https://onlinelibrary.wiley.com/doi/full/10.1111/coep.12088) finds that bottled water is often attributed to greater safety and better taste. 
 However, these studies are from the US, so who cares!? London still has the [best water of them all](https://www.standard.co.uk/news/official-london-tap-water-is-the-best-in-britain-6835465.html) and there is no need to carry heavy packs of water around. *What would John Snow say to this?*
 
 Sadly, while this is an interesting mystery, we are not able to find a definitive answer just now, however, we are encouraged to solve this rather enticing mystery. 
 
-{% include Map_Factory_Water.html %}
+
 
 --- 
 
@@ -108,9 +107,7 @@ As an important next step to explore the consumption habits of Londoners, we nee
 
 This approach, however, only provides information about the similarity between areas, not direct labels for each grouping. Thus we needed to conduct our further analysis to identify good labels, representative of the population of the area. 
 
-As the weather in London is rather _Covidy_ around this time of the year and thus we can't validate our findings in person, we conducted our study of the inhabitants in the subgroup areas, based both on information present in the data and verified our conclusion, with wider research on the areas. 
-
-For the grouped areas we identified labels based on the shared attributes we used for clustering the groups in the first place. 
+As the weather in London is rather _Covidy_ around this time of the year and thus we can't validate our findings in person, we conducted our study of the inhabitants in the subgroup areas, based both on information present in the data and verified our conclusion, with wider research on the areas. For the grouped areas we identified labels based on the shared attributes we used for clustering the groups in the first place. 
 
 {% include Map_Factory_Education.html %}
 
