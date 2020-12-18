@@ -382,9 +382,7 @@ Before looking at some of the rules we found, it is important to note a few thin
 
 Instead of going through these rules by hand, which wouldn't have led to anything anyway, we tried to find sensible ways of reducing the number of rules we consider. Looking at the groups for which we had obtained rules, we noticed that some of them seemed to be very similar. Thus, we computed the set of all antecedents for every subgroup and then used *Jaccard similarity* to determine how close the set of antecedents were between groups. We then kept, for every subset of groups with pairwise Jaccard similarity greater than 0.8 the best representative, that is, the rules for the group with the highest lift.
 
-For example, instead of having the groups {Working Class, Secondary School} and {Working Class}, we only kept the first one as their respective antecedent sets had a Jaccard similarity of 0.94.
-
-To further reduce the selection of rules, we required every rule to have a confidence of at least 0.65 and a lift greater than 1.8.
+For example, instead of having the groups {Working Class, Secondary School} and {Working Class}, we only kept the first one as their respective antecedent sets had a Jaccard similarity of 0.94. To further reduce the selection of rules, we required every rule to have a confidence of at least 0.65 and a lift greater than 1.8.
 
 This had some unintended consequences. We found after filtering that we had, in the process, lost all rules with support higher than 0.1. We then further observed there was a pretty strong dichotomy between rules. As a rule of thumb, a rule either had high support (>0.1) and on the other hand a low lift (< 1.2), or it had a high lift (> 2) and low support (<0.07). This comes down to the distinction between making general, rather weak statements about large populations and making very precise statements about small groups. In the end, we opted for the second approach, as rules with low lift simply don't make very strong statements.
 
@@ -399,7 +397,7 @@ Two very prominent rules on the Asian working class with extraordinarily high li
 
 Sadly, the nature of the data did not allow us to obtain rules for other groups discussed above. For example, we did not find any rules about Hindu or Muslim minorities or concerning students, as these constitute small minorities compared to the other groups.
 More surprisingly we did not find any rules concerning social strata other than the working class.
-It is not surprising that we did not find rules for the upper class, as it makes up onl a small percentage of society.
+It is not surprising that we did not find rules for the upper class, as it makes up only a small percentage of society.
 Nevertheless, we expected to find at least some rules for the two groups corresponding to the middle class.
 A possible reason for why we didn't might be because these groups do not actually distinguish themselves that much through nutrient and product consumption.
 
