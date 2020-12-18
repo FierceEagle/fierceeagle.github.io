@@ -10,11 +10,11 @@ This allows us to analyse the consumption habits of modern Londoners to find out
 
 In the following, we want to analyse a data set of purchases by *Tesco Loyalty Cardholders* in districts of the Greater London Metropolitan Area.
 We then combine it with information on the areas' inhabitants, collected by the Greater London census.
-The aim is to obtain insights on the interplay between nutrition and product consumption and socio-economic realities of Londoners.
+The aim is to obtain insights on the interplay between nutrition and product consumption and the socio-economic realities of Londoners.
 
 ### What is a Tesco?
 
-Tesco is the largest supermarket chain in the UK and thus also the largest out of the four domestic chains *(Asda, Sainsbury's, Tesco and Morrisons)* in the UK. It is widely spread all over Greater London, as can be seen below.
+Tesco is the largest supermarket chain in the UK and thus also the largest out of the four domestic chains *(Asda, Sainsbury's, Tesco and Morrisons)* in the UK. It is widely spread all over Greater London, as can be seen below. 
 
 {% include Store_Locations_London.html %}
 
@@ -38,17 +38,19 @@ This also constitutes an issue of public health as the UK, like most other Europ
 Therein, individual well-being and preventable health-outcomes become a <a href="https://www.bmj.com/content/349/bmj.g5143">societal concern</a>.
 Understanding the interplay of socio-economic factors and nutrition could allow for an improved resource allocation and more group-specific efforts to curb negative trends in nutrition;
 this in turn would lower the severity and prevent negative health outcomes.
+This would put off pressure from society and can also lead to higher individual happiness. 
 
 ## What the Data Says
 
 The original data set was created based on purchase histories of Tesco Loyalty Card holders, which were then aggregated based on the place of residence of the card-holder to the different levels of granularity of census areas in the Greater London area.
 This data set, while extensive as it aggregates over 411 million individual purchased items, does not enable us to attribute the purchases to individuals or groups of individuals such as families.
 This is due on one hand to the fact that it would constitute a **massive** breach of privacy; on the other hand, the cards do not actually provide this data in the first place.
-Instead, the researchers opted for tracking consumption habits in the different areas based on an *average area product*, an abstraction of nutrient content for each product that is consumed in the area.
+Instead, the researchers opted for tracking consumption habits in the different areas based on an *average area product*, an abstraction of nutrient content for each product that is consumed in the area. Addionally they reported the relative fractions of different types of products consumed in each area. 
 
 This approach balances out population differences in each of the collection areas as they are roughly equally sized and additionally filters out noise concerning special purchase habits.
 For example, tourist consumption is not taken into account as they generally do not have a loyalty card.
 A higher alcohol consumption near stadiums would also be filtered out, as loyalty card purchases are attributed to the place of residence, not the place of purchase.
+
 The three types of granularity we consider are Lower Super Output Areas (**LSOAs**), Medium Super Output Areas (**MSOAs**), and **Wards**.
 These do not all address the issue of imbalanced population distribution.
 Especially wards, which represent electoral boundaries rather than census areas follow a flat peaked distribution.
@@ -66,15 +68,10 @@ Some shifts in population movement may have happened during those four years, al
 
 ## What We Can Learn From the Data
 
-<<<<<<< HEAD
 We start with some precursory data visualization and statistical analysis to provide a feeling for the data we are working with and to present some first insights and explore the data a little. 
 
 ### Food for Thought
 Starting with a correlation analysis, we applied Spearman correlation to identify statistically significant, *(p < 0.05)*, rank correlations between socio-economic facts and nutrients to identify possible pattern that we can observe and expand on further. 
-=======
-We start with some precursory data visualisation and statistical analysis to gain a feeling for the data we are working with and to present some initial insights.
-As a starting point, we applied *Spearman correlation* to identify statistically significant *(p < 0.05)* rank correlations between socio-economic factors and nutrient consumption.
->>>>>>> ddba0e4b732c95e4092ae4c3e4ebc5fbb4f6675a
 
 {% include Correlation_Nutirents_Different_Ethnicitites.html %}
 
@@ -126,7 +123,7 @@ Sadly, without further information on Tescos modus operandi concerning store ope
 
 Lastly, a fact that might at least bias the result is skewed data collection.
 In the original data set, a higher number of Tesco stores from which the data was collected was situated north of the Thames.
-This introduces a bias towards the more ethnically diverse areas of northern London and its urban core. However here the question might still stand, if this is a cause or an effect based on Tesco Modi operandi, or might even have another cause. 
+This introduces a bias towards the more ethnically diverse areas of northern London and its urban core. However here the question might still stand, if this is a cause or an effect based on Tesco Modi operandi, or might even have another causes. 
 
 ### So We Meet Again Mr. Snow
 
@@ -399,18 +396,14 @@ Two very prominent rules on the Asian working class with extraordinarily high li
 
 Sadly, the nature of the data did not allow us to obtain rules for other groups discussed above. For example, we did not find any rules about Hindu or Muslim minorities or concerning students, as these constitute small minorities compared to the other groups.
 More surprisingly we did not find any rules concerning social strata other than the working class.
-It is not surprising that we did not find rules for the upper class, as it makes up only a small percentage of society.
+It is not surprising that we did not find rules for the upper class, as it makes up onl a small percentage of society.
 Nevertheless, we expected to find at least some rules for the two groups corresponding to the middle class.
 A possible reason for why we didn't might be because these groups do not actually distinguish themselves that much through nutrient and product consumption.
 
 
 ### *Land's End*
 
-<<<<<<< HEAD
-Today we explored the interrelation of socio-economics and food consumption in the Greater London area. While we met some obstacels in our way, we achieved to find some interesting tid-bits and we tried to learn why our approach might not always work out as planned. Thus this is a time for self-reflection and to learn what we could improve in future work in exploring the interplay between socio-economics and food consumption.
-=======
-Today we explored the interrelation of socio-economics and food consumption in the Greater London area.
->>>>>>> 8bbfff9c7f96f7d2b7d3e8f9ff9f3b776d69e811
+Today we explored the interrelation of socio-economics and food consumption in the Greater London area. While we met some obstacels in our way, we achieved to find some interesting tid-bits and could make some interesting observations. Sadly, not always did our approaches work and thus we tried to learn why they did not work out as planned. Thus this is a time for self-reflection and to learn what we could improve in future work in exploring the interplay between socio-economics and food consumption.
 
 #### To Improve the Recipe
 
@@ -425,7 +418,7 @@ Thus, this could allow to extend the original groupings and to address more soci
 Concerning the models that we trained, more training data would especially help the random forest classifier.
 While not solving the label imbalance, as it is to be expected with human populations, it could at least create more variety inside each category, which might be better than our approach of using synthetic data.
 
-Last, but not least, concerning the model training we conducted, further refinement to the methodology we used could be applied to improve the model's performance. For example, some consideration could be spent to utilize feature engineering, such as computing ratios between carbohydrates and sugars or fats and saturated fats. However, training the best model possible was not our main goal. We rather wanted to use the models to help bootstrap us learning the reasons why they work given the data and which are the crucial factors in determining differences between groups based on nutrients and product consumption. 
+Last, but not least, concerning the model training we conducted, further refinement to the methodology we used could be applied to improve the model's performance. For example, some consideration could be spent to utilize feature engineering, such as computing ratios between carbohydrates and sugars or fats and saturated fats. However, training the best model possible was not our main goal, instead they helped us to better understand the data and what are certain dividing lines in regard to food consumption.  
 
 <a id='EnglandFacts'></a>
 
@@ -443,7 +436,8 @@ After the 31st of December, Queen Elizabeth II will be the only person in the UK
 
 ### Anything else?
 
-Although it might date the creation of this data story a little bit, we wish you all Happy Holidays and a hopefully better 2021. Take an example by the Londoners and have a substantial increase in your Fat, 
+Although it might date the creation of this data story a little bit, we wish you all Happy Holidays and a hopefully better 2021. Take an example from the Londoners and have a nice increase in your fat, sugar and alcohol consumption, when you are at it, and see you in 2021. *If you read it later, don't forget to cancel the New Years resolution GYM membership before it is to late*
 
+{% include year_plot_nutrients.html %}
 
 
