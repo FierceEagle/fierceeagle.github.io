@@ -14,15 +14,15 @@ The aim is to obtain insights on the interplay between nutrition and product con
 
 ### What is a Tesco?
 
-Tesco is the largest supermarket chain in the UK and thus also the largest out of the four domestic chains *(Asda, Sainsbury's, Tesco and Morrisons)* in the UK. Today, it is widely spread all over Greater London Metropolitian Area, as can be seen below. Tesco today has multiple subsidaries and has entered the internation market. However today, we look into where it all began for Tesco, in London. *If you zoom in you might even find the original Tesco in **Hackney***. 
+Tesco is the largest supermarket chain in the UK and thus also the largest out of the four domestic chains *(Asda, Sainsbury's, Tesco and Morrisons)* in the UK. Today, it is widely spread all over Greater London Metropolitian Area, as can be seen below. Tesco today has multiple subsidaries and has entered the internation market. However today, we look into where it all began for Tesco, in London. *If you zoom in you might even find the original Tesco in **Hackney***.
 
 {% include Store_Locations_London.html %}
 
 
 ### Where we are heading
 
-To give a rough outline, we start off with a <a href='#PreCurs'>precursory look</a> into the data we have collected.
-We also look into the question <a href='#WhoIsTesco'>"Who is a Tesco Customer?"</a>.
+In order to provide the reader with a rough outline, we begin the story with a <a href='#PreCurs'>precursory look</a> into the data we have collected.
+This is accompanied by a look at the question <a href='#WhoIsTesco'>"Who is a Tesco Customer?"</a>.
 Following the initial overview, we develop our understanding of the data by <a href='#Londoners'>clustering</a> the areas we consider according to multiple socio-economic factors.
 This also allows us to assign <a href='#Labeling'>discrete attributes</a> to areas which we use in later analyses.
 After obtaining labels for the areas, we train predictive models that allow us to <a href='#Ensemble'>predict</a> socio-economic facts about an area based on their consumption habits.
@@ -31,7 +31,7 @@ These include <a href='#Trees'>Decision Trees</a> and <a href='#AssociationRules
 
 ## Why this is important
 
-Why is food important sounds like an easy question to answer.
+*"Why is food important?"* sounds like an easy question to answer.
 However, besides the importance of having *enough* food, the modern-day issue in developed countries is having a proper composition and balance of nutrients.
 An improper diet might not lead to imbalanced <a href="https://en.wikipedia.org/wiki/Humorism">humours</a> as ancient doctors believed;
 it has however far reaching effects on an individual's health.
@@ -41,14 +41,14 @@ This also constitutes an issue of public health as the UK, like most other Europ
 Therein, individual well-being and preventable health-outcomes become a <a href="https://www.bmj.com/content/349/bmj.g5143">societal concern</a>.
 Understanding the interplay of socio-economic factors and nutrition could allow for an improved resource allocation and more group-specific efforts to curb negative trends in nutrition;
 this in turn would lower the severity and prevent negative health outcomes.
-This would put off pressure from society and can also lead to higher individual happiness. 
+This would put off pressure from society and can also lead to higher individual happiness.
 
 ## What the Data Says
 
 The original data set was created based on purchase histories of Tesco Loyalty Card holders, which were then aggregated based on the place of residence of the card-holder to the different levels of granularity of census areas in the Greater London area.
 This data set, while extensive as it aggregates over 411 million individual purchased items, does not enable us to attribute the purchases to individuals or groups of individuals such as families.
 This is due on one hand to the fact that it would constitute a **massive** breach of privacy; on the other hand, the cards do not actually provide this data in the first place.
-Instead, the researchers opted for tracking consumption habits in the different areas based on an *average area product*, an abstraction of nutrient content for each product that is consumed in the area. Addionally they reported the relative fractions of different types of products consumed in each area. 
+Instead, the researchers opted for tracking consumption habits in the different areas based on an *average area product*, an abstraction of nutrient content for each product that is consumed in the area. Addionally they reported the relative fractions of different types of products consumed in each area.
 
 This approach balances out population differences in each of the collection areas as they are roughly equally sized and additionally filters out noise concerning special purchase habits.
 For example, tourist consumption is not taken into account as they generally do not have a loyalty card.
@@ -71,10 +71,10 @@ Some shifts in population movement may have happened during those four years, al
 
 ## What We Can Learn From the Data
 
-We start with some precursory data visualization and statistical analysis to provide a feeling for the data we are working with and to present some first insights and explore the data a little. 
+We start with some precursory data visualization and statistical analysis to provide a feeling for the data we are working with and to present some first insights and explore the data a little.
 
 ### Food for Thought
-Starting with a correlation analysis, we applied Spearman correlation to identify statistically significant, *(p < 0.05)*, rank correlations between socio-economic facts and nutrients to identify possible pattern that we can observe and expand on further. 
+Starting with a correlation analysis, we applied Spearman correlation to identify statistically significant, *(p < 0.05)*, rank correlations between socio-economic facts and nutrients to identify possible pattern that we can observe and expand on further.
 
 {% include Correlation_Nutirents_Different_Ethnicitites.html %}
 
@@ -118,7 +118,7 @@ Looking at the Spearman correlation, a statistically significant correlation bet
 Most of the correlations are rather weak.
 Nevertheless, they can provide interesting explanations for the results initially obtained by the authors of the original paper.
 There, they discovered a decreasing representativeness and number of transactions in areas of south of London.
-An interesting titbit to add to this is that this seems to be the case especially in areas closer to the Home Counties.
+An interesting tidbit to add to this is that this seems to be the case especially in areas closer to the Home Counties.
 These areas are made up mostly of the old white middle class leaving the urban core of London in the wake of suburbanisation during the post-war years, which was later followed by middle-class immigrant communities.
 A further hypothesis to be consider in this regard is the direction of this effect.
 Put more plainly, do the inhabitants of these areas choose Tesco as their store, or does Tesco choose these inhabitants as their customers.
@@ -126,11 +126,11 @@ Sadly, without further information on Tescos modus operandi concerning store ope
 
 Lastly, a fact that might at least bias the result is skewed data collection.
 In the original data set, a higher number of Tesco stores from which the data was collected was situated north of the Thames.
-This introduces a bias towards the more ethnically diverse areas of northern London and its urban core. However here the question might still stand, if this is a cause or an effect based on Tesco Modi operandi, or might even have another causes. 
+This introduces a bias towards the more ethnically diverse areas of northern London and its urban core. However here the question might still stand, if this is a cause or an effect based on Tesco Modi operandi, or might even have another causes.
 
 ### So We Meet Again Mr. Snow
 
-Today is the day when the snake catches its tail. During the [1854 Cholera epidemic](https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak) in London, the researcher John Snow applied techniques of data collection, [visualisation](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/1280px-Snow-cholera-map-1.jpg) and analysis to halt the spread of the virus.
+Today is the day the snake catches its tail. During the [1854 Cholera epidemic](https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak) in London, the researcher John Snow applied techniques of data collection, [visualisation](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/1280px-Snow-cholera-map-1.jpg) and analysis to halt the spread of the virus.
 Thanks to his research, he became both one of the precursors of modern epidemiologists and the avant-garde of data science.
 Today, we feel honoured in that we can say that we are back at the beginning, *analysing water consumption in London during a pandemic*.
 
@@ -404,13 +404,21 @@ A possible reason for why we didn't might be because these groups do not actuall
 
 ### *Land's End*
 
-Today we explored the interrelation of socio-economics and food consumption in the Greater London area. While we met some obstacels in our way, we achieved to find some interesting tid-bits and could make some interesting observations. Sadly, not always did our approaches work and thus we tried to learn why they did not work out as planned. Thus this is a time for self-reflection and to learn what we could improve in future work in exploring the interplay between socio-economics and food consumption.
+Today we explored the interrelation of socio-economics and food consumption in the Greater London area.
+While there were some obstacles in our way, we found some interesting tidbits and could make some interesting observations.
+Sadly, not always did our approaches work and thus we tried to learn why they did not work out as planned.
+Thus, this is a time for self-reflection and to learn what we could improve in future workd in exploring the interplay between socio-economics and food consumption.
 
 #### To Improve the Recipe
 
 After rounding up the analysis, we want to take a final look back and consider what can be done better and where we could extend further from the foundation we have built here.
 
-As a next step, What we might consider is looking deeper into the data to find conjoint clustering and groupings based on a wider range of socio-economic attributes. The most obvious example would be the differentiation between the major minorities in the UK, Indian, Pakistani, and Bangladeshi, which in our approach got clustered together based on the skewed singular ethnicity attribute. An example to improve this would be based on adding majority religion to the clustering as further attributes, as thus we could better differentiate between both groups, however, this might also introduce further side-effects, thus we kept it simpler for our initial analysis. Additionally, we could take geo-distance into account, following the assumption of communities with a similar make-up are centralized into one or few clusters in a city. 
+As a next step, What we might consider is looking deeper into the data to find conjoint clustering and groupings based on a wider range of socio-economic attributes.
+The most obvious example would be the differentiation between the major minorities in the UK, Indian, Pakistani, and Bangladeshi, which in our approach got clustered together based on the skewed singular ethnicity attribute.
+An example to improve this would be based on adding majority religion to the clustering as further attributes.
+Thus we could better differentiate between both groups.
+However, this might also introduce further side-effects, which is why we kept it simpler for our initial analysis.
+Additionally, we could take geo-distance into account, following the assumption that communities with a similar make-up are centralized into one or few clusters in a city.
 
 Further efforts could be spent looking into data on a deeper granularity.
 In our analysis, we focused on studying MSOA, as they provide high representativeness in the original Tesco data set, while also being more numerous than wards.
@@ -419,25 +427,34 @@ Thus, this could allow to extend the original groupings and to address more soci
 Concerning the models that we trained, more training data would especially help the random forest classifier.
 While not solving the label imbalance, as it is to be expected with human populations, it could at least create more variety inside each category, which might be better than our approach of using synthetic data.
 
-Last, but not least, concerning the model training we conducted, further refinement to the methodology we used could be applied to improve the model's performance. For example, some consideration could be spent to utilize feature engineering, such as computing ratios between carbohydrates and sugars or fats and saturated fats. However, training the best model possible was not our main goal, instead they helped us to better understand the data and what are certain dividing lines in regard to food consumption.  
+Last, but not least, concerning the model training we conducted, further refinement to the methodology we used could be applied to improve the model's performance.
+For example, some consideration could be spent to use feature engineering, such as computing ratios between carbohydrates and sugars or fats and saturated fats.
+However, training the best model possible was not our main goal, instead they helped us to better understand the data and to discover dividing lines with regard to food consumption.
 
 <a id='EnglandFacts'></a>
 
 ### Cool England (and *Christmas*) Facts and Trivia:
 
-The Royal Family of *Windsor*, because of its German ancestry and its pre-WW1 *von Sachsen-Coburg und Gotha* name, celebrate Christmas on Christmas Eve, the 24th of December, not on the morning of the 25th as proper Englishmen would do. On a related note, the royal connection to the *House of Hannover* brought over from Germany the tradition of Christmas trees and introduced it to the British Isles.
+The Royal Family of *Windsor*, because of its German ancestry and its pre-WW1 *von Sachsen-Coburg und Gotha* name, celebrate Christmas on Christmas Eve, the 24th of December, not on the morning of the 25th as proper Englishmen would do.
+On a related note, the royal connection to the *House of Hannover* brought over from Germany the tradition of Christmas trees and introduced it to the British Isles.
 
-Until the Betting and Gaming Act of 1960, the only sport allowed to be played on Christmas Day was archery. This was due to the Unlawful Games Act of 1541 which aimed to promote the use of the longbow rather than less publicly useful sports, such as football... Pardon, *soccer*.
+Until the Betting and Gaming Act of 1960, the only sport allowed to be played on Christmas Day was archery.
+This was due to the Unlawful Games Act of 1541 which aimed to promote the use of the longbow rather than less publicly useful sports, such as football... Pardon, *soccer*.
 
-After the 31st of December, Queen Elizabeth II will be the only person in the UK not to need a passport to enter the EU legally, as all UK passports are issued in her name. This is the same reason why she does not require a driver's license to drive on British roads, even though she earned one for driving [a lorry during the Blitz](https://i.insider.com/5e8646eb1378e3116b2372a4?width=1100&format=jpeg&auto=webp).
+After the 31st of December, Queen Elizabeth II will be the only person in the UK not to need a passport to enter the EU legally, as all UK passports are issued in her name.
+This is the same reason why she does not require a driver's license to drive on British roads, even though she earned one for driving [a lorry during the Blitz](https://i.insider.com/5e8646eb1378e3116b2372a4?width=1100&format=jpeg&auto=webp).
 
-*On Metatrivia*. The word trivia is derived from the Latin words *tri* and *via*, with the former meaning *three* and the later *road*. The Romans, big into public infrastructure, built many roads. Places, where three - or more - of these roads met, were convenient places to make public announcements and thus making the announcement common, i.e *trivial*, knowledge.
+*On Metatrivia*.
+The word trivia is derived from the Latin words *tri* and *via*, with the former meaning *three* and the later *road*.
+The Romans, big into public infrastructure, built many roads. Places, where three - or more - of these roads met, were convenient places to make public announcements and thus making the announcement common, i.e *trivial*, knowledge.
 
 <a id='Conclusion'></a>
 
 ### Anything else?
 
-Although it might date the creation of this data story a little bit, we wish you all Happy Holidays and a hopefully better 2021. Take an example from the Londoners and have a nice increase in your fat, sugar and alcohol consumption, when you are at it, and see you in 2021. *If you read it later, don't forget to cancel the New Years resolution GYM membership before it is to late*
+Although it might date the creation of this data story a little bit, we wish you all Happy Holidays and a hopefully better 2021.
+Take an example from the Londoners and have a nice increase in your fat, sugar and alcohol consumption while you are at it, and see you in 2021.
+*If you read this in 2021, don't forget to cancel the New Years resolution GYM membership before it's too late.*
 
 {% include year_plot_nutrients.html %}
 
