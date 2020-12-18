@@ -3,7 +3,7 @@
 
 London, England, Capital of an old Empire that sailed forth to conquer the world in search of tea and spices only to return to a diet of <a href="http://www.foodsofengland.co.uk/peawet.htm">pea wet</a> and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequently also one of the most multi-culinary ones. This allows us to analyze the consumption habits of modern Londoners to find out how our plates divide us and how they define us. 
 
-In the following, we want to analyze a data set of purchases by Tesco Loyalty Cardholders in districts of the Greater London metropolitan area, and combine it with information of the areas' inhabitants, collected by the Greater London census, to get insight into the interplay between nutrition and socio-economic realities.  
+In the following, we want to analyze a data set of purchases by Tesco Loyalty Cardholders in districts of the Greater London metropolitan area, and combine it with information of the areas' inhabitants, collected by the Greater London census, to get insight into the interplay between nutrition and product consumption and socio-economic realities.  
 
 ### What is a Tesco?
 
@@ -154,7 +154,7 @@ We address this issue by oversampling the minority labels, to improve the model 
 
 #### The Good ... 
 
-Utilizing our methodology, we indeed were able to train some models that were rather effective in predicting at least some of the socio-economic facts about an area. Especially the model to predict majority religion in an area did perform well, achieving up to 93% balanced accuracy and over 95% general accuracy. To explain this especially high performance, we might attribute this especially to the high distinctiveness religion achieves in comparison to other groupings, as consumption habits between sub denominations, Sunni and Shia, of a branch religion might be still mainly defined by the main religion, i.e *halal* or following *Vedic* belifes. This, for example, might not hold to a broader grouping done in the original census, i.e Asians or Blacks, where we might have more distinctive subgroups aggregated into a larger whole, i.e Indians and Pakistani, or, Jamaicans and Central-Africans. 
+Utilizing our methodology, we indeed were able to train some models that were rather effective in predicting at least some of the socio-economic facts about an area. Especially the model to predict majority religion in an area did perform well,achieving up to 93% balanced accuracy and over 95% general accuracy. To explain this high performance, we might attribute this to the high distinctiveness religion achieves in comparison to other groupings, as consumption habits between sub denominations, Sunni and Shia, might be still mainly defined by the main religion, i.e *halal* or following *Vedic* beliefs. This, for example, might not hold to a broader grouping done in the original census, i.e Asians or Blacks, where we might have more distinctive subgroups aggregated into a larger whole, i.e Indians and Pakistani, or, Jamaicans and Central-Africans. 
 
 #### ... and the Bad
 
@@ -194,7 +194,7 @@ To contribute our part, additionally to our previous analysis based on random fo
 
 First of we started with Decision Trees, starting from the top root node the data is split based on different features into smaller groups that then again can be split further. Decision Trees through this allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massively in-depth and general complexity. In our model training, we again utilized balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also leads to getting far more complex and nested trees in comparison to a tree trained on accuracy. To address the issue of complexity and overfitting we utilized a pruning method, removing smaller and indecisive splits of the tree classifier. The resulting decision trees, were unsurprisingly still rather complex, however, provide better insights regarding their decision structure, with special interest laid on the most decisive cuts between labels. Many of the trees we trained, did perform worse than the random forest models for the same features and targets, however in many instances not to an extensive amount. For example, in a more extreme case, the decision tree pendant to our best performing random forest model achieves a balanced accuracy of 0.927 on the test set, while the random forest model achieves 0.93, thus only a marginal improvement. The random forest however achieves also a higher base accuracy and a better F1-score. *Let's look into the decision tree model*. 
 
-{% include_relative images/Religion_Product.svg %}
+{% include_relative images/Religion_Products.svg %}
 
 First off, we can see that the first and most defined split is based on Sweets consumption, with many majority Christian areas having a lower fraction of consumption. For the next split, something interesting can be observed as splitting based on fish consumption separates the Muslim and Hindu majority communities near perfect. As already hypothesized earlier, we can observe that alcohol consumption indeed is a splitting feature, that is used to divide between Christian and majority Muslim communities, and also our hypothesis about higher dairy consumption finds at least some confirmation based on a split. Overall utilizing a decision tree model allows for a better exploration of the data, as now we can see the impact of a certain splitting feature from which we might now base further analysis and exploration. 
 
@@ -230,6 +230,7 @@ These rules let us reinforce observations made beforehand. For example, we can s
 
 Today we explored the interrelation of socio-economics and food consumption in the Greater London area.  
 
+
 #### To improve the Recipe 
 
 After rounding up the analysis, we want to take a final look back and consider what can be done better and where we could extend further from the foundation we have built here.  
@@ -256,7 +257,7 @@ After the 31st of December, Queen Elizabeth II will be the only person in the UK
 
 ### Anything else? 
 
-We wish you all a Merry Christmas and a Happy New Year. May your Plum Pudding be scrumptious. 
+Although it might date the creation of this data story a little bit, we wish you all Happy Holidays and a hopefully better 2021. Take an example from the
 
 
 
