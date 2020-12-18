@@ -1,30 +1,39 @@
 
 ## Where we are
 
-London, England, Capital of an old Empire that sailed forth to conquer the world in search of tea and spices only to return to a diet of <a href="http://www.foodsofengland.co.uk/peawet.htm">pea wet</a> and beer. Or does it? As a consequence of its history, London today is one of the most multicultural cities in Europe and consequently also one of the most multi-culinary ones. This allows us to analyze the consumption habits of modern Londoners to find out how our plates divide us and how they define us. 
+London, England, Capital of an old Empire that sailed forth to conquer the world in search of tea and spices, only to return to a diet of <a href="http://www.foodsofengland.co.uk/peawet.htm">pea wet</a> and beer. 
+Or did it? 
+As in, did it return to such a diet? 
+As a consequence of its history, London is nowadays one of the most multicultural cities in Europe and consequently also one of the most multi-culinary ones. 
+This allows us to analyse the consumption habits of modern Londoners to find out how our plates divide us and how they define us. 
 
-In the following, we want to analyze a data set of purchases by Tesco Loyalty Cardholders in districts of the Greater London metropolitan area, and combine it with information of the areas' inhabitants, collected by the Greater London census, to get insight into the interplay between nutrition and product consumption and socio-economic realities.  
+In the following, we want to analyse a data set of purchases by *Tesco Loyalty Cardholders* in districts of the Greater London Metropolitan Area.
+We then combine it with information on the areas' inhabitants, collected by the Greater London census. 
+The aim is to obtain insights on the interplay between nutrition and product consumption and socio-economic realities of Londoners.  
 
 ### What is a Tesco?
 
-Tesco is the largest supermarket chain in the UK and thus also the largest out of the four domestic chains *(Asda, Sainsbury's, Tesco and Morrisons)* in the UK. It has a widespread all over the Greater London metropolitan area as can be seen below. 
+Tesco is the largest supermarket chain in the UK and thus also the largest out of the four domestic chains *(Asda, Sainsbury's, Tesco and Morrisons)* in the UK. It is widely spread all over Greater London, as can be seen below. 
 
 {% include Store_Locations_London.html %}
 
-To give a rough outline, we start of with a <a href='#PreCurs'>precursory look </a>into the data we have collected, and also look into the question: <a href='#WhoIsTesco'>"Who is a Tesco Customer"</a>. Following this, as a foundation for later analysis and to help with the understanding of the data we want to <a href='#Londoners'>cluster</a> areas based on socio-economic factors and look into their interplay. This also allows us to assign 
-<a href='#Labeling'>discrete information</a> for later analysis. 
-Following this, we aim to train predictive models that allow us to 
-<a href='#Ensemble'>predict</a>  socio-economic facts about an area based on their consumption habits. To address the black box approach our chosen models to represent, we additionally choose to try to model the prediction using more explainable <a href='#Responsible'>models</a>, such as <a href='#Trees'>Decision Trees </a> and <a href='#AssociationRules'>Association Rules</a>.
+To give a rough outline, we start off with a <a href='#PreCurs'>precursory look</a> into the data we have collected.
+We also look into the question <a href='#WhoIsTesco'>"Who is a Tesco Customer?"</a>. 
+Following the initial overview, we develop our understanding of the data by <a href='#Londoners'>clustering</a> the areas we consider according to multiple socio-economic factors.
+This also allows us to assign <a href='#Labeling'>discrete attributes</a> to areas which we use in later analyses. 
+After obtaining labels for the areas, we train predictive models that allow us to <a href='#Ensemble'>predict</a> socio-economic facts about an area based on their consumption habits. 
+In order to address the black box approach our chosen models to represent, we additionally choose to try to model the prediction using more explainable <a href='#Responsible'>models</a>. 
+These include <a href='#Trees'>Decision Trees</a> and <a href='#AssociationRules'>Association Rules</a>.
 
 ## Why this is important
 
-Why is food important, sounds like an easy question to answer. However, besides the importance of having sufficient food, the modern-day issue in developed countries is having a proper composition and balance of nutrients. An improper diet might not lead to imbalanced <a href="https://en.wikipedia.org/wiki/Humorism">humours</a>, as ancient doctors believed, but has a far more intertwined effect on the individual's health.Common concerns in nutrition include high saturated fat consumption, high sugar consumption, low fiber consumption, and little variety in nutrients, i.e an unbalanced or skewed diet. 
+Why is food important, sounds like an easy question to answer. However, besides the importance of having sufficient food, the modern-day issue in developed countries is having a proper composition and balance of nutrients. An improper diet might not lead to imbalanced <a href="https://en.wikipedia.org/wiki/Humorism">humours</a>, as ancient doctors believed, but has a far more intertwined effect on the individual's health.Common concerns in nutrition include high saturated fat consumption, high sugar consumption, low fibre consumption, and little variety in nutrients, i.e an unbalanced or skewed diet. 
 
 This becomes also important as an issue of public health, as the UK like most other European Countries maintains a socialized healthcare system, in which individual well-being and preventable health-outcomes become a <a href="https://www.bmj.com/content/349/bmj.g5143">societal concern</a>. Understanding the interplay of socio-economic and nutrition can allow better allocation and more group-specific efforts to curb negative trends in nutrition and thus to lower the severity and prevent negative health outcomes.  
 
 ## What the Data Says
 
-The original Tesco data set was created based on purchase histories of Tesco Loyalty Card holders, which were then aggregated based on the place of residency of the cardholder to the different levels of granularity of census areas in the Greater London area. The data set, while enormous with 411 million individual purchased items, does not allow to attribute the purchases to individuals or groups of individuals, i.e families. On the one hand, because this would present a clear breach of privacy and on the other hand, because the cards don't carry this attributive information. Instead, the researchers opted for tracking consumption habits in the different areas based on an average area product, an abstraction of nutrient content for each product that is consumed in the area. This approach further balances out population differences in each of the collection areas as they are roughly equally sized and additionally filters out noise concerning special purchase habits, i.e tourist consuming convenience products in the center city area, higher alcohol consumption near to a stadium, and so on, as purchases are only tracked for loyalty cardholders and attributed to their home area, not the purchase area. The three types of granularity we consider, Lower Super Output Areas **LSOAs**, Medium Super Output Areas **MSOAs**, and **Wards**, do not all address the issue of imbalanced population distribution. Especially Wards, which represent electoral boundaries and not census areas follow a flat peaked distribution.
+The original Tesco data set was created based on purchase histories of Tesco Loyalty Card holders, which were then aggregated based on the place of residency of the card-holder to the different levels of granularity of census areas in the Greater London area. The data set, while enormous with 411 million individual purchased items, does not allow to attribute the purchases to individuals or groups of individuals, i.e families. On the one hand, because this would present a clear breach of privacy and on the other hand, because the cards don't carry this attributive information. Instead, the researchers opted for tracking consumption habits in the different areas based on an average area product, an abstraction of nutrient content for each product that is consumed in the area. This approach further balances out population differences in each of the collection areas as they are roughly equally sized and additionally filters out noise concerning special purchase habits, i.e tourist consuming convenience products in the centre city area, higher alcohol consumption near to a stadium, and so on, as purchases are only tracked for loyalty cardholders and attributed to their home area, not the purchase area. The three types of granularity we consider, Lower Super Output Areas **LSOAs**, Medium Super Output Areas **MSOAs**, and **Wards**, do not all address the issue of imbalanced population distribution. Especially Wards, which represent electoral boundaries and not census areas follow a flat peaked distribution.
 
 {% include Population_Distribution.html %}
 
