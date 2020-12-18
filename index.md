@@ -322,21 +322,40 @@ And especially, *In which way do they make groups distinguishable from each othe
 
 ## Can We Go Back?
 
-To further improve on the performance of our classifier, we might now go with an even more complex model or refine our clustering approach, however in this instance we might not opt for this option, and instead ask ourselves, if we can go back.
+To further improve on the performance of our classifier, we might now go with an even more complex model or refine our clustering approach.
+Nevertheless, in this instance we might not opt for this option, and instead ask ourselves if we can go back.
 
-A major concern with complex models such as random forests and boosting trees is that, while they perform well and are robust, they present a level of obfuscation to the derivation of their final result. For a human, they present a near-to-*black-box* that transforms an input into an output, without granting the individual understanding of its decision mechanism.
-Addressing this concern as Responsible Data Science has become an increasing issue, especially when working with data concerning sensitive data both concerning individuals and to societal analysis.
-To contribute our part, additionally to our previous analysis based on random forests, we tried to train models that provide a better explainability to their result and thus get at least a cautious look into the black box.
+A major concern with complex models such as random forests and boosting trees is that, while they perform well and are robust, they present a high level of obfuscation to the derivation of their final result.
+For a human, they appear as a near-to-*black-box* that transforms an input into an output, without granting the individual understanding of its decision mechanism.
+Addressing this concern as *Responsible Data Science* has become an increasingly important issue.
+This is especially relevant when working with sensitive data concerning individuals and when performing societal analyses.
+To do our part, additionally to our previous analysis based on random forests, we tried to train models that provide a better explainability to their result and thus get at least a cautious look into the black box.
 
 <a id='Trees'></a>
 
 ### But I still like Trees
 
-First of we started with Decision Trees, starting from the top root node the data is split based on different features into smaller groups that then again can be split further. Decision Trees through this allow for great explainability in their decision process, however under the constraint that the decision tree does not increase to massively in-depth and general complexity. In our model training, we again utilised balanced accuracy scoring, grid search, oversampling and class-weights, to boost model performance and inter-class fairness. Which on the other hand, however, also leads to getting far more complex and nested trees in comparison to a tree trained on accuracy. To address the issue of complexity and overfitting we utilised a pruning method, removing smaller and indecisive splits of the tree classifier. The resulting decision trees, were unsurprisingly still rather complex, however, provide better insights regarding their decision structure, with special interest laid on the most decisive cuts between labels. Many of the trees we trained, did perform worse than the random forest models for the same features and targets, however in many instances not to an extensive amount. For example, in a more extreme case, the decision tree pendant to our best performing random forest model achieves a balanced accuracy of 0.927 on the test set, while the random forest model achieves 0.93, thus only a marginal improvement. The random forest however achieves also a higher base accuracy and a better F1-score. *Let's look into the decision tree model*.
+We start with *decision trees*, starting from the top root node the data is split based on different features into smaller groups that then again can be split further.
+This allows for great explainability of their decision process.
+Unfortunately, this also necessitates the constraint that the decision tree does not increase its depth or general complexity too much.
+In our model training, we again used balanced accuracy scoring, grid search, oversampling and class-weights to boost model performance and inter-class fairness.
+On the other hand, this also leads to getting far more complex and nested trees in comparison to a tree trained on accuracy.
+To address the issue of complexity and overfitting we used a pruning method to remove smaller and indecisive splits of the tree classifier.
+The resulting decision trees were unsurprisingly still rather complex.
+But they provide better insights regarding their decision structure, with special interest put on the most decisive cuts between labels.
+Many of the trees we trained performed worse than the random forest models for the same features and targets, however in many instances not to an extensive amount.
+For example, in a more extreme case, the decision tree pendant to our best performing random forest model achieves a balanced accuracy of 0.927 on the test set, while the random forest model achieves a balanced accuracy of 0.93, hence constituting only a marginal improvement.
+The random forest however also achieves a higher base accuracy and a better F1-score.
+*Let's look into the decision tree model*.
 
 {% include_relative images/Religion_Products.svg %}
 
-First off, we can see that the first and most defined split is based on Sweets consumption, with many majority Christian areas having a lower fraction of consumption. For the next split, something interesting can be observed as splitting based on fish consumption separates the Muslim and Hindu majority communities near perfect. As already hypothesised earlier, we can observe that alcohol consumption indeed is a splitting feature, that is used to divide between Christian and majority Muslim communities, and also our hypothesis about higher dairy consumption finds at least some confirmation based on a split. Overall utilising a decision tree model allows for a better exploration of the data, as now we can see the impact of a certain splitting feature from which we might now base further analysis and exploration.
+First off, we can see that the first and most defined split is based on sweets consumption, with many majority Christian areas having a lower fraction of consumption.
+For the next split, something interesting can be observed.
+Splitting based on fish consumption separates the Muslim and Hindu majority communities almost perfectly.
+As already hypothesised earlier, we can observe that alcohol consumption indeed is a splitting feature used to divide between Christian and Muslim majority communities.
+Furthermore, our hypothesis about higher dairy consumption finds at least some confirmation based on a split.
+Overall, using a decision tree model allows for a better exploration of the data, as we can now see the impact of certain splitting features on which we might now base further analysis and exploration.
 
 ---
 
@@ -344,7 +363,9 @@ First off, we can see that the first and most defined split is based on Sweets c
 
 ### *Rule Britannia*
 
-An alternative when looking for explainable models is the use of *association rules*. These derive rules in the form **antecedents ➞ consequents**, based on observations of common item sets. In this instance, we used the different labels of the groupings as items. Additionally, we added especially high and low consumption of certain products or proportions of a nutrient as further items.
+An alternative when looking for explainable models is the use of *association rules*.
+These derive rules in the form **antecedents ➞ consequents**, based on observations of common item sets.
+In this instance, we used the different labels of the groupings as items. Additionally, we added especially high and low consumption of certain products or proportions of a nutrient as further items.
 
 We used different measures used in association rule mining to evaluate the rules that we derived through the former item set design. However, given the way that item set and association rules are designed, we reach certain conflicts in using metrics, as they are also once again susceptible to the unbalanced distribution of labels.
 
@@ -371,15 +392,29 @@ These rules let us reinforce observations made beforehand. For example, we can s
 Today we explored the interrelation of socio-economics and food consumption in the Greater London area.
 
 
-#### To improve the Recipe
+#### To Improve the Recipe
 
 After rounding up the analysis, we want to take a final look back and consider what can be done better and where we could extend further from the foundation we have built here.
 
-As a next step, What we might consider is looking deeper into the data to find conjoint clustering and groupings based on a wider range of socio-economic attributes. The most obvious example would be the differentiation between the major minorities in the UK, Indian, Pakistani, and Bangladeshi, which in our approach got clustered together based on the skewed singular ethnicity attribute. An example to improve this would be based on adding majority religion to the clustering as further attributes, as thus we could better differentiate between both groups, however, this might also introduce further side-effects, thus we kept it simpler for our initial analysis. Additionally, we could take geo-distance into account, following the assumption of communities with a similar make-up are centralised into one or few clusters in a city. *As long as Robert Moses is not coming along*.
+We might consider looking deeper into the data to find conjoint clustering and groupings based on a wider range of socio-economic attributes.
+The most obvious example would be the differentiation between the major minorities in the UK, Indian, Pakistani, and Bangladeshi, which in our approach got clustered together based on the skewed singular ethnicity attribute.
+An example to improve this would be based on adding majority religion to the clustering as further attributes, as thus we could better differentiate between both groups.
+But this might also introduce further side-effects, hence our decision to keep it simpler for our initial analysis.
+Additionally, we could take geo-distance into account.
+This follows the assumption that communities with a similar make-up are centralised into one or few clusters in a city.
+*As long as Robert Moses is not coming along*.
 
-Further efforts could be spent looking into data on a deeper granularity. In our analysis, we focused on studying MSOA, as they provide high representativeness in the original Tesco data set, while also being more numerous than Wards. LSOA falls faster regarding representativeness, however could introduce new avenues to groupings, as smaller communities are not overshadowed by a larger area population. Thus, this could allow to extend the original groupings and to address more socio-economic categories, single vs. [*DINK*](https://en.wikipedia.org/wiki/DINK) vs. family households, population density and dwelling type, social welfare recipients, age structure, which were sadly less differentiable on the MSOA level. Concerning the models that we trained, more training data would especially help the Random Forest classifier, and while not solving the label imbalance, as this is to expect about human populations, but at least create more variety inside each category, which might be better than our approach of using synthetic data.
+Further efforts could be spent looking into data on a deeper granularity.
+In our analysis, we focused on studying MSOA, as they provide high representativeness in the original Tesco data set, while also being more numerous than wards.
+LSOA falls faster regarding representativeness, however could introduce new avenues to groupings, as smaller communities are not overshadowed by a larger area population.
+Thus, this could allow to extend the original groupings and to address more socio-economic categories, single vs. [*DINK*](https://en.wikipedia.org/wiki/DINK) vs. family households, population density and dwelling type, social welfare recipients, age structure, which were sadly less differentiable on the MSOA level.
+Concerning the models that we trained, more training data would especially help the random forest classifier.
+While not solving the label imbalance, as it is to be expected with human populations, it could at least create more variety inside each category, which might be better than our approach of using synthetic data.
 
-Last, but not least, concerning the model training we conducted, further refinement to the methodology we used could be applied to improve the model's performance. For example, some consideration could be spent to utilise feature engineering, such as computing ratios between carbohydrates and sugars or fats and saturated fats. However, training the best model possible was not our main goal with the models we had in mind, as we wanted to use the models to help bootstrap us learning the reasons why they work given the data and which are the crucial factors in determining differences between groups based on nutrients and product consumption.
+Last, but not least, concerning the model training we conducted, further refinement to the methodology we used could be applied to improve the model's performance.
+For example, some consideration could be spent to used feature engineering, such as computing ratios between carbohydrates and sugars or fats and saturated fats.
+However, training the best model possible was not our main goal with the models we had in mind.
+What we wanted was to use the models to help bootstrap us learning the reasons why they work given the data and which are the crucial factors in determining differences between groups based on nutrients and product consumption.
 
 <a id='EnglandFacts'></a>
 
