@@ -36,7 +36,10 @@ The Census data we process is provided by the [London Data Stores](https://data.
 
 ## What we can learn from the Data
 
-We start with some precursory data visualization and statistical analysis to provide a feeling for the data we are working with and to present some first insights. Starting, we applied Spearman correlation to identify statistically significant, *(p < 0.05)*, rank correlations between socio-economic facts and nutrients. 
+We start with some precursory data visualization and statistical analysis to provide a feeling for the data we are working with and to present some first insights and explore the data a little. 
+
+### Food for Thought
+Starting with a correlation analysis, we applied Spearman correlation to identify statistically significant, *(p < 0.05)*, rank correlations between socio-economic facts and nutrients to identify possible pattern that we can observe and expand on further. 
 
 {% include Correlation_Nutirents_Different_Ethnicitites.html %}
 
@@ -64,9 +67,10 @@ Representativeness allows us to look into the interrelationships that cause an a
 
 {% include Correlation_Representativness_Norm_White.html %}
 
-Most of the correlations are rather weak, however, they can bring an interesting explanation to results initially discovered by the original data set researchers, which discovered decreasing representativeness and number of transactions in areas of southern London. An interesting tidbit to add to this is that this seems to be the case, especially in areas closer to the Home Counties. These areas are compromised of the old white middle class leaving the urban core of London in the wake of suburbanization during the post-war years, which was later followed by middle-class immigrant communities. Additionally to consider in this regard is if the effect in this instance is based on the inhabitants of these areas choosing Tesco as their store, or if Tesco as a company chooses these inhabitants as their customer. Sadly without further information about Tescos modus operandi concerning store openings and there aimed for a customer base, we can not easily answer this question any further.
+Most of the correlations are rather weak, however, they can bring an interesting explanation to results initially discovered by the original data set researchers, which discovered decreasing representativeness and number of transactions in areas of southern London. To add to this is that this seems to be the case, especially in areas closer to the Home Counties. These areas are compromised of the old white lower-middle class that left the urban core of London in the wake of suburbanization during the post-war years. However, sadly another reason why we might observe this, is skewed data collection, as in the original data set a higher number of Tesco stores from which the data was collected were situated north of the Thames, which could indeed introduces a bias towards the more ethnically diverse areas of northern London and its urban core. However, this could open up the question about cause in effect, i.e if Tesco is choosing the areas of northern London specifically or if the 
 
-Furthermore to consider at least in part, is skewed data collection, as in the original data set a higher number of Tesco stores from which the data was collected were situated north of the Thames, which introduces a bias towards the more ethnically diverse areas of northern London and its urban core. 
+Additionally to consider in this regard is if the effect in this instance is based on the inhabitants of these areas choosing Tesco as their store, or if Tesco as a company chooses these inhabitants as their customer. Sadly without further information about Tescos modus operandi concerning store openings and there aimed for a customer base, we can not easily answer this question any further.
+
 
 ### So we meet again Mr. Snow
 
@@ -90,7 +94,6 @@ Another [study](https://onlinelibrary.wiley.com/doi/full/10.1111/coep.12088) fin
 However, these studies are from the US, so who cares!? London still has the [best water of them all](https://www.standard.co.uk/news/official-london-tap-water-is-the-best-in-britain-6835465.html) and there is no need to carry heavy packs of water around. *What would John Snow say to this?*
 
 Sadly, while this is an interesting mystery, we are not able to find a definitive answer just now, however, we are encouraged to solve this rather enticing mystery. 
-
 
 
 --- 
@@ -147,7 +150,7 @@ For the now classification task, we choose to train a Random Forest Model, which
 
 {% include Donuts_Clusters.html %}
 
-We address this issue by oversampling the minority labels, to improve the model performance, as Random Forest is in their base form preferential towards the majority class. For oversampling, we compared different techniques, such as random oversampling, which just entails drawing from the minority labels samples with replacement. However this technique only multiplies minority labels to put more weight behind them, it does not create new synthetic data. For this, more advanced approaches, such as [SMOTE](https://www.jair.org/index.php/jair/article/view/10302) and [ADASYN](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4633969&casa_token=lmtht2WRwM4AAAAA:H5Mwc-PPkrfC6jvyhiWFGIX0zL5IVX5rpFgD55AHHGjbJlx5YSAK98Qc7aFttn-UZKGfm0xLBw&tag=1) have been developed, which create new synthetic minority label data samples based on interpolating between existing samples. This approach helped in multiple models to boost the performance, however, in some instance was not enough to allow for successful model training. To further handle the imbalance we choose to evaluate the model on how good it performs not simply looking at how often it was correct out of all its predictions but to look at its accuracy balanced for every subgroup. As an easy example, a model that would need to classify areas according to ethnic make up could in the base case be accurate by simply being good in predicting white areas and misclassify all other areas, as there are many white areas it would still predict mostly correct and have high accuracy, while it has a far worse balanced accuracy.
+We address this issue by oversampling the minority labels, to improve the model performance, as Random Forest is in their base form are preferential towards the majority class. For oversampling, we compared different techniques, such as random oversampling, which just entails drawing from the minority labels samples with replacement. However this technique only multiplies minority labels to put more weight behind them, it does not create new synthetic data. For this, more advanced approaches, such as [SMOTE](https://www.jair.org/index.php/jair/article/view/10302) and [ADASYN](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4633969&casa_token=lmtht2WRwM4AAAAA:H5Mwc-PPkrfC6jvyhiWFGIX0zL5IVX5rpFgD55AHHGjbJlx5YSAK98Qc7aFttn-UZKGfm0xLBw&tag=1) have been developed, which create new synthetic minority label data samples based on interpolating between existing samples. This approach helped in multiple models to boost the performance, however, in some instance was not enough to allow for successful model training. To further handle the imbalance we choose to evaluate the model on how good it performs not simply looking at how often it was correct out of all its predictions but to look at its accuracy balanced for every subgroup. As an easy example, a model that would need to classify areas according to ethnic make up could in the base case be accurate by simply being good in predicting white areas and misclassify all other areas, as there are many white areas it would still predict mostly correct and have high accuracy, while it has a far worse balanced accuracy.
 
 #### The Good ... 
 
@@ -225,18 +228,17 @@ These rules let us reinforce observations made beforehand. For example, we can s
 
 ### *Land's End*
 
-Today we explored the interrelation of socio-economics and food consumption in the Greater London area.  
-
+Today we explored the interrelation of socio-economics and food consumption in the Greater London area. While we met some obstacels in our way, we achieved to find some interesting tid-bits and we tried to learn why our approach might not always work out as planned. Thus this is a time for self-reflection and to learn what we could improve in future work in exploring the interplay between socio-economics and food consumption.
 
 #### To improve the Recipe 
 
-After rounding up the analysis, we want to take a final look back and consider what can be done better and where we could extend further from the foundation we have built here.  
+After rounding up the analysis, we want to take a final look back and consider what can be done better and where we could extend further from the foundation we have built here.
 
-As a next step, What we might consider is looking deeper into the data to find conjoint clustering and groupings based on a wider range of socio-economic attributes. The most obvious example would be the differentiation between the major minorities in the UK, Indian, Pakistani, and Bangladeshi, which in our approach got clustered together based on the skewed singular ethnicity attribute. An example to improve this would be based on adding majority religion to the clustering as further attributes, as thus we could better differentiate between both groups, however, this might also introduce further side-effects, thus we kept it simpler for our initial analysis. Additionally, we could take geo-distance into account, following the assumption of communities with a similar make-up are centralized into one or few clusters in a city. *As long as Robert Moses is not coming along*. 
+As a next step, What we might consider is looking deeper into the data to find conjoint clustering and groupings based on a wider range of socio-economic attributes. The most obvious example would be the differentiation between the major minorities in the UK, Indian, Pakistani, and Bangladeshi, which in our approach got clustered together based on the skewed singular ethnicity attribute. An example to improve this would be based on adding majority religion to the clustering as further attributes, as thus we could better differentiate between both groups, however, this might also introduce further side-effects, thus we kept it simpler for our initial analysis. Additionally, we could take geo-distance into account, following the assumption of communities with a similar make-up are centralized into one or few clusters in a city. 
 
 Further efforts could be spent looking into data on a deeper granularity. In our analysis, we focused on studying MSOA, as they provide high representativeness in the original Tesco data set, while also being more numerous than Wards. LSOA falls faster regarding representativeness, however could introduce new avenues to groupings, as smaller communities are not overshadowed by a larger area population. Thus, this could allow to extend the original groupings and to address more socio-economic categories, single vs. [*DINK*](https://en.wikipedia.org/wiki/DINK) vs. family households, population density and dwelling type, social welfare recipients, age structure, which were sadly less differentiable on the MSOA level. Concerning the models that we trained, more training data would especially help the Random Forest classifier, and while not solving the label imbalance, as this is to expect about human populations, but at least create more variety inside each category, which might be better than our approach of using synthetic data. 
 
-Last, but not least, concerning the model training we conducted, further refinement to the methodology we used could be applied to improve the model's performance. For example, some consideration could be spent to utilize feature engineering, such as computing ratios between carbohydrates and sugars or fats and saturated fats. However, training the best model possible was not our main goal with the models we had in mind, as we wanted to use the models to help bootstrap us learning the reasons why they work given the data and which are the crucial factors in determining differences between groups based on nutrients and product consumption. 
+Last, but not least, concerning the model training we conducted, further refinement to the methodology we used could be applied to improve the model's performance. For example, some consideration could be spent to utilize feature engineering, such as computing ratios between carbohydrates and sugars or fats and saturated fats. However, training the best model possible was not our main goal. We rather wanted to use the models to help bootstrap us learning the reasons why they work given the data and which are the crucial factors in determining differences between groups based on nutrients and product consumption. 
 
 <a id='EnglandFacts'></a>
 
@@ -254,7 +256,7 @@ After the 31st of December, Queen Elizabeth II will be the only person in the UK
 
 ### Anything else? 
 
-Although it might date the creation of this data story a little bit, we wish you all Happy Holidays and a hopefully better 2021. Take an example from the
+Although it might date the creation of this data story a little bit, we wish you all Happy Holidays and a hopefully better 2021. Take an example by the Londoners and have a substantial increase in your Fat, 
 
 
 
