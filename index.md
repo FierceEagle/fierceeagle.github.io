@@ -385,7 +385,17 @@ From the remaining rules, we selected a few by hand, as putting them all here wo
 
 {% include AssociationRuleTable_Nutrients.html %}
 
-These rules let us reinforce observations made beforehand. For example, we can see that the working class tends to have increased spirits consumption while generally avoiding wine, or that the working class has a high sweets consumption.
+These rules let us reinforce observations made beforehand.
+For example, we can see that the working class tends to have increased spirits consumption while generally avoiding wine, or that the working class has a high sweets consumption.
+
+Two very prominent rules on the Asian working class with extraordinarily high lift reinvigorate the hypothesis of lower meat consumption in that social group.
+
+Sadly, the nature of the data did not allow us to obtain rules for other groups discussed above. For example, we did not find any rules about Hindu or Muslim minorities or concerning students, as these constitute small minorities compared to the other groups.
+More surprisingly we did not find any rules concerning social strata other than the working class.
+It is not surprising that we did not find rules for the upper class, as it makes up onl a small percentage of society.
+Nevertheless, we expected to find at least some rules for the two groups corresponding to the middle class.
+A possible reason for why we didn't might be because these groups do not actually distinguish themselves that much through nutrient and product consumption.
+
 
 ### *Land's End*
 
