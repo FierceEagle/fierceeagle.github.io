@@ -399,14 +399,18 @@ Two very prominent rules on the Asian working class with extraordinarily high li
 
 Sadly, the nature of the data did not allow us to obtain rules for other groups discussed above. For example, we did not find any rules about Hindu or Muslim minorities or concerning students, as these constitute small minorities compared to the other groups.
 More surprisingly we did not find any rules concerning social strata other than the working class.
-It is not surprising that we did not find rules for the upper class, as it makes up onl a small percentage of society.
+It is not surprising that we did not find rules for the upper class, as it makes up only a small percentage of society.
 Nevertheless, we expected to find at least some rules for the two groups corresponding to the middle class.
 A possible reason for why we didn't might be because these groups do not actually distinguish themselves that much through nutrient and product consumption.
 
 
 ### *Land's End*
 
+<<<<<<< HEAD
 Today we explored the interrelation of socio-economics and food consumption in the Greater London area. While we met some obstacels in our way, we achieved to find some interesting tid-bits and we tried to learn why our approach might not always work out as planned. Thus this is a time for self-reflection and to learn what we could improve in future work in exploring the interplay between socio-economics and food consumption.
+=======
+Today we explored the interrelation of socio-economics and food consumption in the Greater London area.
+>>>>>>> 8bbfff9c7f96f7d2b7d3e8f9ff9f3b776d69e811
 
 #### To Improve the Recipe
 
