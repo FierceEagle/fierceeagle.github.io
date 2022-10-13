@@ -14,7 +14,7 @@ The aim is to obtain insights on the interplay between nutrition and product con
 
 ### What is a Tesco?
 
-Tesco is the largest supermarket chain in the UK and thus also the largest out of the four domestic chains *(Asda, Sainsbury's, Tesco and Morrisons)* in the UK. Today, it is widely spread all over Greater London Metropolitian Area, as can be seen below. Tesco today has multiple subsidaries and has entered the internation market. However today, we look into where it all began for Tesco, in London. *If you zoom in you might even find the original Tesco in **Hackney***.
+Tesco is the largest supermarket chain in the UK and thus also the largest out of the four domestic chains *(Asda, Sainsbury's, Tesco and Morrisons)* in the UK. Today, it is widely spread all over Greater London Metropolitian Area, as can be seen below. Tesco today has multiple subsidaries and has entered the international market. However today, we look into where it all began for Tesco, in London. *If you zoom in you might even find the original Tesco in **Hackney***.
 
 {% include Store_Locations_London.html %}
 
